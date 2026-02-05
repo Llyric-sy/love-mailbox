@@ -1,0 +1,88 @@
+/* Reset weird browser spacing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== HOME PAGE ===== */
+body.home {
+  background-image: url("images/background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  height: 100vh;
+  font-family: Georgia, serif;
+  position: relative;
+}
+
+/* Title text */
+h1 {
+  position: absolute;
+  top: 60px;
+  left: 60px;
+
+  font-size: 48px;
+  color: #000;
+}
+
+/* Mailbox positioning */
+.mailbox-link {
+  position: absolute;
+  left: 580px;   /* move right */
+  top: 540px;    /* move down */
+
+  display: inline-block;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+/* 🔒 LOCK IMAGE SIZE */
+.mailbox {
+  width: 120px;
+  height: auto;          /* prevents stretching */
+  display: block;        /* removes inline gaps */
+  background: transparent;
+
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.mailbox:hover {
+  transform: scale(1.05);
+}
+
+/* ===== MAILBOX PAGE ===== */
+body.mailbox-page {
+  background-color: #fff1dc;
+  font-family: Georgia, serif;
+  padding: 60px;
+}
+
+h2 {
+  margin-bottom: 40px;
+}
+
+.letters {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.letter {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 600px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* safety */
+.mailbox-link * {
+  background: transparent;
+  border: none;
+}
