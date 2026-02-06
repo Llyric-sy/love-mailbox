@@ -30,8 +30,8 @@ h1 {
 /* Mailbox positioning */
 .mailbox-link {
   position: absolute;
-  left: 580px;   /* move right */
-  top: 540px;    /* move down */
+  left: 580px;
+  top: 540px;
 
   display: inline-block;
   background: transparent;
@@ -44,8 +44,8 @@ h1 {
 /* 🔒 LOCK IMAGE SIZE */
 .mailbox {
   width: 120px;
-  height: auto;          /* prevents stretching */
-  display: block;        /* removes inline gaps */
+  height: auto;
+  display: block;
   background: transparent;
 
   cursor: pointer;
@@ -67,22 +67,89 @@ h2 {
   margin-bottom: 40px;
 }
 
-.letters {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+/* ===== GRID INBOX ===== */
+.letters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+  max-width: 900px;
 }
 
-.letter {
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 16px;
-  max-width: 600px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-}
-
-/* safety */
-.mailbox-link * {
-  background: transparent;
+.letter-card {
+  background: #fff;
   border: none;
+  border-radius: 16px;
+  padding: 22px;
+  text-align: left;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.letter-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.14);
+}
+
+/* ===== MODAL ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal-overlay.show {
+  display: flex;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 18px;
+  max-width: 640px;
+  width: 100%;
+  padding: 28px 26px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.25);
+  position: relative;
+}
+
+.modal h3 {
+  margin: 0 0 14px 0;
+}
+
+.modal p {
+  margin: 0;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* ===== STATIONERY BACKGROUND ===== */
+.modal.stationery {
+  /* Background image is set dynamically via JavaScript */
+
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: auto;
+
+  padding: 140px 60px 60px 60px;
+  min-height: 420px;
+
+  color: #3a3a3a;
 }
