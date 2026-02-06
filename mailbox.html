@@ -1,35 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Mailbox</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="mailbox-page">
 
+<body class="mailbox-page">
   <h2>for my love 💌</h2>
 
-  <div class="letters">
-    <div class="letter">
-      <h3>05/02/2026</h3>
-      <p>
-        hello, my love. i made this mailbox for you
-        so that i can send you letters whenever i want, 
-        and you can read them whenever you want. 
-        i hope you like it. i love you so so so much.
-      </p>
-    </div>
+  <!-- GRID: only date/title visible -->
+  <div class="letters-grid">
+    <button class="letter-card"
+      data-title="05/02/2026"
+      data-paper="stationery01.png"
+      data-body="hello, my love. i made this mailbox for you so that i can send you letters whenever i want, and you can read them whenever you want. i hope you like it. i love you so so so much.">
+      05/02/2026
+    </button>
 
-    <div class="letter">
-      <h3>14/02/2026</h3>
-      <p>
-        happy valentine’s day, my love! i hope you have a wonderful day filled with love and happiness. 
-        i am so grateful to have you in my life, and i can’t wait to spend many more valentine’s days with you. 
-        i love you more than words can express.
-      </p>
+    <button class="letter-card"
+      data-title="14/02/2026"
+      data-paper="stationery03.png"
+      data-body="happy valentine’s day, my love! i hope you have a wonderful day filled with love and happiness. i am so grateful to have you in my life, and i can’t wait to spend many more valentine’s days with you. i love you more than words can express.">
+      14/02/2026
+    </button>
   </div>
 
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+    <div class="modal stationery" id="letterModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+      <h3 id="modalTitle"></h3>
+      <p id="modalBody"></p>
+    </div>
+  </div>
+
+  <script>
+    const overlay = document.getElementById("modalOverlay");
+    const closeBtn = document.getElementById("modalClose");
+    const titleEl = document.getElementById("modalTitle");
+    const bodyEl = document.getElementById("modalBody");
+    const modalEl = document.getElementById("letterModal");
+
+    function openModal(title, body, paper) {
+      titleEl.textContent = title;
+      bodyEl.textContent = body;
+
+      // 🔑 set stationery per letter
+      modalEl.style.backgroundImage = `url("images/stationery/${paper}")`;
+
+      overlay.classList.add("show");
+      overlay.setAttribute("aria-hidden", "false");
+    }
+
+    function closeModal() {
+      overlay.classList.remove("show");
+      overlay.setAttribute("aria-hidden", "true");
+    }
+
+    document.querySelectorAll(".letter-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        openModal(
+          card.dataset.title,
+          card.dataset.body,
+          card.dataset.paper
+        );
+      });
+    });
+
+    closeBtn.addEventListener("click", closeModal);
+
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) closeModal();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+  </script>
 </body>
 </html>
-
-
