@@ -175,7 +175,7 @@ h2 {
 
   .mailbox-link {
     left: 50%;
-    top: 35%;
+    top: 25%;
     transform: translate(-50%, -50%);
   }
 
@@ -201,5 +201,6 @@ h2 {
     min-height: 420px;
   }
 }
+
 
 
