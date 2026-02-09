@@ -39,6 +39,8 @@ h1 {
   padding: 0;
   margin: 0;
   text-decoration: none;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* 🔒 LOCK IMAGE SIZE */
@@ -54,6 +56,10 @@ h1 {
 
 .mailbox:hover {
   transform: scale(1.05);
+}
+
+.mailbox:active {
+  transform: scale(0.98);
 }
 
 /* ===== MAILBOX PAGE ===== */
@@ -142,8 +148,6 @@ h2 {
 
 /* ===== STATIONERY BACKGROUND ===== */
 .modal.stationery {
-  /* Background image is set dynamically via JavaScript */
-
   background-repeat: no-repeat;
   background-position: center top;
   background-size: auto;
@@ -154,9 +158,10 @@ h2 {
   color: #3a3a3a;
 }
 
-/* ===== MOBILE HOME LAYOUT ===== */
+/* ===== MOBILE HOME & MAILBOX ===== */
 @media (max-width: 600px) {
   body.home {
+    background-image: url("images/background-mobile.png"); /* optional */
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -177,4 +182,23 @@ h2 {
   .mailbox {
     width: 110px;
   }
+
+  body.mailbox-page {
+    padding: 24px;
+  }
+
+  .letters-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .modal {
+    max-width: 100%;
+  }
+
+  .modal.stationery {
+    padding: 110px 24px 24px 24px;
+    min-height: 420px;
+  }
 }
+
