@@ -9,8 +9,9 @@
 <body class="mailbox-page">
   <h2>for my love 💌</h2>
 
-  <!-- GRID: only date/title visible -->
+  <!-- GRID -->
   <div class="letters-grid">
+
     <button class="letter-card"
       data-title="05/02/2026"
       data-paper="stationery01.png"
@@ -19,12 +20,12 @@
     </button>
 
     <button class="letter-card"
-    data-title="13/02/2026"
-    data-paper="stationery08.png"
-    data-body="get well soon, my love. i love you so so much. my heart, my home, my heaven on earth. please stay safe. please dont be afraid to tell me if you need help. i want to be there for you, my love.">
-    13/02/2026
-  </button>
-    
+      data-title="13/02/2026"
+      data-paper="stationery08.png"
+      data-body="get well soon, my love. i love you so so much. my heart, my home, my heaven on earth. please stay safe. please dont be afraid to tell me if you need help. i want to be there for you, my love.">
+      13/02/2026
+    </button>
+
     <button class="letter-card"
       data-title="14/02/2026"
       data-paper="stationery03.png"
@@ -33,17 +34,32 @@
     </button>
 
     <button class="letter-card"
-    data-title="15/02/2026"
-    data-paper="stationery09.png"
-    data-body="somehow, in this big world, i still found you; at the most unexpected time, in the most unexpected way, and like clockwork i fell inlove so easily. now, i can’t imagine my life without you. you are my everything, my love.">
-    13/02/2026
-  </button>
+      data-title="15/02/2026"
+      data-paper="stationery09.png"
+      data-body="somehow, in this big world, i still found you; at the most unexpected time, in the most unexpected way, and like clockwork i fell inlove so easily. now, i can’t imagine my life without you. you are my everything, my love.">
+      15/02/2026
+    </button>
+
+    <button class="letter-card"
+      data-title="16/02/2026"
+      data-paper="stationery09.png"
+      data-body="the sound of your laughter is the best song i've ever heard. when my friends are all dirt and worm as i face the dirt, my bones will be traced with my favourite song. you're my favourite symphony, my love.">
+      16/02/2026
+    </button>
+
+    <button class="letter-card"
+      data-title="17/02/2026"
+      data-paper="stationery09.png"
+      data-body="you truly are my favourite. my favourite pair of eyes, my favourite smile, my favourite smile, my favourite notification on my phone. my favourite way to spend a lifetime. my favourite everything.">
+      17/02/2026
+    </button>
+
   </div>
 
   <!-- MODAL -->
   <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
     <div class="modal stationery" id="letterModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+      <button class="modal-close" id="modalClose">✕</button>
       <h3 id="modalTitle"></h3>
       <p id="modalBody"></p>
     </div>
@@ -59,8 +75,6 @@
     function openModal(title, body, paper) {
       titleEl.textContent = title;
       bodyEl.textContent = body;
-
-      // 🔑 set stationery per letter
       modalEl.style.backgroundImage = `url("images/stationery/${paper}")`;
 
       overlay.classList.add("show");
@@ -72,13 +86,29 @@
       overlay.setAttribute("aria-hidden", "true");
     }
 
+    function parseDMY(dmy) {
+      const [dd, mm, yyyy] = dmy.split("/").map(Number);
+      return new Date(yyyy, mm - 1, dd);
+    }
+
+    function todayStart() {
+      const now = new Date();
+      return new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    }
+
+    const today = todayStart();
+
     document.querySelectorAll(".letter-card").forEach((card) => {
+      const unlockDate = parseDMY(card.dataset.title);
+
+      if (unlockDate > today) {
+        card.classList.add("locked");
+        card.disabled = true;
+        return;
+      }
+
       card.addEventListener("click", () => {
-        openModal(
-          card.dataset.title,
-          card.dataset.body,
-          card.dataset.paper
-        );
+        openModal(card.dataset.title, card.dataset.body, card.dataset.paper);
       });
     });
 
@@ -94,5 +124,3 @@
   </script>
 </body>
 </html>
-
-
