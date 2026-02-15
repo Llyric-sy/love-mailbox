@@ -101,6 +101,17 @@ h2 {
   box-shadow: 0 10px 22px rgba(0,0,0,0.14);
 }
 
+/* ===== LOCKED LETTER STYLE ===== */
+.letter-card.locked {
+  opacity: 0.55;
+  cursor: not-allowed;
+  filter: grayscale(0.2);
+}
+
+.letter-card.locked::after {
+  content: " 🔒";
+}
+
 /* ===== MODAL ===== */
 .modal-overlay {
   position: fixed;
@@ -161,7 +172,7 @@ h2 {
 /* ===== MOBILE HOME & MAILBOX ===== */
 @media (max-width: 600px) {
   body.home {
-    background-image: url("images/background-mobile.png"); /* optional */
+    background-image: url("images/background-mobile.png");
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -175,7 +186,7 @@ h2 {
 
   .mailbox-link {
     left: 50%;
-    top: 28%;
+    top: 65%;
     transform: translate(-50%, -50%);
   }
 
@@ -201,7 +212,3 @@ h2 {
     min-height: 420px;
   }
 }
-
-
-
-
