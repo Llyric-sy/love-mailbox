@@ -2,12 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mailbox</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body class="mailbox-page">
   <h2>for my love 💌</h2>
+
+  <!-- 🎵 BACKGROUND MUSIC -->
+  <audio id="bgm" src="audio/menu.mp3" loop preload="auto"></audio>
+
+  <!-- 🎚️ MUSIC UI (top-right) -->
+  <div class="music-ui">
+    <button id="musicToggle" class="music-btn" type="button">🔇</button>
+    <input id="musicVolume" class="music-vol" type="range" min="0" max="1" step="0.01" value="0.35" />
+  </div>
 
   <!-- GRID -->
   <div class="letters-grid">
@@ -169,6 +179,7 @@
     <button class="letter-card"
       data-title="06/03/2026"
       data-paper="stationery20.png"
+      data-audio="06-03-26.mp3"
       data-body="you don’t just make me happy — you make something softer happen inside me. like my heart learned a new way to exist once you arrived. i didn’t know joy could feel this gentle, this calm, this warm.">
       06/03/2026
     </button>
@@ -283,33 +294,67 @@
   <!-- MODAL -->
   <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
     <div class="modal stationery" id="letterModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" id="modalClose">✕</button>
+      <button class="modal-close" id="modalClose" type="button">✕</button>
+
       <h3 id="modalTitle"></h3>
       <p id="modalBody"></p>
+
+      <!-- ✅ VOICE UI (shows only if letter has data-audio) -->
+      <div class="voice-row" id="voiceRow" style="display:none; margin-top:16px;">
+        <button id="playVoiceBtn" type="button">▶️ Play voice message</button>
+      </div>
+
+      <!-- ✅ Voice audio element -->
+      <audio id="voiceAudio" preload="metadata"></audio>
     </div>
   </div>
 
   <script>
+    // ===== MODAL =====
     const overlay = document.getElementById("modalOverlay");
     const closeBtn = document.getElementById("modalClose");
     const titleEl = document.getElementById("modalTitle");
     const bodyEl = document.getElementById("modalBody");
     const modalEl = document.getElementById("letterModal");
 
-    function openModal(title, body, paper) {
+    // voice bits
+    const voiceRow = document.getElementById("voiceRow");
+    const playVoiceBtn = document.getElementById("playVoiceBtn");
+    const voiceAudio = document.getElementById("voiceAudio");
+    let currentVoiceFile = null;
+
+    function openModal(title, body, paper, audioFile) {
       titleEl.textContent = title;
       bodyEl.textContent = body;
       modalEl.style.backgroundImage = `url("images/stationery/${paper}")`;
+
+      // voice setup
+      currentVoiceFile = audioFile || null;
+      voiceAudio.pause();
+      voiceAudio.currentTime = 0;
+
+      if (currentVoiceFile) {
+        voiceRow.style.display = "block";
+        voiceAudio.src = `audio/letter/${currentVoiceFile}`;
+      } else {
+        voiceRow.style.display = "none";
+        voiceAudio.removeAttribute("src");
+      }
 
       overlay.classList.add("show");
       overlay.setAttribute("aria-hidden", "false");
     }
 
     function closeModal() {
+      // stop voice when closing
+      voiceAudio.pause();
+      voiceAudio.currentTime = 0;
+
       overlay.classList.remove("show");
       overlay.setAttribute("aria-hidden", "true");
     }
 
+    // ===== DATE LOCKING =====
     function parseDMY(dmy) {
       const [dd, mm, yyyy] = dmy.split("/").map(Number);
       return new Date(yyyy, mm - 1, dd);
@@ -332,7 +377,12 @@
       }
 
       card.addEventListener("click", () => {
-        openModal(card.dataset.title, card.dataset.body, card.dataset.paper);
+        openModal(
+          card.dataset.title,
+          card.dataset.body,
+          card.dataset.paper,
+          card.dataset.audio // ✅ pass voice file if present
+        );
       });
     });
 
@@ -345,12 +395,118 @@
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeModal();
     });
+
+    // ===== 🎵 BACKGROUND MUSIC CONTROL =====
+    const bgm = document.getElementById("bgm");
+    const musicToggle = document.getElementById("musicToggle");
+    const musicVolume = document.getElementById("musicVolume");
+
+    const savedOn = localStorage.getItem("bgm_on");
+    const savedVol = localStorage.getItem("bgm_vol");
+
+    const startOn = savedOn === "1";
+    const startVol = savedVol ? parseFloat(savedVol) : 0.35;
+
+    bgm.volume = 0;
+    musicVolume.value = startVol;
+
+    function setMusicIcon() {
+      musicToggle.textContent = bgm.paused ? "🔇" : "🔊";
+    }
+
+    function fadeIn(targetVolume = startVol) {
+      let v = 0;
+      bgm.volume = 0;
+      const step = targetVolume / 20;
+
+      const fade = setInterval(() => {
+        v += step;
+        if (v >= targetVolume) {
+          bgm.volume = targetVolume;
+          clearInterval(fade);
+        } else {
+          bgm.volume = v;
+        }
+      }, 80);
+    }
+
+    function fadeOut() {
+      let v = bgm.volume;
+      const step = v / 20;
+
+      const fade = setInterval(() => {
+        v -= step;
+        if (v <= 0) {
+          bgm.volume = 0;
+          bgm.pause();
+          clearInterval(fade);
+        } else {
+          bgm.volume = v;
+        }
+      }, 80);
+    }
+
+    async function turnMusicOn() {
+      try { await bgm.play(); } catch (_) {}
+      fadeIn();
+      localStorage.setItem("bgm_on", "1");
+      setMusicIcon();
+    }
+
+    function turnMusicOff() {
+      fadeOut();
+      localStorage.setItem("bgm_on", "0");
+      setMusicIcon();
+    }
+
+    setMusicIcon();
+
+    if (startOn) {
+      turnMusicOn();
+    }
+
+    musicToggle.addEventListener("click", () => {
+      if (bgm.paused) {
+        turnMusicOn();
+      } else {
+        turnMusicOff();
+      }
+    });
+
+    musicVolume.addEventListener("input", () => {
+      const v = parseFloat(musicVolume.value);
+      bgm.volume = v;
+      localStorage.setItem("bgm_vol", String(v));
+    });
+
+    // ===== 🎙️ VOICE: pause music while voice plays, resume after =====
+    let resumeBgmAfterVoice = false;
+
+    playVoiceBtn.addEventListener("click", async () => {
+      if (!currentVoiceFile) return;
+
+      // remember whether bgm was playing
+      resumeBgmAfterVoice = !bgm.paused;
+
+      // stop bgm fully while voice plays
+      if (!bgm.paused) bgm.pause();
+
+      try {
+        await voiceAudio.play(); // must be user click
+      } catch (e) {
+        console.log("Voice play failed:", e);
+        alert("Voice message couldn't play. Check file name/path (audio/letter/...).");
+      }
+    });
+
+    voiceAudio.addEventListener("ended", async () => {
+      // resume bgm only if user had it ON
+      if (resumeBgmAfterVoice && localStorage.getItem("bgm_on") === "1") {
+        try { await bgm.play(); } catch (_) {}
+        fadeIn(parseFloat(musicVolume.value || startVol));
+      }
+      resumeBgmAfterVoice = false;
+    });
   </script>
 </body>
 </html>
-
-
-
-
-
-
