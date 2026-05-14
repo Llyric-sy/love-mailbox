@@ -36,6 +36,7 @@
       display: block;
       font-size: 1.05rem;
       font-weight: 700;
+      text-transform: lowercase;
     }
 
     .month-subtitle {
@@ -43,6 +44,7 @@
       margin-top: 6px;
       font-size: 0.78rem;
       opacity: 0.72;
+      text-transform: lowercase;
     }
 
     .month-section {
@@ -52,16 +54,27 @@
 
     .month-header {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
       position: relative;
-      margin-bottom: 14px;
+      margin-bottom: 18px;
     }
 
-    .month-header h3 {
-      margin: 0;
-      font-size: 1.25rem;
+    .month-heading-text {
       text-align: center;
+    }
+
+    .month-heading-text h3 {
+      margin: 0;
+      font-size: 1.55rem;
+      text-transform: lowercase;
+    }
+
+    .section-subtitle {
+      margin-top: 4px;
+      font-size: 0.95rem;
+      opacity: 0.75;
+      text-transform: lowercase;
     }
 
     .back-btn {
@@ -112,21 +125,21 @@
   <!-- MONTH MENU -->
   <div class="month-menu" id="monthMenu">
     <button class="month-card" type="button" data-month="february">
-      <span class="month-name">February</span>
+      <span class="month-name">february</span>
     </button>
 
     <button class="month-card" type="button" data-month="march">
-      <span class="month-name">March</span>
+      <span class="month-name">march</span>
     </button>
 
     <button class="month-card" type="button" data-month="april">
-      <span class="month-name">April</span>
-      <span class="month-subtitle">Heavenly Bodies</span>
+      <span class="month-name">april</span>
+      <span class="month-subtitle">heavenly bodies.</span>
     </button>
 
     <button class="month-card" type="button" data-month="may">
-      <span class="month-name">May</span>
-      <span class="month-subtitle">Meaningful Petals</span>
+      <span class="month-name">may</span>
+      <span class="month-subtitle">meaningful petals.</span>
     </button>
   </div>
 
@@ -471,8 +484,11 @@
   <section id="april" class="month-section hidden">
     <div class="month-header">
       <button class="back-btn" type="button">← months</button>
-      <h3>April</h3>
-      <p class="section-subtitle">Heavenly Bodies</p>
+
+      <div class="month-heading-text">
+        <h3>april</h3>
+        <p class="section-subtitle">heavenly bodies.</p>
+      </div>
     </div>
 
     <div class="letters-grid">
@@ -664,8 +680,11 @@
   <section id="may" class="month-section hidden">
     <div class="month-header">
       <button class="back-btn" type="button">← months</button>
-      <h3>May</h3>
-      <p class="section-subtitle">Meaningful Petals</p>
+
+      <div class="month-heading-text">
+        <h3>may</h3>
+        <p class="section-subtitle">meaningful petals.</p>
+      </div>
     </div>
 
     <div class="letters-grid">
