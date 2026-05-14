@@ -5,6 +5,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mailbox</title>
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .month-menu {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      width: min(520px, 92vw);
+      margin: 24px auto 0;
+    }
+
+    .month-card {
+      border: 0;
+      border-radius: 18px;
+      padding: 22px 16px;
+      background: rgba(255, 250, 244, 0.92);
+      box-shadow: 0 8px 18px rgba(80, 50, 30, 0.14);
+      cursor: pointer;
+      font-family: inherit;
+      text-align: center;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .month-card:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 10px 22px rgba(80, 50, 30, 0.18);
+    }
+
+    .month-name {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .month-subtitle {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.78rem;
+      opacity: 0.72;
+    }
+
+    .month-section {
+      width: min(620px, 94vw);
+      margin: 18px auto 0;
+    }
+
+    .month-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin-bottom: 14px;
+    }
+
+    .month-header h3 {
+      margin: 0;
+      font-size: 1.25rem;
+      text-align: center;
+    }
+
+    .back-btn {
+      position: absolute;
+      left: 0;
+      border: 0;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255, 250, 244, 0.92);
+      box-shadow: 0 4px 10px rgba(80, 50, 30, 0.12);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.85rem;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 480px) {
+      .month-menu {
+        grid-template-columns: 1fr;
+      }
+
+      .month-header {
+        padding-top: 42px;
+      }
+
+      .back-btn {
+        top: 0;
+      }
+    }
+  </style>
 </head>
 
 <body class="mailbox-page">
@@ -19,691 +109,754 @@
     <input id="musicVolume" class="music-vol" type="range" min="0" max="1" step="0.01" value="0.35" />
   </div>
 
-  <!-- GRID -->
-  <div class="letters-grid">
-    
-    <button class="letter-card"
-      data-title="05/02/2026"
-      data-paper="stationery01.png"
-      data-body="hello, my love. i made this mailbox for you so that i can send you letters whenever i want, and you can read them whenever you want. i hope you like it. i love you so so so much.">
-      05/02/2026
+  <!-- MONTH MENU -->
+  <div class="month-menu" id="monthMenu">
+    <button class="month-card" type="button" data-month="february">
+      <span class="month-name">February</span>
     </button>
 
-    <button class="letter-card"
-      data-title="13/02/2026"
-      data-paper="stationery08.png"
-      data-body="get well soon, my love. i love you so so much. my heart, my home, my heaven on earth. please stay safe. please dont be afraid to tell me if you need help. i want to be there for you, my love.">
-      13/02/2026
+    <button class="month-card" type="button" data-month="march">
+      <span class="month-name">March</span>
     </button>
 
-    <button class="letter-card"
-      data-title="14/02/2026"
-      data-paper="stationery03.png"
-      data-body="happy valentine’s day, my love! i hope you have a wonderful day filled with love and happiness. i am so grateful to have you in my life, and i can’t wait to spend many more valentine’s days with you. i love you more than words can express.">
-      14/02/2026
+    <button class="month-card" type="button" data-month="april">
+      <span class="month-name">April</span>
+      <span class="month-subtitle">Heavenly Bodies</span>
     </button>
 
-    <button class="letter-card"
-      data-title="15/02/2026"
-      data-paper="stationery09.png"
-      data-body="somehow, in this big world, i still found you; at the most unexpected time, in the most unexpected way, and like clockwork i fell inlove so easily. now, i can’t imagine my life without you. you are my everything, my love.">
-      15/02/2026
+    <button class="month-card" type="button" data-month="may">
+      <span class="month-name">May</span>
+      <span class="month-subtitle">Meaningful Petals</span>
     </button>
-
-    <button class="letter-card"
-      data-title="16/02/2026"
-      data-paper="stationery18.png"
-      data-body="the sound of your laughter is the best song i've ever heard. when my friends are all dirt and worm as i face the dirt, my bones will be traced with my favourite song. you're my favourite symphony, my love.">
-      16/02/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="17/02/2026"
-      data-paper="stationery13.png"
-      data-body="when night breaks, and the day falls, and when hearts go cold, i'll brave your storms; wade through tides and hail that falls - just to prove you're worth more than the love that came before your name.">
-      17/02/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="18/02/2026"
-      data-paper="stationery14.png"
-      data-audio="18-02-26.mp3"
-      data-body="i wanna drown in your laughter, let it flood my lungs like springwater as i lie beside you until breathing feels like loving you in constancy. i wanna die in your gaze - not to vanish but to soften and unmake myself before you and pour what’s left of me into your hands as i surrender to the beauty you call love.">
-      18/02/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="19/02/2026"
-      data-paper="stationery06.png"
-      data-body="there's this poem i found. it made me think of you. i got reminded of when you asked me what i would do if you handed me an orange. remind me to tell you it tonight. ill whisper it into your ear as you drift to sleep. i love you.">
-      19/02/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="20/02/2026"
-      data-paper="stationery03.png"
-      data-audio="20-02-26.mp3"
-      data-body="sometimes i catch myself smiling at nothing, and then i realise it’s because you crossed my mind again. loving you feels like carrying sunlight in my pocket — quiet warmth i can reach for whenever the world feels cold. i hope you feel it too, even when i’m not beside you.">
-      20/02/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="21/02/2026"
-      data-paper="stationery11.png"
-      data-body="even if my mouth was sewn shut, i’d tear through every stitch and fiber just to tell you how much i love you. i’d bleed words if i had to, carve them into the air with whatever breath i could steal — i’d let the silence split open before i could ever let my love stay buried inside me. you deserve to hear it; in every lifetime, in every language, in every breath i have left.">
-      21/02/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="22/02/2026"
-      data-paper="stationery01.png"
-      data-body="if i could map out every safe place i’ve ever known, they’d all lead back to you. your voice, your hands, the way you say my name like it belongs somewhere soft. i didn’t think love is supposed to feel like this but i’m so glad it does with you.">
-      22/02/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="23/02/2026"
-      data-paper="stationery05.png"
-      data-body="there’s a kind of peace in knowing i get to choose you again tomorrow. and the day after that. and every ordinary day that follows. loving you isn’t a single moment — it’s a habit, a commitment, my heart picked up and never wants to break.">
-      23/02/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="24/02/2026"
-      data-paper="stationery06.png"
-      data-body="if the world ever feels too loud for you, come sit with me in the quiet. i’ll hold your hand, and we won’t have to say anything. i'll stay with you - i promise you, i always will.">
-      24/02/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="25/02/2026"
-      data-paper="stationery07.png"
-      data-body="you’ve changed the way i see time. days feel shorter when i’m with you, and longer when i miss you. somehow you’ve become the rhythm my life keeps following, and i don’t think i ever want to find a different beat.">
-      25/02/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="26/02/2026"
-      data-paper="stationery08.png"
-      data-body="if i had to explain what loving you feels like, i’d say it’s like finding the place you were meant to return to all along. not a destination, not an ending — just a home i didn’t know i was searching for until i found you.">
-      26/02/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="27/02/2026"
-      data-paper="stationery01.png"
-      data-body="i don’t love you because everything is easy. i love you because even when life tilts and nothing feels steady, my heart still leans toward you like it knows where it belongs. if storms come, let them come — i’m not here for perfect days, i’m here for our days.">
-      27/02/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="28/02/2026"
-      data-paper="stationery06.png"
-      data-body="there’s something sacred in knowing that out of every path i could walk, i still end up beside you. not out of chance, not out of convenience — but because loving you feels like the truest decision i’ve ever made. if i had to choose again, i would still find you.">
-      28/02/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="01/03/2026"
-      data-paper="stationery05.png"
-      data-body="i don’t promise a life without fear or doubt. i promise hands that won’t let go when those things arrive. loving you isn’t a passing feeling — it’s a decision i keep making, quietly, daily, in the way i stay. i'll always stay">
-      01/03/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="02/03/2026"
-      data-paper="stationery08.png"
-      data-body="your laugh doesn’t just sound nice — it changes the space around it. it lifts things, softens them, makes the world feel lighter for a second. i think if i had to choose one sound to carry with me forever, it would be that one.">
-      02/03/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="03/03/2026"
-      data-paper="stationery07.png"
-      data-body="meeting you didn’t feel like the start of something new — it felt like recognising something that had always been waiting for me. like my heart had known your shape long before we ever spoke.">
-      03/03/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="04/03/2026"
-      data-paper="stationery08.png"
-      data-body="i used to think forever sounded intimidating. now it just sounds like time spent beside you. if the future is something i get to walk through with your hand in mine, then suddenly forever doesn’t feel long at all — it feels right.">
-      04/03/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="05/03/2026"
-      data-paper="stationery19.png"
-      data-audio="05-03-26.mp3"
-      data-body="i didn’t plan for you. you weren’t something i searched for or tried to find. and yet somehow, everything in my life bent just enough for our paths to meet. sometimes i think the world nudged us together quietly, like it knew something we didn’t yet.">
-      05/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="06/03/2026"
-      data-paper="stationery20.png"
-      data-audio="06-03-26.mp3"
-      data-body="you don’t just make me happy — you make something softer happen inside me. like my heart learned a new way to exist once you arrived. i didn’t know joy could feel this gentle, this calm, this warm.">
-      06/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="07/03/2026"
-      data-paper="stationery22.png"
-      data-audio="07-03-26.mp3"
-      data-body="when i think about the future, everything else fades a little. not in a scary way — in a peaceful way. like the world simplified itself down to what matters most. and somehow, you stand at the centre of it all, steady and bright.">
-      07/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="08/03/2026"
-      data-paper="stationery23.png"
-      data-audio="08-03-26.mp3"
-      data-body="i don’t know what you did to me. nothing dramatic, nothing sudden — just small moments, quiet words, the way you exist. and now i find myself softer, braver, happier, all because you happened to walk into my life.">
-      08/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="09/03/2026"
-      data-paper="stationery24.png"
-      data-audio="09-03-26.mp3"
-      data-body="i don’t know if fate is real. but sometimes i think about all the small coincidences that led to you, and it’s hard not to wonder. maybe love isn’t about searching — maybe it’s about recognising the person who was always meant to feel familiar.">
-      09/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="10/03/2026"
-      data-paper="stationery26.png"
-      data-audio="10-03-26.mp3"
-      data-body="there’s something about having you close that quiets the noise in me. like the world fades out and all that’s left is the steady reminder that you’re here. i didn’t know comfort could feel this physical, this real, this simple yet complex.">
-      10/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="11/03/2026"
-      data-paper="stationery27.png"
-      data-audio="11-03-26.mp3"
-      data-body="you came into my life so quietly that i didn’t realise how much space you were taking up until you were already everywhere. there was no single moment where everything changed — just small conversations, small laughs, small pieces of you settling into my days. and somehow, before i knew it, you weren’t just part of my life anymore. you were the warmth in it, the softness in it, the place my thoughts kept returning to without asking permission.">
-      11/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="12/03/2026"
-      data-paper="stationery26.png"
-      data-audio="12-03-26.mp3"
-      data-body="i know life isn’t always gentle. i know there will be days where things feel distant, where words don’t come easy, where the world presses in on us both. but i don’t want a love that only exists when everything feels warm. i want the kind that survives the cold, the kind that pulls closer instead of drifting apart. if winter ever comes for us, i want to be the hands you reach for without thinking.">
-      12/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="13/03/2026"
-      data-paper="stationery28.png"
-      data-audio="13-03-26.mp3"
-      data-body="i don’t want to love you cautiously, like i’m afraid of what might happen. i want to love you fully, honestly, while i have the chance to. not because i think love needs grand gestures, but because you deserve something more — something offered freely, without hesitation, while i’m here to give it.">
-      13/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="14/03/2026"
-      data-paper="stationery29.png"
-      data-audio="14-03-26.mp3"
-      data-body="i don’t think love has to be dramatic to feel magical. sometimes it’s just the way you sit beside me, or how our conversations drift into the night without effort. nothing about us feels staged or rehearsed — and maybe that’s what makes it special.">
-      14/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="15/03/2026"
-      data-paper="stationery30.png"
-      data-audio="15-03-26.mp3"
-      data-body="you have this way of softening the rough parts of me without asking me to change who i am. you don’t try to fix me or reshape me — you just see me, and somehow that makes me want to grow on my own. loving you doesn’t feel like being judged. it feels like being understood.">
-      15/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="16/03/2026"
-      data-paper="stationery31.png"
-      data-audio="16-03-26.mp3"
-      data-body="there were things i used to hope for quietly, things i didn’t even say out loud because they felt too unlikely. and now you’re here, in front of me, real and warm and present. sometimes it still feels surreal, like i’m still waiting to wake up and realise this was just something i imagined.">
-      16/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="17/03/2026"
-      data-paper="stationery32.png"
-      data-audio="17-03-26.mp3"
-      data-body="sometimes i think about how strange it is that something as small as words can hold so much of a person. a few sentences, a few quiet thoughts written down, and suddenly there’s a place where love can stay even when we’re apart. if i could, i’d build you whole palaces out of paragraphs — rooms made of memories, hallways lined with the things i adore about you, windows that open to every moment we’ve shared. i’d let you wander through them whenever you needed to remember that you are loved.">
-      17/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="18/03/2026"
-      data-paper="stationery33.png"
-      data-audio="18-03-26.mp3"
-      data-body="i never imagined i’d become someone willing to go this far for another person. love always seemed like something simple in theory, something people talked about in songs and stories. but loving you showed me something deeper — that sometimes the heart stretches further than you ever thought it could. and strangely, even when the road feels longer than expected, i wouldn’t choose a different path. if this is the distance love asks me to walk for you, then it’s one i’d walk again and again.">
-      18/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="19/03/2026"
-      data-paper="stationery34.png"
-      data-audio="19-03-26.mp3"
-      data-body="there's something about you that stays bright no matter what surrounds you. even when life feels heavy, even when everything else turns dull, you still make it feel like light for me. not the kind that blinds but the kind that softens everything it touches. it's one of the things i love the most about you — the way you make even the darker days feel a little less dark just by being a part of them.">
-      19/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="20/03/2026"
-      data-paper="stationery35.png"
-      data-audio="20-03-26.mp3"
-      data-body="sometimes i think about your name and how naturally it belongs in my life. how easily it settles beside mine, like it was always meant to sound that way. there’s something so beautiful about the thought of us being spoken in the same breath, not as two separate things, but as something that just fits. and maybe that’s what love is sometimes — not forcing anything, just recognizing what already feels right.">
-      20/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="21/03/2026"
-      data-paper="stationery21.png"
-      data-audio="21-03-26.mp3"
-      data-body="more than anything, i want you to feel safe with me. not tolerated, not borrowed, not temporary — safe, wanted, and certain. i want my love to feel like a place where you never have to question whether you are too much or not enough. because if there is one thing i could make you believe without doubt, it would be this: you are deeply wanted here, and you always will be.">
-      21/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="22/03/2026"
-      data-paper="stationery36.png"
-      data-audio="22-03-26.mp3"
-      data-body="if someone had asked me what was so special about you, i might have answered wrong the first time. i might have tried to list the things i love — your laugh, your kindness, the way you make quiet moments feel warm. but the truth is simpler than that. nothing is special without you. you’re the reason ordinary things start to feel like something worth remembering, like even the smallest moments carry a kind of softness and meaning they never seemed to have before you.">
-      22/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="23/03/2026"
-      data-paper="stationery37.png"
-      data-audio="23-03-26.mp3"
-      data-body="i know i can’t be everything to everybody, but for you, i want to be everything that matters. i want to be your lover, your best friend, your comfort, and your peace. i want to be the one who holds you close when the world gets too loud, the one who reminds you of your worth, and the one who stands between your heart and anything that doesn’t deserve it. i just want to love you so well that even your hardest days feel a little softer with me in them.">
-      23/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="24/03/2026"
-      data-paper="stationery38.png"
-      data-audio="24-03-26.mp3"
-      data-body="i wanna lock it down and make time for you, in every way i can. i wanna be the one holding you close in the quiet little moments, the one you linger with a little longer before going home, the one whose nights keep leading back to you. there’s just something about you — the softness, the sweetness, the way you make me fall without even trying. and the truth is, i’d let go of anything that doesn’t matter just to keep choosing you. i’d take the waves, the chaos, all of it, if it meant i still got to be yours at the end of the night.">
-      24/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="25/03/2026"
-      data-paper="stationery39.png"
-      data-audio="25-03-26.mp3"
-      data-body="there are some people who are beautiful in passing, and then there are people like you — the kind that make beauty feel deeper than appearance. everything about you feels so carefully made, like tenderness and grace were given shape and asked to walk among the rest of us. and sometimes when i look at you, i can’t help but feel like i’m witnessing something rare, something i was never meant to take lightly.">
-      25/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="26/03/2026"
-      data-paper="stationery40.png"
-      data-audio="26-03-26.mp3"
-      data-body="sometimes i really do feel like you were made with extra care. like the world got a little generous when it came to you. not just in the way you look, but in the way you carry warmth, softness, and something almost impossible to ignore. loving you feels a little like standing in front of proof that beautiful things still happen, and being grateful that somehow, out of all people, i get to be close to one of them.">
-      26/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="27/03/2026"
-      data-paper="stationery41.png"
-      data-audio="27-03-26.mp3"
-      data-body="you feel like one of those rare things i never would have known to ask for, but now can’t imagine living without. not because you are distant or untouchable, but because you are real and still somehow more wonderful than anything i thought i’d be lucky enough to find. there is something about loving you that feels humbling in the softest way, like being trusted with something precious and knowing it matters.">
-      27/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="28/03/2026"
-      data-paper="stationery42.png"
-      data-audio="28-03-26.mp3"
-      data-body="i hope you never feel like you have to make yourself smaller to be loved, or hide the parts of yourself that you think are flaws. with me, you are allowed to be fully who you are — all your light, your softness, your rough edges, your beauty without apology. loving you doesn’t make me want a perfect version of you. it makes me want all of you, exactly as you are.">
-      28/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="29/03/2026"
-      data-paper="stationery43.png"
-      data-audio="29-03-26.mp3"
-      data-body="if loving you asked more of me than i thought i could give, i would still reach for it anyway. there’s something about you that makes effort feel easy, like even the impossible surrenders when it means getting closer to your heart. and if the distance were great, if the road were steep, i won't change my answer. i would still choose to try for you.">
-      29/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="30/03/2026"
-      data-paper="stationery44.png"
-      data-audio="30-03-26.mp3"
-      data-body="sometimes i wonder how far love can really stretch a person, and then i think of you and realise the answer is farther than i ever expected. because when it comes to you, even the things that sound impossible stop feeling out of reach. i don’t mean that i could give you the world perfectly, but i would never be afraid to try if it meant bringing something beautiful closer to your hands.">
-      30/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="31/03/2026"
-      data-paper="stationery19.png"
-      data-audio="31-03-26.mp3"
-      data-body="if life ever became hard on you, i would want to be the person who steps closer, not the one who turns away. i would want you to know that my love is not only for the easy days, but for the heavy ones too. and if your heart ever felt tired, frightened, or close to breaking, i think i would hand you every steady part of mine and let you rest there for as long as you needed.">
-      31/03/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="01/04/2026"
-      data-paper="stationery19.png"
-      data-audio="01-04-26.mp3"
-      data-body="i tried to keep it small at first. tried to pretend it was just fondness, just passing affection. but you have a way of drawing honesty out of me without trying. loving you feels less like a choice and more like something my heart admitted before i even understood it.">
-      01/04/2026 🎙️
-    </button>
-
-    <button class="letter-card"
-      data-title="02/04/2026"
-      data-paper="stationery31.png"
-      data-body="this is the first letter i’m writing after the first time i asked you to be my lover. i’m writing it before i even know your answer, but somehow that doesn’t change what i feel. whether you say yes, whether you need time, or whether this moment lingers a little longer in uncertainty — my heart has already chosen its direction. and no matter what your answer may be, i know this much to be true: i will keep loving you. quietly, sincerely, and without regret.">
-      02/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="03/04/2026"
-      data-paper="stationery42.png"
-      data-body="if i could borrow mercury’s gift, i would send every thought of you straight to your heart before words even had the chance to fail me. maybe then you would know how often you cross my mind, how quickly my soul runs back to you, how even the smallest mention of your name makes something in me stir. my little mercury, messenger of all the things i struggle to say — if devotion could travel faster than light, it would still arrive at you already waiting.">
-      03/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="04/04/2026"
-      data-paper="stationery27.png"
-      data-body="my venus, they named a planet after beauty and love, and still i think they aimed too low. because what are silk skies and evening stars compared to the way you exist? even the constellations would dim themselves a little if it meant seeing you more clearly. if venus was ever meant to embody desire, tenderness, and grace, then it has only ever been trying to become a poor reflection of you.">
-      04/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="05/04/2026"
-      data-paper="stationery39.png"
-      data-body="if all life begins and returns to earth, then maybe that is why loving you feels so natural to me — like coming back to something essential. you are the ground beneath my wandering thoughts, the place where my heart stops drifting and finally learns how to stay. my earth, so full of quiet wonders and hidden beauty, so gentle and fierce in the same breath. if there is any place in this universe i could call home, it would be wherever i am loved by you.">
-      05/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="06/04/2026"
-      data-paper="stationery22.png"
-      data-body="my mars, there is something almost holy about the fire you carry. not a cruel fire, not the kind that destroys without care, but one that burns with passion, courage, and life. you make me understand how love can be both soft and fierce, how devotion can feel like warmth and warfare all at once. if ever i had to fight for something worth keeping, i think i would fight for you with every red-blooded part of me.">
-      06/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="07/04/2026"
-      data-paper="stationery44.png"
-      data-body="my jupiter, vast and magnificent, as though the universe wanted to prove it still knew how to make something grand. there is a largeness to you that i do not mean in size, but in presence — in the way you fill space with ease, in the way your gravity pulls love out of me without effort. some things are called giant because they are immense; you are immense because you make my heart feel small in the presence of something so wondrous.">
-      07/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="08/04/2026"
-      data-paper="stationery25.png"
-      data-body="my saturn, even your distance would be beautiful to me. there is something about devotion that reminds me of rings — endless, circling, faithful, returning always to the same beloved centre. if saturn is known for the wonder it wears around itself, then let me say this: i would adorn my life with proofs of loving you if i could. i would circle you in tenderness, in patience, in constancy, until there was no question left of where i belong.">
-      08/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="09/04/2026"
-      data-paper="stationery34.png"
-      data-body="my uranus, strange and beautiful in the way the rarest things often are. the universe has always had a fondness for the unusual, and maybe that is why i find you so impossible not to adore. there is something lovely about what refuses to be ordinary, something sacred in a soul that does not move the way others expect it to. and if the world has ever failed to understand you at first glance, then let me be the one who stays long enough to marvel properly.">
-      09/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="10/04/2026"
-      data-paper="stationery40.png"
-      data-body="my neptune, blue as longing, quiet as a dream half-remembered and never forgotten. you feel to me like the far edge of something beautiful — mysterious, soft, almost mythic in the way you pull me toward you. there are loves that announce themselves loudly, and then there are loves like this one, deep and tidal, moving beneath everything until they have shaped the whole shoreline of a heart. if i drown anywhere, let it be in something as lovely as loving you.">
-      10/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="11/04/2026"
-      data-paper="stationery31.png"
-      data-body="my pluto, there is something about you that reminds me of a sort of quiet type of love. one where, no matter how it is viewed, it remains no less real. still constant, still faithfully moving in its own beautiful way. such is how i feel for you, my love. no matter how much the world shifts and changes, no matter what changes it's language or shape, i know i would still find myself returning to you again and again - as if loving you was always the path i was meant to keep in my heart.">
-      11/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="12/04/2026"
-      data-paper="stationery26.png"
-      data-body="my moon, you are a reflection of everything beautiful. not loud, not blinding, but soft in the way that reaches the quietest parts of me. there is something so tender about the way you hold light and turn it into comfort, as if beauty was never meant to overwhelm but to gently remain. and maybe that is why i love you the way i do — because even in darkness, you know how to make the world glow.">
-      12/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="13/04/2026"
-      data-paper="stationery28.png"
-      data-body="my sun, you are she who gave me hope when my world felt dim, life when everything in me felt tired, and warmth when i had almost forgotten what it was to be held by light. if there is anything bright left in me, it is because something in your love taught me how.">
-      13/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="14/04/2026"
-      data-paper="stationery29.png"
-      data-body="my io, the moon of jupiter, you are a constant burst of fire — alive with passion, restless with feeling, beautiful in the way you never stop becoming. even in your chaos, there is wonder; even in your eruptions, there is life. and that is what loving you feels like to me — radiant and overflowing, as though the heart was never meant to burn gently when it has something this precious to keep warm.">
-      14/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="15/04/2026"
-      data-paper="stationery32.png"
-      data-body="my phobos, the moon of mars, there is something achingly beautiful about the way you remind me of a love that cannot remain unchanged forever. one day you will either fall into the planet you have loved so closely, or break apart and become rings around it — and maybe that is what devotion looks like in its most tragic and beautiful form. to love something so completely that even your ruin becomes a way of staying near it.">
-      15/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="16/04/2026"
-      data-paper="stationery33.png"
-      data-body="my andromeda, a beauty so distant, so vast, so luminous that it almost feels unreachable, almost unreal — and yet here you are. somehow you exist not as something i can only admire from afar, but as something my heart has been lucky enough to know. there is something galaxy-like about you, the way you hold so much wonder at once, the way you make me feel small only because i am standing before something so breathtaking. if the universe ever meant to prove it could create something vast and beautiful without limit, i think it did so through you.">
-      16/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="17/04/2026"
-      data-paper="stationery41.png"
-      data-body="my sirius, my brightest star, there is a kind of devotion in you that outshines everything else in my sky. even the morning sun feels less remarkable when i have known the light of you. there are so many beautiful things in this world, so many things that ask to be noticed, and yet my heart keeps turning toward you with the same quiet certainty each time. maybe that is what it means to love someone truly — to see all the lights around you, and still know without question which one burns brightest.">
-      17/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="18/04/2026"
-      data-paper="stationery24.png"
-      data-body="my north star, my polaris — guiding, steady, and faithful. there were parts of my life that felt aimless before you, parts of me that wandered without knowing where to rest. and then there was you, constant in a way that did not demand attention, only trust. you did not force direction into my life; you simply became the point my heart could return to when it needed something true. if i have found my way more gently, more surely, it is because your love taught me where home could be.">
-      18/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="19/04/2026"
-      data-paper="stationery37.png"
-      data-body="my halley, i wish for our love to be remembered the way people remember a comet that returns — rare, long-awaited, and impossible to forget once it has crossed the sky. maybe love does not need to last for generations to be eternal in its own way. maybe it is enough that it leaves a mark so bright that even time must carry the memory of it forward. and if one day all we are is a story told softly between the stars, then let it be said that we loved in a way the sky itself could remember.">
-      19/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="20/04/2026"
-      data-paper="stationery29.png"
-      data-body="my orion, constellations are proof that even distant lights can be gathered into meaning. and you feel like that to me — something strong, watchful, impossible not to notice once i have learned your shape. they say orion is a hunter, but loving you makes me think less of pursuit and more of devotion: of crossing darkness with purpose, of being willing to move through night just to remain beneath the same sky as the one you love. if i have ever searched for anything in this life, i think it was always you.">
-      20/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="21/04/2026"
-      data-paper="stationery43.png"
-      data-body="my cassiopeia, you remind me that beauty can be both radiant and unforgettable, the kind that lingers in the sky long after the first glance has passed. there is something regal about the way you exist in my heart — not distant, not cold, but graceful in a way that makes everything around you feel a little more adorned. if the heavens ever wished to write elegance into darkness, i think they did so in shapes like yours. and if my love could trace itself across the night, it would spell your name again and again.">
-      21/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="22/04/2026"
-      data-paper="stationery26.png"
-      data-body="my lyra, they say some constellations are tied to music, and maybe that is why you feel like a song my heart already knew before i could sing it. there is something melodic about loving you — the way you make silence feel softer, the way even my longing for you seems to carry its own rhythm. you are not just something i see; you are something i feel moving through me, like a note still ringing after it has been played. and if love has a sound, i think mine would always lead back to you.">
-      22/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="23/04/2026"
-      data-paper="stationery35.png"
-      data-body="my scorpius, there is something about you that reminds me how love can be beautiful even when it is fierce. not all devotion is soft at the edges; sometimes it glows with intensity, with hunger, with a kind of passion that refuses to be mistaken for anything lesser. and maybe that is what i feel when i love you — not only tenderness, but the sharp and living certainty that my heart is most awake when it is with you. you are proof that something can be both dangerous in its depth and lovely in its truth.">
-      23/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="24/04/2026"
-      data-paper="stationery32.png"
-      data-body="my draco, they drew a dragon in the stars and somehow it still makes me think of devotion. maybe because there is something ancient about the way i love you, something protective, something that feels older than language. the sky has always made stories out of light, and if i were to make one out of you, it would be about a love that guards what it treasures. not because it is afraid, but because it knows some things are too precious to leave unkept. and you, my love, are one of them.">
-      24/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="25/04/2026"
-      data-paper="stationery44.png"
-      data-body="my pleiades, a cluster of lights gathered close, as if beauty itself preferred not to be alone. that is what you remind me of — the way so many lovely things seem to belong to you at once. your softness, your warmth, your wonder, your quiet way of making everything feel a little more alive. loving you feels like looking up and finding not just one star to admire, but an entire gathering of brightness, all held together in one impossible, beautiful constellation of a person.">
-      25/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="26/04/2026"
-      data-paper="stationery28.png"
-      data-body="my vega, some stars are brightest not because they ask to be seen, but because they simply are. there is something like that about you. you do not need to perform your beauty for the world; it exists on its own, quietly and fully, and anyone lucky enough to notice it is already changed by it. i think loving you has taught me that the most powerful things are not always loud. sometimes they are steady, graceful, and certain — the way you are when you do not even realise how brightly you shine.">
-      26/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="27/04/2026"
-      data-paper="stationery39.png"
-      data-body="my aries, the sky has always found ways to make symbols out of courage, and that is what i think of when i think of you. not only bravery in the grand sense, but the quieter kind — the courage to remain soft, to remain open, to keep loving in a world that can be careless with gentle hearts. there is something fearless in the way you exist, even when you do not mean to be. and i think that is one of the reasons i love you so much: because being near you makes my own heart feel braver too.">
-      27/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="28/04/2026"
-      data-paper="stationery27.png"
-      data-body="my aquila, they placed an eagle among the stars as though the sky itself wanted a symbol for rising. and maybe that is what you have been to me — the feeling of being lifted, of being carried higher than the heaviness i used to know. loving you does not feel like standing still; it feels like ascent, like finding air where i once only knew weight. if i have become lighter, kinder, or more alive, then some of that belongs to the way your love taught me how to rise toward it.">
-      28/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="29/04/2026"
-      data-paper="stationery42.png"
-      data-body="my cygnus, there is something swan-like about the way i think of loving you — graceful even in longing, beautiful even in silence. some loves make themselves known through grandness, but this one often comes to me like still water reflecting moonlight: calm, certain, and deeper than it first appears. if i could place elegance into feeling, if i could turn tenderness into shape, it might look a little like this love i carry for you — quiet, gliding, and no less true for how gently it moves.">
-      29/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="30/04/2026"
-      data-paper="stationery40.png"
-      data-body="my eagle nebula, birthplace of stars — there is no better way i know to speak of you than as a beginning full of light. some places in the universe do not merely shine; they create the very things that will one day shine for others. and that is what loving you has felt like to me. not only beauty, but birth. not only wonder, but the making of it. you have been the place where softer things in me began, where hope was formed, where tenderness found shape, where love itself came into being brighter than it ever had before.">
-      30/04/2026
-    </button>
-
-    <button class="letter-card"
-      data-title="01/05/2026"
-      data-paper="stationery34.png"
-      data-body="my rose, they gave you the meaning of love, and i cannot think of anything more fitting. not only because you are beautiful, but because loving you feels timeless in the way roses do — soft, deep, and somehow always understood by the heart before it is ever spoken aloud. if i could place a single flower in your hands to say everything i feel, it would be this one, carrying all the devotion i still struggle to name.">
-      01/05/2026
-    </button>
-
-  <button class="letter-card"
-      data-title="02/05/2026"
-      data-paper="stationery41.png"
-      data-body="my tulip, your favourite flower. they say you mean perfect love, and maybe that is why i think of you. not because you are flawless, but because what i feel for you settles into my heart with such quiet certainty that it feels complete amd absolute. loving you does not feel loud or forced; it feels simple and true, like beauty standing gently in the light and asking for nothing more than to be seen for all of its beauty.">
-      02/05/2026
-    </button>
-
-  <button class="letter-card"
-      data-title="03/05/2026"
-      data-paper="stationery26.png"
-      data-body="my lily, flower of devotion and tenderness, there is something about you that feels impossibly pure to me. not untouched by life, but soft in a way that has survived it. you remind me that gentleness is its own kind of strength, and that love does not have to be loud to be life-changing. some people leave an impression; you leave peace.">
-      03/05/2026
-    </button>
-
-  <button class="letter-card"
-      data-title="04/05/2026"
-      data-paper="stationery39.png"
-      data-body="my sunflower, they turn toward the light as though they already know where warmth lives, and that is what my heart does with you. no matter how crowded the world becomes, some part of me keeps orienting itself back to your softness, your smile, your way of making everything feel a little more alive. if love has instinct, then mine has always been to face you.">
-      04/05/2026
-    </button>
-
-  <button class="letter-card"
-      data-title="05/05/2026"
-      data-paper="stationery22.png"
-      data-body="my peony, flower of romance and quiet prosperity, you feel to me like a love that blooms fully and without apology. there is something lush about the way you exist in my heart, something full, something generous, something almost too beautiful to hold in only one lifetime. if abundance could take the shape of feeling, i think it would look a little like the way i love you.">
-      05/05/2026
-    </button>
-
-  <button class="letter-card"
-      data-title="06/05/2026"
-      data-paper="stationery44.png"
-      data-body="my carnation, they gave you the meaning of deep affection, and i think that is one of the truest forms of love. not only longing, not only wonder, but fondness so steady that it settles into every small part of life. i feel it in the way i think of you when nothing in particular has happened, in the way your name warms me even in passing. some loves arrive grandly. this one lives everywhere.">
-      06/05/2026
-    </button>
-
-  <button class="letter-card"
-      data-title="07/05/2026"
-      data-paper="stationery28.png"
-      data-body="my daisy, flower of innocence and loyal affection, there is something so bright and easy about the thought of you. not simple in a lesser way, but simple in the way sunlight is — natural, welcome, quietly necessary. loving you reminds me that some of the most beautiful things in this world do not need to be complicated to be true. they only need to keep returning, the way my heart does to you.">
-      07/05/2026
-    </button>
-
-  <button class="letter-card"
-      data-title="08/05/2026"
-      data-paper="stationery35.png"
-      data-body="my orchid, symbol of rare beauty, you feel like something the world does not make often. there is a kind of elegance in you that does not beg to be noticed and yet remains impossible to forget. some beauty is immediate; yours keeps unfolding the longer i know you. and maybe that is why i love you the way i do — because even wonder seems to deepen in your presence.">
-      08/05/2026
-    </button>
-
-  <button class="letter-card"
-      data-title="09/05/2026"
-      data-paper="stationery32.png"
-      data-body="my lavender, flower of calm and devotion, you make me think of all the quiet ways love can heal a person. not through grand rescue, but through steadiness, through softness, through a presence that teaches the heart it no longer has to be afraid all the time. if peace ever took human form and let me love it, i think it might feel a little like you.">
-      09/05/2026
-    </button>
-
-  <button class="letter-card"
-      data-title="10/05/2026"
-      data-paper="stationery43.png"
-      data-body="my jasmine, they say you carry the meaning of grace and sensual love, and there is something about you that feels exactly like that — gentle, lovely, and quietly intoxicating. never too loud, never asking for attention, but impossible not to feel once you are near. loving you is like breathing in something sweet and real and knowing i will remember it long after the moment has passed.">
-      10/05/2026
-    </button>
-
-  <button class="letter-card"
-      data-title="11/05/2026"
-      data-paper="stationery27.png"
-      data-body="my baby’s breath, you remind me that even the smallest softness can change the entire shape of something beautiful. people call it a filler flower, but i think that misses the point. it is the tenderness between the petals, the quiet softness that makes the whole bouquet breathe. and, honestly, that is what your love is like to me — the gentle thing i never knew i needed, until everything became lovelier because of it.">
-      11/05/2026
-    </button>
-
-  <button class="letter-card"
-      data-title="12/05/2026"
-      data-paper="stationery42.png"
-      data-body="my hydrangea, flower of heartfelt emotion, you feel like a love too full to keep hidden. there are feelings that can be folded neatly into words, and then there are feelings like this one — clustered, overflowing, beautiful in their abundance. that is what loving you has become for me: not one single emotion, but many soft truths gathered together until they bloom into something i can no longer deny.">
-      12/05/2026
-    </button>
-
-  <button class="letter-card"
-      data-title="13/05/2026"
-      data-paper="stationery24.png"
-      data-body="my camellia, they gave you the meaning of admiration and longing, and i think both belong to you. because loving you is not only wanting to be near you, but looking at you with the kind of awe that makes language feel too small. there is something so quietly precious about you that my heart does not know how to hold it casually. it only knows how to cherish it.">
-      13/05/2026
-    </button>
-
-  <button class="letter-card"
-      data-title="14/05/2026"
-      data-paper="stationery40.png"
-      data-body="my forget-me-not, tiny flower of remembrance, as though the world once feared that some loves might fade if they were not named carefully enough. but there is no danger of that with you. i could not forget you if i tried. you have made a home in too many corners of me already — in memory, in feeling, in hope. and i think that is one of the quietest miracles of love: how naturally it makes someone unforgettable.">
-      14/05/2026
-    </button>
-
-  <button class="letter-card"
-      data-title="15/05/2026"
-      data-paper="stationery31.png"
-      data-body="my wisteria, symbol of devotion that lingers and grows, you feel like a love that does not rush but deepens. there is something beautiful about the way certain things take their time becoming magnificent, and that is how i think of what i feel for you. not fragile, not fleeting, but climbing softly toward something lasting, until one day i look up and realise my whole heart is covered in bloom.">
-      15/05/2026
-    </button>
-    
   </div>
+
+  <!-- FEBRUARY LETTERS -->
+  <section id="february" class="month-section hidden">
+    <div class="month-header">
+      <button class="back-btn" type="button">← months</button>
+    </div>
+
+    <div class="letters-grid">
+    <button class="letter-card"
+    data-title="05/02/2026"
+    data-paper="stationery01.png"
+    data-body="hello, my love. i made this mailbox for you so that i can send you letters whenever i want, and you can read them whenever you want. i hope you like it. i love you so so so much.">
+    05/02/2026
+    </button>
+    <button class="letter-card"
+    data-title="13/02/2026"
+    data-paper="stationery08.png"
+    data-body="get well soon, my love. i love you so so much. my heart, my home, my heaven on earth. please stay safe. please dont be afraid to tell me if you need help. i want to be there for you, my love.">
+    13/02/2026
+    </button>
+    <button class="letter-card"
+    data-title="14/02/2026"
+    data-paper="stationery03.png"
+    data-body="happy valentine’s day, my love! i hope you have a wonderful day filled with love and happiness. i am so grateful to have you in my life, and i can’t wait to spend many more valentine’s days with you. i love you more than words can express.">
+    14/02/2026
+    </button>
+    <button class="letter-card"
+    data-title="15/02/2026"
+    data-paper="stationery09.png"
+    data-body="somehow, in this big world, i still found you; at the most unexpected time, in the most unexpected way, and like clockwork i fell inlove so easily. now, i can’t imagine my life without you. you are my everything, my love.">
+    15/02/2026
+    </button>
+    <button class="letter-card"
+    data-title="16/02/2026"
+    data-paper="stationery18.png"
+    data-body="the sound of your laughter is the best song i've ever heard. when my friends are all dirt and worm as i face the dirt, my bones will be traced with my favourite song. you're my favourite symphony, my love.">
+    16/02/2026
+    </button>
+    <button class="letter-card"
+    data-title="17/02/2026"
+    data-paper="stationery13.png"
+    data-body="when night breaks, and the day falls, and when hearts go cold, i'll brave your storms; wade through tides and hail that falls - just to prove you're worth more than the love that came before your name.">
+    17/02/2026
+    </button>
+    <button class="letter-card"
+    data-title="18/02/2026"
+    data-paper="stationery14.png"
+    data-audio="18-02-26.mp3"
+    data-body="i wanna drown in your laughter, let it flood my lungs like springwater as i lie beside you until breathing feels like loving you in constancy. i wanna die in your gaze - not to vanish but to soften and unmake myself before you and pour what’s left of me into your hands as i surrender to the beauty you call love.">
+    18/02/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="19/02/2026"
+    data-paper="stationery06.png"
+    data-body="there's this poem i found. it made me think of you. i got reminded of when you asked me what i would do if you handed me an orange. remind me to tell you it tonight. ill whisper it into your ear as you drift to sleep. i love you.">
+    19/02/2026
+    </button>
+    <button class="letter-card"
+    data-title="20/02/2026"
+    data-paper="stationery03.png"
+    data-audio="20-02-26.mp3"
+    data-body="sometimes i catch myself smiling at nothing, and then i realise it’s because you crossed my mind again. loving you feels like carrying sunlight in my pocket — quiet warmth i can reach for whenever the world feels cold. i hope you feel it too, even when i’m not beside you.">
+    20/02/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="21/02/2026"
+    data-paper="stationery11.png"
+    data-body="even if my mouth was sewn shut, i’d tear through every stitch and fiber just to tell you how much i love you. i’d bleed words if i had to, carve them into the air with whatever breath i could steal — i’d let the silence split open before i could ever let my love stay buried inside me. you deserve to hear it; in every lifetime, in every language, in every breath i have left.">
+    21/02/2026
+    </button>
+    <button class="letter-card"
+    data-title="22/02/2026"
+    data-paper="stationery01.png"
+    data-body="if i could map out every safe place i’ve ever known, they’d all lead back to you. your voice, your hands, the way you say my name like it belongs somewhere soft. i didn’t think love is supposed to feel like this but i’m so glad it does with you.">
+    22/02/2026
+    </button>
+    <button class="letter-card"
+    data-title="23/02/2026"
+    data-paper="stationery05.png"
+    data-body="there’s a kind of peace in knowing i get to choose you again tomorrow. and the day after that. and every ordinary day that follows. loving you isn’t a single moment — it’s a habit, a commitment, my heart picked up and never wants to break.">
+    23/02/2026
+    </button>
+    <button class="letter-card"
+    data-title="24/02/2026"
+    data-paper="stationery06.png"
+    data-body="if the world ever feels too loud for you, come sit with me in the quiet. i’ll hold your hand, and we won’t have to say anything. i'll stay with you - i promise you, i always will.">
+    24/02/2026
+    </button>
+    <button class="letter-card"
+    data-title="25/02/2026"
+    data-paper="stationery07.png"
+    data-body="you’ve changed the way i see time. days feel shorter when i’m with you, and longer when i miss you. somehow you’ve become the rhythm my life keeps following, and i don’t think i ever want to find a different beat.">
+    25/02/2026
+    </button>
+    <button class="letter-card"
+    data-title="26/02/2026"
+    data-paper="stationery08.png"
+    data-body="if i had to explain what loving you feels like, i’d say it’s like finding the place you were meant to return to all along. not a destination, not an ending — just a home i didn’t know i was searching for until i found you.">
+    26/02/2026
+    </button>
+    <button class="letter-card"
+    data-title="27/02/2026"
+    data-paper="stationery01.png"
+    data-body="i don’t love you because everything is easy. i love you because even when life tilts and nothing feels steady, my heart still leans toward you like it knows where it belongs. if storms come, let them come — i’m not here for perfect days, i’m here for our days.">
+    27/02/2026
+    </button>
+    <button class="letter-card"
+    data-title="28/02/2026"
+    data-paper="stationery06.png"
+    data-body="there’s something sacred in knowing that out of every path i could walk, i still end up beside you. not out of chance, not out of convenience — but because loving you feels like the truest decision i’ve ever made. if i had to choose again, i would still find you.">
+    28/02/2026
+    </button>
+    </div>
+  </section>
+
+  <!-- MARCH LETTERS -->
+  <section id="march" class="month-section hidden">
+    <div class="month-header">
+      <button class="back-btn" type="button">← months</button>
+    </div>
+
+    <div class="letters-grid">
+    <button class="letter-card"
+    data-title="01/03/2026"
+    data-paper="stationery05.png"
+    data-body="i don’t promise a life without fear or doubt. i promise hands that won’t let go when those things arrive. loving you isn’t a passing feeling — it’s a decision i keep making, quietly, daily, in the way i stay. i'll always stay">
+    01/03/2026
+    </button>
+    <button class="letter-card"
+    data-title="02/03/2026"
+    data-paper="stationery08.png"
+    data-body="your laugh doesn’t just sound nice — it changes the space around it. it lifts things, softens them, makes the world feel lighter for a second. i think if i had to choose one sound to carry with me forever, it would be that one.">
+    02/03/2026
+    </button>
+    <button class="letter-card"
+    data-title="03/03/2026"
+    data-paper="stationery07.png"
+    data-body="meeting you didn’t feel like the start of something new — it felt like recognising something that had always been waiting for me. like my heart had known your shape long before we ever spoke.">
+    03/03/2026
+    </button>
+    <button class="letter-card"
+    data-title="04/03/2026"
+    data-paper="stationery08.png"
+    data-body="i used to think forever sounded intimidating. now it just sounds like time spent beside you. if the future is something i get to walk through with your hand in mine, then suddenly forever doesn’t feel long at all — it feels right.">
+    04/03/2026
+    </button>
+    <button class="letter-card"
+    data-title="05/03/2026"
+    data-paper="stationery19.png"
+    data-audio="05-03-26.mp3"
+    data-body="i didn’t plan for you. you weren’t something i searched for or tried to find. and yet somehow, everything in my life bent just enough for our paths to meet. sometimes i think the world nudged us together quietly, like it knew something we didn’t yet.">
+    05/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="06/03/2026"
+    data-paper="stationery20.png"
+    data-audio="06-03-26.mp3"
+    data-body="you don’t just make me happy — you make something softer happen inside me. like my heart learned a new way to exist once you arrived. i didn’t know joy could feel this gentle, this calm, this warm.">
+    06/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="07/03/2026"
+    data-paper="stationery22.png"
+    data-audio="07-03-26.mp3"
+    data-body="when i think about the future, everything else fades a little. not in a scary way — in a peaceful way. like the world simplified itself down to what matters most. and somehow, you stand at the centre of it all, steady and bright.">
+    07/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="08/03/2026"
+    data-paper="stationery23.png"
+    data-audio="08-03-26.mp3"
+    data-body="i don’t know what you did to me. nothing dramatic, nothing sudden — just small moments, quiet words, the way you exist. and now i find myself softer, braver, happier, all because you happened to walk into my life.">
+    08/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="09/03/2026"
+    data-paper="stationery24.png"
+    data-audio="09-03-26.mp3"
+    data-body="i don’t know if fate is real. but sometimes i think about all the small coincidences that led to you, and it’s hard not to wonder. maybe love isn’t about searching — maybe it’s about recognising the person who was always meant to feel familiar.">
+    09/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="10/03/2026"
+    data-paper="stationery26.png"
+    data-audio="10-03-26.mp3"
+    data-body="there’s something about having you close that quiets the noise in me. like the world fades out and all that’s left is the steady reminder that you’re here. i didn’t know comfort could feel this physical, this real, this simple yet complex.">
+    10/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="11/03/2026"
+    data-paper="stationery27.png"
+    data-audio="11-03-26.mp3"
+    data-body="you came into my life so quietly that i didn’t realise how much space you were taking up until you were already everywhere. there was no single moment where everything changed — just small conversations, small laughs, small pieces of you settling into my days. and somehow, before i knew it, you weren’t just part of my life anymore. you were the warmth in it, the softness in it, the place my thoughts kept returning to without asking permission.">
+    11/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="12/03/2026"
+    data-paper="stationery26.png"
+    data-audio="12-03-26.mp3"
+    data-body="i know life isn’t always gentle. i know there will be days where things feel distant, where words don’t come easy, where the world presses in on us both. but i don’t want a love that only exists when everything feels warm. i want the kind that survives the cold, the kind that pulls closer instead of drifting apart. if winter ever comes for us, i want to be the hands you reach for without thinking.">
+    12/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="13/03/2026"
+    data-paper="stationery28.png"
+    data-audio="13-03-26.mp3"
+    data-body="i don’t want to love you cautiously, like i’m afraid of what might happen. i want to love you fully, honestly, while i have the chance to. not because i think love needs grand gestures, but because you deserve something more — something offered freely, without hesitation, while i’m here to give it.">
+    13/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="14/03/2026"
+    data-paper="stationery29.png"
+    data-audio="14-03-26.mp3"
+    data-body="i don’t think love has to be dramatic to feel magical. sometimes it’s just the way you sit beside me, or how our conversations drift into the night without effort. nothing about us feels staged or rehearsed — and maybe that’s what makes it special.">
+    14/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="15/03/2026"
+    data-paper="stationery30.png"
+    data-audio="15-03-26.mp3"
+    data-body="you have this way of softening the rough parts of me without asking me to change who i am. you don’t try to fix me or reshape me — you just see me, and somehow that makes me want to grow on my own. loving you doesn’t feel like being judged. it feels like being understood.">
+    15/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="16/03/2026"
+    data-paper="stationery31.png"
+    data-audio="16-03-26.mp3"
+    data-body="there were things i used to hope for quietly, things i didn’t even say out loud because they felt too unlikely. and now you’re here, in front of me, real and warm and present. sometimes it still feels surreal, like i’m still waiting to wake up and realise this was just something i imagined.">
+    16/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="17/03/2026"
+    data-paper="stationery32.png"
+    data-audio="17-03-26.mp3"
+    data-body="sometimes i think about how strange it is that something as small as words can hold so much of a person. a few sentences, a few quiet thoughts written down, and suddenly there’s a place where love can stay even when we’re apart. if i could, i’d build you whole palaces out of paragraphs — rooms made of memories, hallways lined with the things i adore about you, windows that open to every moment we’ve shared. i’d let you wander through them whenever you needed to remember that you are loved.">
+    17/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="18/03/2026"
+    data-paper="stationery33.png"
+    data-audio="18-03-26.mp3"
+    data-body="i never imagined i’d become someone willing to go this far for another person. love always seemed like something simple in theory, something people talked about in songs and stories. but loving you showed me something deeper — that sometimes the heart stretches further than you ever thought it could. and strangely, even when the road feels longer than expected, i wouldn’t choose a different path. if this is the distance love asks me to walk for you, then it’s one i’d walk again and again.">
+    18/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="19/03/2026"
+    data-paper="stationery34.png"
+    data-audio="19-03-26.mp3"
+    data-body="there's something about you that stays bright no matter what surrounds you. even when life feels heavy, even when everything else turns dull, you still make it feel like light for me. not the kind that blinds but the kind that softens everything it touches. it's one of the things i love the most about you — the way you make even the darker days feel a little less dark just by being a part of them.">
+    19/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="20/03/2026"
+    data-paper="stationery35.png"
+    data-audio="20-03-26.mp3"
+    data-body="sometimes i think about your name and how naturally it belongs in my life. how easily it settles beside mine, like it was always meant to sound that way. there’s something so beautiful about the thought of us being spoken in the same breath, not as two separate things, but as something that just fits. and maybe that’s what love is sometimes — not forcing anything, just recognizing what already feels right.">
+    20/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="21/03/2026"
+    data-paper="stationery21.png"
+    data-audio="21-03-26.mp3"
+    data-body="more than anything, i want you to feel safe with me. not tolerated, not borrowed, not temporary — safe, wanted, and certain. i want my love to feel like a place where you never have to question whether you are too much or not enough. because if there is one thing i could make you believe without doubt, it would be this: you are deeply wanted here, and you always will be.">
+    21/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="22/03/2026"
+    data-paper="stationery36.png"
+    data-audio="22-03-26.mp3"
+    data-body="if someone had asked me what was so special about you, i might have answered wrong the first time. i might have tried to list the things i love — your laugh, your kindness, the way you make quiet moments feel warm. but the truth is simpler than that. nothing is special without you. you’re the reason ordinary things start to feel like something worth remembering, like even the smallest moments carry a kind of softness and meaning they never seemed to have before you.">
+    22/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="23/03/2026"
+    data-paper="stationery37.png"
+    data-audio="23-03-26.mp3"
+    data-body="i know i can’t be everything to everybody, but for you, i want to be everything that matters. i want to be your lover, your best friend, your comfort, and your peace. i want to be the one who holds you close when the world gets too loud, the one who reminds you of your worth, and the one who stands between your heart and anything that doesn’t deserve it. i just want to love you so well that even your hardest days feel a little softer with me in them.">
+    23/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="24/03/2026"
+    data-paper="stationery38.png"
+    data-audio="24-03-26.mp3"
+    data-body="i wanna lock it down and make time for you, in every way i can. i wanna be the one holding you close in the quiet little moments, the one you linger with a little longer before going home, the one whose nights keep leading back to you. there’s just something about you — the softness, the sweetness, the way you make me fall without even trying. and the truth is, i’d let go of anything that doesn’t matter just to keep choosing you. i’d take the waves, the chaos, all of it, if it meant i still got to be yours at the end of the night.">
+    24/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="25/03/2026"
+    data-paper="stationery39.png"
+    data-audio="25-03-26.mp3"
+    data-body="there are some people who are beautiful in passing, and then there are people like you — the kind that make beauty feel deeper than appearance. everything about you feels so carefully made, like tenderness and grace were given shape and asked to walk among the rest of us. and sometimes when i look at you, i can’t help but feel like i’m witnessing something rare, something i was never meant to take lightly.">
+    25/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="26/03/2026"
+    data-paper="stationery40.png"
+    data-audio="26-03-26.mp3"
+    data-body="sometimes i really do feel like you were made with extra care. like the world got a little generous when it came to you. not just in the way you look, but in the way you carry warmth, softness, and something almost impossible to ignore. loving you feels a little like standing in front of proof that beautiful things still happen, and being grateful that somehow, out of all people, i get to be close to one of them.">
+    26/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="27/03/2026"
+    data-paper="stationery41.png"
+    data-audio="27-03-26.mp3"
+    data-body="you feel like one of those rare things i never would have known to ask for, but now can’t imagine living without. not because you are distant or untouchable, but because you are real and still somehow more wonderful than anything i thought i’d be lucky enough to find. there is something about loving you that feels humbling in the softest way, like being trusted with something precious and knowing it matters.">
+    27/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="28/03/2026"
+    data-paper="stationery42.png"
+    data-audio="28-03-26.mp3"
+    data-body="i hope you never feel like you have to make yourself smaller to be loved, or hide the parts of yourself that you think are flaws. with me, you are allowed to be fully who you are — all your light, your softness, your rough edges, your beauty without apology. loving you doesn’t make me want a perfect version of you. it makes me want all of you, exactly as you are.">
+    28/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="29/03/2026"
+    data-paper="stationery43.png"
+    data-audio="29-03-26.mp3"
+    data-body="if loving you asked more of me than i thought i could give, i would still reach for it anyway. there’s something about you that makes effort feel easy, like even the impossible surrenders when it means getting closer to your heart. and if the distance were great, if the road were steep, i won't change my answer. i would still choose to try for you.">
+    29/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="30/03/2026"
+    data-paper="stationery44.png"
+    data-audio="30-03-26.mp3"
+    data-body="sometimes i wonder how far love can really stretch a person, and then i think of you and realise the answer is farther than i ever expected. because when it comes to you, even the things that sound impossible stop feeling out of reach. i don’t mean that i could give you the world perfectly, but i would never be afraid to try if it meant bringing something beautiful closer to your hands.">
+    30/03/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="31/03/2026"
+    data-paper="stationery19.png"
+    data-audio="31-03-26.mp3"
+    data-body="if life ever became hard on you, i would want to be the person who steps closer, not the one who turns away. i would want you to know that my love is not only for the easy days, but for the heavy ones too. and if your heart ever felt tired, frightened, or close to breaking, i think i would hand you every steady part of mine and let you rest there for as long as you needed.">
+    31/03/2026 🎙️
+    </button>
+    </div>
+  </section>
+
+  <!-- APRIL LETTERS -->
+  <section id="april" class="month-section hidden">
+    <div class="month-header">
+      <button class="back-btn" type="button">← months</button>
+      <h3>April</h3>
+      <p class="section-subtitle">Heavenly Bodies</p>
+    </div>
+
+    <div class="letters-grid">
+    <button class="letter-card"
+    data-title="01/04/2026"
+    data-paper="stationery19.png"
+    data-audio="01-04-26.mp3"
+    data-body="i tried to keep it small at first. tried to pretend it was just fondness, just passing affection. but you have a way of drawing honesty out of me without trying. loving you feels less like a choice and more like something my heart admitted before i even understood it.">
+    01/04/2026 🎙️
+    </button>
+    <button class="letter-card"
+    data-title="02/04/2026"
+    data-paper="stationery31.png"
+    data-body="this is the first letter i’m writing after the first time i asked you to be my lover. i’m writing it before i even know your answer, but somehow that doesn’t change what i feel. whether you say yes, whether you need time, or whether this moment lingers a little longer in uncertainty — my heart has already chosen its direction. and no matter what your answer may be, i know this much to be true: i will keep loving you. quietly, sincerely, and without regret.">
+    02/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="03/04/2026"
+    data-paper="stationery42.png"
+    data-body="if i could borrow mercury’s gift, i would send every thought of you straight to your heart before words even had the chance to fail me. maybe then you would know how often you cross my mind, how quickly my soul runs back to you, how even the smallest mention of your name makes something in me stir. my little mercury, messenger of all the things i struggle to say — if devotion could travel faster than light, it would still arrive at you already waiting.">
+    03/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="04/04/2026"
+    data-paper="stationery27.png"
+    data-body="my venus, they named a planet after beauty and love, and still i think they aimed too low. because what are silk skies and evening stars compared to the way you exist? even the constellations would dim themselves a little if it meant seeing you more clearly. if venus was ever meant to embody desire, tenderness, and grace, then it has only ever been trying to become a poor reflection of you.">
+    04/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="05/04/2026"
+    data-paper="stationery39.png"
+    data-body="if all life begins and returns to earth, then maybe that is why loving you feels so natural to me — like coming back to something essential. you are the ground beneath my wandering thoughts, the place where my heart stops drifting and finally learns how to stay. my earth, so full of quiet wonders and hidden beauty, so gentle and fierce in the same breath. if there is any place in this universe i could call home, it would be wherever i am loved by you.">
+    05/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="06/04/2026"
+    data-paper="stationery22.png"
+    data-body="my mars, there is something almost holy about the fire you carry. not a cruel fire, not the kind that destroys without care, but one that burns with passion, courage, and life. you make me understand how love can be both soft and fierce, how devotion can feel like warmth and warfare all at once. if ever i had to fight for something worth keeping, i think i would fight for you with every red-blooded part of me.">
+    06/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="07/04/2026"
+    data-paper="stationery44.png"
+    data-body="my jupiter, vast and magnificent, as though the universe wanted to prove it still knew how to make something grand. there is a largeness to you that i do not mean in size, but in presence — in the way you fill space with ease, in the way your gravity pulls love out of me without effort. some things are called giant because they are immense; you are immense because you make my heart feel small in the presence of something so wondrous.">
+    07/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="08/04/2026"
+    data-paper="stationery25.png"
+    data-body="my saturn, even your distance would be beautiful to me. there is something about devotion that reminds me of rings — endless, circling, faithful, returning always to the same beloved centre. if saturn is known for the wonder it wears around itself, then let me say this: i would adorn my life with proofs of loving you if i could. i would circle you in tenderness, in patience, in constancy, until there was no question left of where i belong.">
+    08/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="09/04/2026"
+    data-paper="stationery34.png"
+    data-body="my uranus, strange and beautiful in the way the rarest things often are. the universe has always had a fondness for the unusual, and maybe that is why i find you so impossible not to adore. there is something lovely about what refuses to be ordinary, something sacred in a soul that does not move the way others expect it to. and if the world has ever failed to understand you at first glance, then let me be the one who stays long enough to marvel properly.">
+    09/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="10/04/2026"
+    data-paper="stationery40.png"
+    data-body="my neptune, blue as longing, quiet as a dream half-remembered and never forgotten. you feel to me like the far edge of something beautiful — mysterious, soft, almost mythic in the way you pull me toward you. there are loves that announce themselves loudly, and then there are loves like this one, deep and tidal, moving beneath everything until they have shaped the whole shoreline of a heart. if i drown anywhere, let it be in something as lovely as loving you.">
+    10/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="11/04/2026"
+    data-paper="stationery31.png"
+    data-body="my pluto, there is something about you that reminds me of a sort of quiet type of love. one where, no matter how it is viewed, it remains no less real. still constant, still faithfully moving in its own beautiful way. such is how i feel for you, my love. no matter how much the world shifts and changes, no matter what changes it's language or shape, i know i would still find myself returning to you again and again - as if loving you was always the path i was meant to keep in my heart.">
+    11/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="12/04/2026"
+    data-paper="stationery26.png"
+    data-body="my moon, you are a reflection of everything beautiful. not loud, not blinding, but soft in the way that reaches the quietest parts of me. there is something so tender about the way you hold light and turn it into comfort, as if beauty was never meant to overwhelm but to gently remain. and maybe that is why i love you the way i do — because even in darkness, you know how to make the world glow.">
+    12/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="13/04/2026"
+    data-paper="stationery28.png"
+    data-body="my sun, you are she who gave me hope when my world felt dim, life when everything in me felt tired, and warmth when i had almost forgotten what it was to be held by light. if there is anything bright left in me, it is because something in your love taught me how.">
+    13/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="14/04/2026"
+    data-paper="stationery29.png"
+    data-body="my io, the moon of jupiter, you are a constant burst of fire — alive with passion, restless with feeling, beautiful in the way you never stop becoming. even in your chaos, there is wonder; even in your eruptions, there is life. and that is what loving you feels like to me — radiant and overflowing, as though the heart was never meant to burn gently when it has something this precious to keep warm.">
+    14/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="15/04/2026"
+    data-paper="stationery32.png"
+    data-body="my phobos, the moon of mars, there is something achingly beautiful about the way you remind me of a love that cannot remain unchanged forever. one day you will either fall into the planet you have loved so closely, or break apart and become rings around it — and maybe that is what devotion looks like in its most tragic and beautiful form. to love something so completely that even your ruin becomes a way of staying near it.">
+    15/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="16/04/2026"
+    data-paper="stationery33.png"
+    data-body="my andromeda, a beauty so distant, so vast, so luminous that it almost feels unreachable, almost unreal — and yet here you are. somehow you exist not as something i can only admire from afar, but as something my heart has been lucky enough to know. there is something galaxy-like about you, the way you hold so much wonder at once, the way you make me feel small only because i am standing before something so breathtaking. if the universe ever meant to prove it could create something vast and beautiful without limit, i think it did so through you.">
+    16/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="17/04/2026"
+    data-paper="stationery41.png"
+    data-body="my sirius, my brightest star, there is a kind of devotion in you that outshines everything else in my sky. even the morning sun feels less remarkable when i have known the light of you. there are so many beautiful things in this world, so many things that ask to be noticed, and yet my heart keeps turning toward you with the same quiet certainty each time. maybe that is what it means to love someone truly — to see all the lights around you, and still know without question which one burns brightest.">
+    17/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="18/04/2026"
+    data-paper="stationery24.png"
+    data-body="my north star, my polaris — guiding, steady, and faithful. there were parts of my life that felt aimless before you, parts of me that wandered without knowing where to rest. and then there was you, constant in a way that did not demand attention, only trust. you did not force direction into my life; you simply became the point my heart could return to when it needed something true. if i have found my way more gently, more surely, it is because your love taught me where home could be.">
+    18/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="19/04/2026"
+    data-paper="stationery37.png"
+    data-body="my halley, i wish for our love to be remembered the way people remember a comet that returns — rare, long-awaited, and impossible to forget once it has crossed the sky. maybe love does not need to last for generations to be eternal in its own way. maybe it is enough that it leaves a mark so bright that even time must carry the memory of it forward. and if one day all we are is a story told softly between the stars, then let it be said that we loved in a way the sky itself could remember.">
+    19/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="20/04/2026"
+    data-paper="stationery29.png"
+    data-body="my orion, constellations are proof that even distant lights can be gathered into meaning. and you feel like that to me — something strong, watchful, impossible not to notice once i have learned your shape. they say orion is a hunter, but loving you makes me think less of pursuit and more of devotion: of crossing darkness with purpose, of being willing to move through night just to remain beneath the same sky as the one you love. if i have ever searched for anything in this life, i think it was always you.">
+    20/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="21/04/2026"
+    data-paper="stationery43.png"
+    data-body="my cassiopeia, you remind me that beauty can be both radiant and unforgettable, the kind that lingers in the sky long after the first glance has passed. there is something regal about the way you exist in my heart — not distant, not cold, but graceful in a way that makes everything around you feel a little more adorned. if the heavens ever wished to write elegance into darkness, i think they did so in shapes like yours. and if my love could trace itself across the night, it would spell your name again and again.">
+    21/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="22/04/2026"
+    data-paper="stationery26.png"
+    data-body="my lyra, they say some constellations are tied to music, and maybe that is why you feel like a song my heart already knew before i could sing it. there is something melodic about loving you — the way you make silence feel softer, the way even my longing for you seems to carry its own rhythm. you are not just something i see; you are something i feel moving through me, like a note still ringing after it has been played. and if love has a sound, i think mine would always lead back to you.">
+    22/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="23/04/2026"
+    data-paper="stationery35.png"
+    data-body="my scorpius, there is something about you that reminds me how love can be beautiful even when it is fierce. not all devotion is soft at the edges; sometimes it glows with intensity, with hunger, with a kind of passion that refuses to be mistaken for anything lesser. and maybe that is what i feel when i love you — not only tenderness, but the sharp and living certainty that my heart is most awake when it is with you. you are proof that something can be both dangerous in its depth and lovely in its truth.">
+    23/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="24/04/2026"
+    data-paper="stationery32.png"
+    data-body="my draco, they drew a dragon in the stars and somehow it still makes me think of devotion. maybe because there is something ancient about the way i love you, something protective, something that feels older than language. the sky has always made stories out of light, and if i were to make one out of you, it would be about a love that guards what it treasures. not because it is afraid, but because it knows some things are too precious to leave unkept. and you, my love, are one of them.">
+    24/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="25/04/2026"
+    data-paper="stationery44.png"
+    data-body="my pleiades, a cluster of lights gathered close, as if beauty itself preferred not to be alone. that is what you remind me of — the way so many lovely things seem to belong to you at once. your softness, your warmth, your wonder, your quiet way of making everything feel a little more alive. loving you feels like looking up and finding not just one star to admire, but an entire gathering of brightness, all held together in one impossible, beautiful constellation of a person.">
+    25/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="26/04/2026"
+    data-paper="stationery28.png"
+    data-body="my vega, some stars are brightest not because they ask to be seen, but because they simply are. there is something like that about you. you do not need to perform your beauty for the world; it exists on its own, quietly and fully, and anyone lucky enough to notice it is already changed by it. i think loving you has taught me that the most powerful things are not always loud. sometimes they are steady, graceful, and certain — the way you are when you do not even realise how brightly you shine.">
+    26/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="27/04/2026"
+    data-paper="stationery39.png"
+    data-body="my aries, the sky has always found ways to make symbols out of courage, and that is what i think of when i think of you. not only bravery in the grand sense, but the quieter kind — the courage to remain soft, to remain open, to keep loving in a world that can be careless with gentle hearts. there is something fearless in the way you exist, even when you do not mean to be. and i think that is one of the reasons i love you so much: because being near you makes my own heart feel braver too.">
+    27/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="28/04/2026"
+    data-paper="stationery27.png"
+    data-body="my aquila, they placed an eagle among the stars as though the sky itself wanted a symbol for rising. and maybe that is what you have been to me — the feeling of being lifted, of being carried higher than the heaviness i used to know. loving you does not feel like standing still; it feels like ascent, like finding air where i once only knew weight. if i have become lighter, kinder, or more alive, then some of that belongs to the way your love taught me how to rise toward it.">
+    28/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="29/04/2026"
+    data-paper="stationery42.png"
+    data-body="my cygnus, there is something swan-like about the way i think of loving you — graceful even in longing, beautiful even in silence. some loves make themselves known through grandness, but this one often comes to me like still water reflecting moonlight: calm, certain, and deeper than it first appears. if i could place elegance into feeling, if i could turn tenderness into shape, it might look a little like this love i carry for you — quiet, gliding, and no less true for how gently it moves.">
+    29/04/2026
+    </button>
+    <button class="letter-card"
+    data-title="30/04/2026"
+    data-paper="stationery40.png"
+    data-body="my eagle nebula, birthplace of stars — there is no better way i know to speak of you than as a beginning full of light. some places in the universe do not merely shine; they create the very things that will one day shine for others. and that is what loving you has felt like to me. not only beauty, but birth. not only wonder, but the making of it. you have been the place where softer things in me began, where hope was formed, where tenderness found shape, where love itself came into being brighter than it ever had before.">
+    30/04/2026
+    </button>
+    </div>
+  </section>
+
+  <!-- MAY LETTERS -->
+  <section id="may" class="month-section hidden">
+    <div class="month-header">
+      <button class="back-btn" type="button">← months</button>
+      <h3>May</h3>
+      <p class="section-subtitle">Meaningful Petals</p>
+    </div>
+
+    <div class="letters-grid">
+    <button class="letter-card"
+    data-title="01/05/2026"
+    data-paper="stationery34.png"
+    data-body="my rose, they gave you the meaning of love, and i cannot think of anything more fitting. not only because you are beautiful, but because loving you feels timeless in the way roses do — soft, deep, and somehow always understood by the heart before it is ever spoken aloud. if i could place a single flower in your hands to say everything i feel, it would be this one, carrying all the devotion i still struggle to name.">
+    01/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="02/05/2026"
+    data-paper="stationery41.png"
+    data-body="my tulip, your favourite flower. they say you mean perfect love, and maybe that is why i think of you. not because you are flawless, but because what i feel for you settles into my heart with such quiet certainty that it feels complete amd absolute. loving you does not feel loud or forced; it feels simple and true, like beauty standing gently in the light and asking for nothing more than to be seen for all of its beauty.">
+    02/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="03/05/2026"
+    data-paper="stationery26.png"
+    data-body="my lily, flower of devotion and tenderness, there is something about you that feels impossibly pure to me. not untouched by life, but soft in a way that has survived it. you remind me that gentleness is its own kind of strength, and that love does not have to be loud to be life-changing. some people leave an impression; you leave peace.">
+    03/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="04/05/2026"
+    data-paper="stationery39.png"
+    data-body="my sunflower, they turn toward the light as though they already know where warmth lives, and that is what my heart does with you. no matter how crowded the world becomes, some part of me keeps orienting itself back to your softness, your smile, your way of making everything feel a little more alive. if love has instinct, then mine has always been to face you.">
+    04/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="05/05/2026"
+    data-paper="stationery22.png"
+    data-body="my peony, flower of romance and quiet prosperity, you feel to me like a love that blooms fully and without apology. there is something lush about the way you exist in my heart, something full, something generous, something almost too beautiful to hold in only one lifetime. if abundance could take the shape of feeling, i think it would look a little like the way i love you.">
+    05/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="06/05/2026"
+    data-paper="stationery44.png"
+    data-body="my carnation, they gave you the meaning of deep affection, and i think that is one of the truest forms of love. not only longing, not only wonder, but fondness so steady that it settles into every small part of life. i feel it in the way i think of you when nothing in particular has happened, in the way your name warms me even in passing. some loves arrive grandly. this one lives everywhere.">
+    06/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="07/05/2026"
+    data-paper="stationery28.png"
+    data-body="my daisy, flower of innocence and loyal affection, there is something so bright and easy about the thought of you. not simple in a lesser way, but simple in the way sunlight is — natural, welcome, quietly necessary. loving you reminds me that some of the most beautiful things in this world do not need to be complicated to be true. they only need to keep returning, the way my heart does to you.">
+    07/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="08/05/2026"
+    data-paper="stationery35.png"
+    data-body="my orchid, symbol of rare beauty, you feel like something the world does not make often. there is a kind of elegance in you that does not beg to be noticed and yet remains impossible to forget. some beauty is immediate; yours keeps unfolding the longer i know you. and maybe that is why i love you the way i do — because even wonder seems to deepen in your presence.">
+    08/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="09/05/2026"
+    data-paper="stationery32.png"
+    data-body="my lavender, flower of calm and devotion, you make me think of all the quiet ways love can heal a person. not through grand rescue, but through steadiness, through softness, through a presence that teaches the heart it no longer has to be afraid all the time. if peace ever took human form and let me love it, i think it might feel a little like you.">
+    09/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="10/05/2026"
+    data-paper="stationery43.png"
+    data-body="my jasmine, they say you carry the meaning of grace and sensual love, and there is something about you that feels exactly like that — gentle, lovely, and quietly intoxicating. never too loud, never asking for attention, but impossible not to feel once you are near. loving you is like breathing in something sweet and real and knowing i will remember it long after the moment has passed.">
+    10/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="11/05/2026"
+    data-paper="stationery27.png"
+    data-body="my baby’s breath, you remind me that even the smallest softness can change the entire shape of something beautiful. people call it a filler flower, but i think that misses the point. it is the tenderness between the petals, the quiet softness that makes the whole bouquet breathe. and, honestly, that is what your love is like to me — the gentle thing i never knew i needed, until everything became lovelier because of it.">
+    11/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="12/05/2026"
+    data-paper="stationery42.png"
+    data-body="my hydrangea, flower of heartfelt emotion, you feel like a love too full to keep hidden. there are feelings that can be folded neatly into words, and then there are feelings like this one — clustered, overflowing, beautiful in their abundance. that is what loving you has become for me: not one single emotion, but many soft truths gathered together until they bloom into something i can no longer deny.">
+    12/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="13/05/2026"
+    data-paper="stationery24.png"
+    data-body="my camellia, they gave you the meaning of admiration and longing, and i think both belong to you. because loving you is not only wanting to be near you, but looking at you with the kind of awe that makes language feel too small. there is something so quietly precious about you that my heart does not know how to hold it casually. it only knows how to cherish it.">
+    13/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="14/05/2026"
+    data-paper="stationery40.png"
+    data-body="my forget-me-not, tiny flower of remembrance, as though the world once feared that some loves might fade if they were not named carefully enough. but there is no danger of that with you. i could not forget you if i tried. you have made a home in too many corners of me already — in memory, in feeling, in hope. and i think that is one of the quietest miracles of love: how naturally it makes someone unforgettable.">
+    14/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="15/05/2026"
+    data-paper="stationery31.png"
+    data-body="my wisteria, symbol of devotion that lingers and grows, you feel like a love that does not rush but deepens. there is something beautiful about the way certain things take their time becoming magnificent, and that is how i think of what i feel for you. not fragile, not fleeting, but climbing softly toward something lasting, until one day i look up and realise my whole heart is covered in bloom.">
+    15/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="16/05/2026"
+    data-paper="stationery33.png"
+    data-body="my gardenia, flower of secret love and quiet devotion, you remind me of feelings too tender to announce loudly. there are parts of my love for you that live in silence, not because they are small, but because they are sacred. some things are felt so deeply that they do not need to be shown to the whole world. they only need to be placed gently in your hands, and trusted there.">
+    16/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="17/05/2026"
+    data-paper="stationery36.png"
+    data-body="my iris, flower of faith and hope, you make me believe in softer futures. not perfect ones, not easy ones, but futures where love is still worth choosing, even when the world feels uncertain. there is something about you that makes tomorrow feel less frightening to me. as though somewhere ahead, beyond all the noise, there is still a quiet place where my heart gets to find you again.">
+    17/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="18/05/2026"
+    data-paper="stationery37.png"
+    data-body="my magnolia, flower of dignity and enduring beauty, you feel like something timeless to me. not the kind of beauty that demands attention, but the kind that remains, calm and certain, long after everything else has passed. loving you feels like standing before something ancient and gentle, something that does not need to prove its worth because its presence alone is enough to make the world feel more graceful.">
+    18/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="19/05/2026"
+    data-paper="stationery06.png"
+    data-body="my love, happy monthsary. if you are reading this at midnight, then i hope this is the first little piece of love the day gives you. i hope today is gentle with you, and i hope somewhere in the quiet of the morning, you remember that you are loved so deeply, so patiently, and so completely. i look forward to every version of us that still waits ahead — every ordinary day, every soft morning, every small moment where i get to choose you again. happy monthsary, my heart. i love you more than yesterday, and i will love you again tomorrow.">
+    19/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="20/05/2026"
+    data-paper="stationery38.png"
+    data-body="my anemone, flower of anticipation, you remind me of the ache that comes from waiting for someone you love. not a hopeless ache, but one filled with tenderness, the kind that makes every hour apart feel quietly stretched toward you. i think my heart has learned to wait in your direction, always listening for the next moment it gets to soften again because you are near.">
+    20/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="21/05/2026"
+    data-paper="stationery45.png"
+    data-body="my bluebell, flower of humility and everlasting love, there is something so gentle about the way you exist in my heart. you do not need to be loud to be unforgettable. you do not need to ask for space to fill it. somehow, softly, naturally, you became one of the most constant things in me — the quiet bloom i keep finding, even in the hidden parts of myself.">
+    21/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="22/05/2026"
+    data-paper="stationery29.png"
+    data-body="my marigold, flower of warmth and devotion, you carry the colour of something that refuses to go cold. that is how my love feels with you — bright even in ordinary moments, steady even when the day is not perfect. you remind me that warmth is not only found in sunlight, but in the people who make life feel less heavy simply by being loved by them.">
+    22/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="23/05/2026"
+    data-paper="stationery30.png"
+    data-body="my poppy, flower of remembrance and dreams, you live in my mind so naturally that even my quietest thoughts seem to make room for you. there are moments where nothing has happened, and still, you return to me like a soft dream i did not want to wake from. if memory could bloom, i think mine would be full of you — gentle, vivid, and impossible to lose.">
+    23/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="24/05/2026"
+    data-paper="stationery34.png"
+    data-body="my violet, flower of faithfulness and modest love, you remind me that devotion does not always need grand gestures to be real. sometimes it is quieter than that. sometimes it is found in staying, in remembering, in choosing someone again even when no one is watching. and that is how i love you — not only in the beautiful moments, but in the small faithful ones that build a life.">
+    24/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="25/05/2026"
+    data-paper="stationery41.png"
+    data-body="my chrysanthemum, flower of joy and lasting affection, you make happiness feel like something that can stay. not just a passing brightness, not just a moment that fades once the day ends, but something rooted and warm. loving you has taught me that joy does not always arrive loudly. sometimes it sits beside you gently, smiles in your voice, and makes a home out of the ordinary.">
+    25/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="26/05/2026"
+    data-paper="stationery26.png"
+    data-body="my azalea, flower of care and fragile passion, you remind me that love can be both delicate and strong. there are feelings in me that become softer around you, not weaker, just more honest. i want to care for what we have with patient hands, to hold it gently without ever treating it like something small. because what i feel for you is tender, yes, but it is also alive, and deeply worth protecting.">
+    26/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="27/05/2026"
+    data-paper="stationery39.png"
+    data-body="my dahlia, flower of elegance and inner strength, you make beauty feel brave. there is something about you that blooms with grace, even when life asks you to carry more than you should. i admire that more than i know how to say. not because you are never hurt, but because even with everything you have felt, there is still softness in you. still light. still something precious that refuses to disappear.">
+    27/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="28/05/2026"
+    data-paper="stationery22.png"
+    data-body="my sweet pea, flower of delicate pleasure and gratitude, you remind me of the kind of happiness that feels almost too gentle to disturb. the small sweetness of your presence, the comfort in your voice, the way even ordinary things feel more beautiful when they belong to a day with you in it. if gratitude could bloom, mine would keep returning to the same truth: i am so lucky to love you.">
+    28/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="29/05/2026"
+    data-paper="stationery44.png"
+    data-body="my freesia, flower of trust and innocence, you make love feel safe in a way i did not know i needed. not because everything is always easy, but because something in me believes in the softness of you. there is a quiet honesty in the way my heart rests around you, as though it has finally found a place where it does not have to pretend to be anything other than yours.">
+    29/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="30/05/2026"
+    data-paper="stationery28.png"
+    data-body="my lotus, flower of purity, devotion, and becoming, you remind me that beautiful things can rise from deep waters. there is something about loving you that makes me believe in growth, in softness after hardship, in the way the heart can open again even after it has known fear. you are not only beautiful to me because you bloom. you are beautiful because of everything you have risen through.">
+    30/05/2026
+    </button>
+    <button class="letter-card"
+    data-title="31/05/2026"
+    data-paper="stationery35.png"
+    data-body="my cherry blossom, flower of fleeting beauty and cherished moments, you remind me that time is precious because it does not stay still. maybe that is why every moment with you feels worth holding carefully. not because i fear losing it, but because i know how rare it is to be alive at the same time as someone who makes the world feel this soft. if a month can bloom, then mine bloomed with you.">
+    31/05/2026
+    </button>
+    </div>
+  </section>
 
   <!-- MODAL -->
   <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
@@ -767,6 +920,42 @@
       overlay.classList.remove("show");
       overlay.setAttribute("aria-hidden", "true");
     }
+
+
+
+    // ===== MONTH MENU =====
+    const monthMenu = document.getElementById("monthMenu");
+    const monthButtons = document.querySelectorAll(".month-card");
+    const monthSections = document.querySelectorAll(".month-section");
+    const backButtons = document.querySelectorAll(".back-btn");
+
+    function showMonth(monthId) {
+      monthMenu.classList.add("hidden");
+
+      monthSections.forEach((section) => {
+        section.classList.add("hidden");
+      });
+
+      document.getElementById(monthId).classList.remove("hidden");
+    }
+
+    function showMonthMenu() {
+      monthMenu.classList.remove("hidden");
+
+      monthSections.forEach((section) => {
+        section.classList.add("hidden");
+      });
+    }
+
+    monthButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        showMonth(button.dataset.month);
+      });
+    });
+
+    backButtons.forEach((button) => {
+      button.addEventListener("click", showMonthMenu);
+    });
 
     // ===== DATE LOCKING =====
     function parseDMY(dmy) {
@@ -924,7 +1113,3 @@
   </script>
 </body>
 </html>
-
-
-
-
