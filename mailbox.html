@@ -1415,6 +1415,67 @@
       });
     });
 
+    // ===== FAVOURITES / STARRED LETTERS =====
+const FAVOURITES_KEY = "mailbox_favourites_v1";
+
+function loadFavourites() {
+  try {
+    return JSON.parse(localStorage.getItem(FAVOURITES_KEY)) || [];
+  } catch (_) {
+    return [];
+  }
+}
+
+function saveFavourites(favourites) {
+  localStorage.setItem(FAVOURITES_KEY, JSON.stringify(favourites));
+}
+
+function getLetterId(card) {
+  const monthSection = card.closest(".month-section");
+  const monthId = monthSection ? monthSection.id : "unknown-month";
+
+  return `${monthId}-${card.dataset.title}`;
+}
+
+function setupFavourites() {
+  const favourites = loadFavourites();
+
+  document.querySelectorAll(".letter-card:not(.locked)").forEach((card) => {
+    const letterId = getLetterId(card);
+
+    const star = document.createElement("span");
+    star.className = "favourite-star";
+    star.textContent = favourites.includes(letterId) ? "★" : "☆";
+
+    if (favourites.includes(letterId)) {
+      card.classList.add("favourited");
+    }
+
+    star.addEventListener("click", (event) => {
+      event.stopPropagation();
+      event.preventDefault();
+
+      const index = favourites.indexOf(letterId);
+
+      if (index === -1) {
+        favourites.push(letterId);
+        card.classList.add("favourited");
+        star.textContent = "★";
+      } else {
+        favourites.splice(index, 1);
+        card.classList.remove("favourited");
+        star.textContent = "☆";
+      }
+
+      saveFavourites(favourites);
+    });
+
+    card.appendChild(star);
+  });
+}
+
+setupFavourites();
+
     closeBtn.addEventListener("click", closeModal);
 
     overlay.addEventListener("click", (e) => {
