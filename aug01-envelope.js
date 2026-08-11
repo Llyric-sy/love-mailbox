@@ -55,11 +55,6 @@
       }
     }
 
-    /*
-      Keep the envelope itself strictly 2D. iOS/iPadOS Safari can ignore
-      z-index ordering inside preserve-3d trees, which made the letter look
-      like it passed underneath/through the envelope.
-    */
     .aug-envelope {
       position: absolute;
       inset: 0;
@@ -97,20 +92,26 @@
       clip-path: polygon(100% 0, 0 50%, 100% 100%);
     }
 
+    /*
+      The letter now begins completely inside the physical bounds of the
+      envelope. Its bottom edge never hangs below the envelope before the
+      opening animation starts, which prevents the "clipping through" look
+      on iPhone and iPad.
+    */
     .aug-letter-preview {
       position: absolute;
       z-index: 3;
-      left: 8%;
-      right: 8%;
-      top: 10%;
-      height: 78%;
+      left: 9%;
+      right: 9%;
+      top: 15%;
+      height: 72%;
       border-radius: 7px 7px 4px 4px;
       background-color: #fffaf1;
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
       box-shadow: 0 5px 14px rgba(77, 48, 31, 0.18);
-      transform: translateY(39%) scale(0.9);
+      transform: translateY(10%) scale(0.92);
       transform-origin: center bottom;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
@@ -137,7 +138,7 @@
       box-shadow: 0 2px 8px rgba(70, 44, 30, 0.08);
     }
 
-    /* Front pocket sits above the letter while it is still inside. */
+    /* This is the physical front wall of the envelope. */
     .aug-envelope-pocket {
       position: absolute;
       inset: 0;
@@ -164,7 +165,6 @@
       clip-path: polygon(0 100%, 50% 51%, 100% 100%);
     }
 
-    /* 2D flap animation avoids Safari's preserve-3d stacking bug. */
     .aug-envelope-flap {
       position: absolute;
       inset: 0;
@@ -214,12 +214,15 @@
       transform: translate(-50%, -50%) scale(0.72);
     }
 
-    /* First rise from behind the pocket, like a real letter being removed. */
+    /*
+      Keep the letter BEHIND the pocket for the complete pull-out motion.
+      -102% moves its bottom edge above the pocket's highest side edge.
+    */
     .aug-envelope-stage.is-lifting .aug-letter-preview {
-      transform: translateY(-70%) scale(1.07);
+      transform: translateY(-102%) scale(1.04);
     }
 
-    /* Once the top of the letter clears the pocket, explicitly bring it forward. */
+    /* Only after it has physically cleared the envelope may it sit on top. */
     .aug-envelope-stage.is-front .aug-letter-preview {
       z-index: 8;
     }
@@ -239,7 +242,7 @@
 
     .aug-envelope-stage.is-handoff .aug-letter-preview {
       z-index: 9;
-      transform: translateY(-28%) scale(2.3);
+      transform: translateY(-42%) scale(2.3);
       opacity: 0;
       filter: blur(1px);
       transition:
@@ -331,14 +334,14 @@
 
     later(() => stage.classList.add('is-opening'), 760);
     later(() => stage.classList.add('is-lifting'), 1320);
-    later(() => stage.classList.add('is-front'), 1570);
-    later(() => stage.classList.add('is-handoff'), 2180);
+    later(() => stage.classList.add('is-front'), 2070);
+    later(() => stage.classList.add('is-handoff'), 2240);
     later(() => {
       revealLetter(card);
       stage.classList.remove('is-active');
       stage.setAttribute('aria-hidden', 'true');
-    }, 2490);
-    later(resetStage, 2850);
+    }, 2550);
+    later(resetStage, 2910);
   }
 
   document.addEventListener('click', (event) => {
