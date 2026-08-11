@@ -30,6 +30,7 @@
       width: min(78vw, 360px);
       aspect-ratio: 1.55 / 1;
       position: relative;
+      overflow: visible;
       opacity: 0;
       transform: translateY(58vh) scale(0.86) rotate(2deg);
       filter: drop-shadow(0 20px 24px rgba(62, 40, 29, 0.28));
@@ -54,11 +55,16 @@
       }
     }
 
+    /*
+      Keep the envelope itself strictly 2D. iOS/iPadOS Safari can ignore
+      z-index ordering inside preserve-3d trees, which made the letter look
+      like it passed underneath/through the envelope.
+    */
     .aug-envelope {
       position: absolute;
       inset: 0;
-      perspective: 900px;
-      transform-style: preserve-3d;
+      overflow: visible;
+      isolation: isolate;
     }
 
     .aug-envelope-back {
@@ -93,7 +99,7 @@
 
     .aug-letter-preview {
       position: absolute;
-      z-index: 2;
+      z-index: 3;
       left: 8%;
       right: 8%;
       top: 10%;
@@ -106,6 +112,9 @@
       box-shadow: 0 5px 14px rgba(77, 48, 31, 0.18);
       transform: translateY(39%) scale(0.9);
       transform-origin: center bottom;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      will-change: transform, opacity;
       transition:
         transform 820ms cubic-bezier(.2,.76,.2,1),
         opacity 360ms ease,
@@ -128,10 +137,11 @@
       box-shadow: 0 2px 8px rgba(70, 44, 30, 0.08);
     }
 
+    /* Front pocket sits above the letter while it is still inside. */
     .aug-envelope-pocket {
       position: absolute;
       inset: 0;
-      z-index: 3;
+      z-index: 4;
       border-radius: 0 0 10px 10px;
       overflow: hidden;
       pointer-events: none;
@@ -154,13 +164,13 @@
       clip-path: polygon(0 100%, 50% 51%, 100% 100%);
     }
 
+    /* 2D flap animation avoids Safari's preserve-3d stacking bug. */
     .aug-envelope-flap {
       position: absolute;
       inset: 0;
       z-index: 5;
       transform-origin: 50% 0%;
-      transform: rotateX(0deg);
-      transform-style: preserve-3d;
+      transform: translateY(0) scaleY(1);
       transition: transform 650ms cubic-bezier(.35,.02,.2,1);
       pointer-events: none;
     }
@@ -173,7 +183,6 @@
       background: #f0dcc1;
       clip-path: polygon(0 0, 100% 0, 50% 68%);
       border-top: 1px solid rgba(121, 87, 58, 0.14);
-      backface-visibility: hidden;
     }
 
     .aug-envelope-seal {
@@ -196,7 +205,8 @@
     }
 
     .aug-envelope-stage.is-opening .aug-envelope-flap {
-      transform: rotateX(180deg);
+      z-index: 2;
+      transform: translateY(-67%) scaleY(-1);
     }
 
     .aug-envelope-stage.is-opening .aug-envelope-seal {
@@ -204,9 +214,14 @@
       transform: translate(-50%, -50%) scale(0.72);
     }
 
+    /* First rise from behind the pocket, like a real letter being removed. */
     .aug-envelope-stage.is-lifting .aug-letter-preview {
-      z-index: 4;
       transform: translateY(-70%) scale(1.07);
+    }
+
+    /* Once the top of the letter clears the pocket, explicitly bring it forward. */
+    .aug-envelope-stage.is-front .aug-letter-preview {
+      z-index: 8;
     }
 
     .aug-envelope-stage.is-handoff .aug-envelope-wrap {
@@ -223,6 +238,7 @@
     }
 
     .aug-envelope-stage.is-handoff .aug-letter-preview {
+      z-index: 9;
       transform: translateY(-28%) scale(2.3);
       opacity: 0;
       filter: blur(1px);
@@ -283,7 +299,7 @@
   function resetStage() {
     timers.forEach(window.clearTimeout);
     timers = [];
-    stage.classList.remove('is-active', 'is-opening', 'is-lifting', 'is-handoff');
+    stage.classList.remove('is-active', 'is-opening', 'is-lifting', 'is-front', 'is-handoff');
     stage.setAttribute('aria-hidden', 'true');
     preview.style.backgroundImage = '';
     playing = false;
@@ -315,6 +331,7 @@
 
     later(() => stage.classList.add('is-opening'), 760);
     later(() => stage.classList.add('is-lifting'), 1320);
+    later(() => stage.classList.add('is-front'), 1570);
     later(() => stage.classList.add('is-handoff'), 2180);
     later(() => {
       revealLetter(card);
@@ -336,5 +353,3 @@
     playAug01(card);
   }, true);
 })();
-
-// Aug 01 prototype hook trigger.
