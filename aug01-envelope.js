@@ -336,3 +336,5 @@
     playAug01(card);
   }, true);
 })();
+
+// Aug 01 prototype hook trigger.
