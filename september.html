@@ -8,48 +8,43 @@
 </head>
 <body>
   <main class="month-shell">
-    <aside class="month-panel">
-      <div class="top-row">
-        <a class="back-link" href="index.html">← months</a>
-        <span class="review-pill">unlocked for review</span>
+    <header class="month-header">
+      <a class="back-link" href="index.html">← months</a>
+      <div class="month-title">
+        <h1>september.</h1>
+        <p>the road after the storm.</p>
       </div>
+    </header>
 
-      <h1>september.</h1>
-      <p class="month-subtitle">the road after the storm.</p>
-
-      <div class="month-progress">
-        <div class="month-progress-row">
-          <span>reading progress</span>
-          <span id="monthProgressText">0 / 30</span>
+    <div class="month-layout">
+      <aside class="theme-panel" aria-label="september decoration">
+        <div class="scrap-card" aria-hidden="true">
+          <span class="tape tape-a"></span>
+          <span class="tape tape-b"></span>
+          <div class="route-mark">
+            <i></i><i></i><i></i>
+          </div>
+          <strong>september.</strong>
+          <small>the road after the storm.</small>
         </div>
-        <div class="progress-track"><div class="progress-fill" id="monthProgressFill"></div></div>
-      </div>
-
-      <div class="day-list" id="dayList" aria-label="september entries"></div>
-    </aside>
-
-    <section class="mailbox-scene" aria-label="storybook mailbox">
-      <div class="scene-copy">
-        <strong>september.</strong>
-        <span>choose a day and the storybook will rise from the mailbox.</span>
-      </div>
-      <div class="mailbox" aria-hidden="true">
-        <div class="mailbox-post"></div>
-        <div class="mailbox-box">
-          <div class="mailbox-slot"></div>
-          <div class="mailbox-door"></div>
+        <div class="mailbox" aria-hidden="true">
+          <div class="mailbox-post"></div>
+          <div class="mailbox-box"><div class="mailbox-slot"></div><div class="mailbox-door"></div></div>
+          <div class="mailbox-flag"></div>
         </div>
-        <div class="mailbox-flag"></div>
-      </div>
-      <div class="scene-hint">choose a day.</div>
-    </section>
+      </aside>
+
+      <section class="day-pane">
+        <div class="day-list" id="dayList" aria-label="september entries"></div>
+      </section>
+    </div>
   </main>
 
   <div class="reader-overlay" id="readerOverlay" aria-hidden="true">
     <button class="reader-close" id="readerClose" type="button" aria-label="close story">×</button>
 
-    <div class="book-stage" id="bookStage">
-      <button class="closed-book" id="closedBook" type="button" aria-label="open the storybook">
+    <div class="book-stage">
+      <button class="closed-book" id="closedBook" type="button" aria-label="open storybook">
         <span>for my love.</span>
         <small>tap to open.</small>
       </button>
@@ -63,11 +58,7 @@
           <aside class="book-page left-page">
             <span class="entry-label" id="entryLabel">entry 01</span>
             <h2 class="entry-date" id="entryDate">sep. 1.</h2>
-            <div class="route-art" aria-hidden="true">
-              <i class="route-dot a"></i>
-              <i class="route-dot b"></i>
-              <i class="route-dot c"></i>
-            </div>
+            <div class="route-art" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i></div>
           </aside>
 
           <section class="book-page right-page" id="rightPage">
@@ -76,9 +67,9 @@
               <strong id="mobileDate">sep. 1.</strong>
             </div>
 
-            <button class="page-back" id="pageBack" type="button" aria-label="previous page">←</button>
             <div class="story-body" id="storyBody"></div>
 
+            <button class="page-back" id="pageBack" type="button" aria-label="previous page">←</button>
             <div class="reader-footer">
               <div class="reader-meta">
                 <span id="pageCount">1 / 1</span>
