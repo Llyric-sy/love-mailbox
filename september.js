@@ -19,6 +19,17 @@
   const mobileEntry = document.getElementById('mobileEntry');
   const mobileDate = document.getElementById('mobileDate');
 
+  const dayCardStyle = document.createElement('style');
+  dayCardStyle.textContent = `
+    .day-card .day {
+      margin-top: 0 !important;
+      font-size: 1rem !important;
+      font-weight: 700 !important;
+      line-height: 1.2;
+    }
+  `;
+  document.head.appendChild(dayCardStyle);
+
   let activeDay = null;
   let pages = [];
   let pageIndex = 0;
@@ -126,7 +137,7 @@
     button.type = 'button';
     button.className = 'day-card';
     button.dataset.day = String(day);
-    button.innerHTML = `<span class="mini">september ${day}.</span><span class="day">sep ${String(day).padStart(2,'0')}</span>`;
+    button.innerHTML = `<span class="day">sep ${String(day).padStart(2,'0')}</span>`;
 
     const unlocked = isUnlocked(day);
     if (!unlocked) {
