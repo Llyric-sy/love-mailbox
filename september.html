@@ -1,774 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>September — for my love</title>
-<style>
-:root{
-  --paper:#fbf4e8;
-  --paper-deep:#f3e7d5;
-  --cream:#f7eddd;
-  --cream-2:#ecddc8;
-  --ink:#5c493c;
-  --muted:#8d7868;
-  --line:rgba(112,84,61,.14);
-  --cover:#c6a57e;
-  --cover-dark:#b38c64;
-  --ribbon:#a66f69;
-  --shadow:rgba(72,48,31,.18);
-}
-*{box-sizing:border-box}
-html,body{min-height:100%}
-body{
-  margin:0;
-  color:var(--ink);
-  font-family:Georgia,"Times New Roman",serif;
-  background:linear-gradient(180deg,#efe3d2,#e5d4bd);
-}
-button,a{font:inherit}
-button{-webkit-tap-highlight-color:transparent}
-
-/* ===== MONTH SCREEN ===== */
-.month-shell{
-  width:min(1180px,96vw);
-  min-height:min(760px,94vh);
-  margin:3vh auto;
-  padding:20px;
-  border-radius:24px;
-  background:rgba(249,240,226,.88);
-  box-shadow:0 22px 55px rgba(74,49,31,.16),inset 0 0 0 1px rgba(255,255,255,.45);
-  display:grid;
-  grid-template-columns:300px 1fr;
-  gap:20px;
-}
-.month-panel,
-.mailbox-scene{
-  border-radius:22px;
-  border:1px solid rgba(255,255,255,.7);
-  background:rgba(249,241,229,.72);
-  box-shadow:inset 0 0 28px rgba(137,105,76,.035);
-}
-.month-panel{
-  padding:28px 20px 20px;
-  display:flex;
-  min-height:0;
-  flex-direction:column;
-}
-.top-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.back-link{
-  color:var(--muted);
-  text-decoration:none;
-  font-size:.76rem;
-  text-transform:lowercase;
-}
-.review-pill{
-  padding:5px 8px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  color:var(--muted);
-  font-size:.62rem;
-  text-transform:lowercase;
-  white-space:nowrap;
-}
-.month-panel h1{
-  margin:26px 0 4px;
-  font-size:2rem;
-  line-height:1;
-  font-weight:500;
-  text-transform:lowercase;
-}
-.month-subtitle{
-  margin:0;
-  color:var(--muted);
-  font-size:.92rem;
-  text-transform:lowercase;
-}
-.month-progress{margin:22px 0 18px}
-.month-progress-row{
-  display:flex;
-  justify-content:space-between;
-  color:var(--muted);
-  font-size:.68rem;
-  text-transform:lowercase;
-}
-.progress-track{
-  height:4px;
-  margin-top:7px;
-  border-radius:999px;
-  overflow:hidden;
-  background:rgba(102,76,55,.11);
-}
-.progress-fill{
-  height:100%;
-  width:0;
-  border-radius:inherit;
-  background:rgba(108,78,57,.48);
-  transition:width .25s ease;
-}
-.day-list{
-  min-height:0;
-  overflow:auto;
-  padding-right:4px;
-  display:grid;
-  gap:9px;
-  scrollbar-width:thin;
-  scrollbar-color:rgba(108,78,57,.22) transparent;
-}
-.day-card{
-  width:100%;
-  min-height:58px;
-  padding:10px 13px;
-  border:0;
-  border-radius:15px;
-  background:rgba(255,251,245,.78);
-  color:var(--ink);
-  text-align:left;
-  cursor:pointer;
-  box-shadow:0 5px 13px rgba(75,50,31,.055);
-  transition:transform .16s ease,box-shadow .16s ease,opacity .16s ease;
-}
-.day-card:hover{transform:translateY(-1px);box-shadow:0 8px 16px rgba(75,50,31,.09)}
-.day-card .mini{display:block;color:var(--muted);font-size:.64rem;letter-spacing:.035em;text-transform:lowercase}
-.day-card .day{display:block;margin-top:3px;font-size:1rem;text-transform:lowercase}
-.day-card.read::after{content:"read";float:right;margin-top:-17px;color:rgba(93,115,86,.68);font-size:.58rem;text-transform:lowercase}
-.day-card.locked{opacity:.45;cursor:not-allowed}
-
-.mailbox-scene{
-  position:relative;
-  overflow:hidden;
-  min-height:680px;
-  background:
-    radial-gradient(circle at 50% 18%,rgba(255,255,255,.44),transparent 38%),
-    linear-gradient(180deg,#f9f1e5 0%,#f8efe1 68%,#e9d3b7 68%,#dfc4a1 100%);
-}
-.scene-copy{
-  position:absolute;
-  top:36px;
-  left:50%;
-  transform:translateX(-50%);
-  width:min(520px,80%);
-  text-align:center;
-  color:var(--muted);
-  text-transform:lowercase;
-}
-.scene-copy strong{display:block;color:var(--ink);font-weight:500;font-size:1.18rem;margin-bottom:6px}
-.scene-copy span{font-size:.82rem}
-.mailbox{
-  position:absolute;
-  left:50%;
-  bottom:105px;
-  transform:translateX(-50%);
-  width:190px;
-  height:138px;
-}
-.mailbox-box{
-  position:absolute;
-  left:0;top:0;
-  width:168px;height:116px;
-  border-radius:82px 82px 20px 20px;
-  background:linear-gradient(180deg,#d7b58c,#c69768);
-  border:1px solid rgba(112,78,50,.18);
-  box-shadow:inset 0 -14px 0 rgba(141,96,60,.08);
-}
-.mailbox-slot{
-  position:absolute;
-  left:47px;top:56px;
-  width:77px;height:9px;
-  border-radius:999px;
-  background:rgba(108,78,55,.47);
-  box-shadow:inset 0 1px 3px rgba(76,53,38,.24);
-}
-.mailbox-door{
-  position:absolute;
-  left:17px;bottom:17px;
-  width:136px;height:42px;
-  border-radius:10px;
-  background:rgba(255,244,226,.19);
-  border:1px solid rgba(111,78,51,.12);
-}
-.mailbox-post{
-  position:absolute;
-  left:82px;top:113px;
-  width:23px;height:126px;
-  background:linear-gradient(90deg,#b88b64,#c79d78);
-  border-radius:8px 8px 0 0;
-}
-.mailbox-flag{
-  position:absolute;
-  right:4px;top:42px;
-  width:10px;height:62px;
-  border-radius:999px;
-  background:#bb875e;
-  transform:rotate(15deg);
-  transform-origin:bottom center;
-}
-.mailbox-flag::after{
-  content:"";
-  position:absolute;
-  top:0;left:3px;
-  width:32px;height:18px;
-  border-radius:3px 8px 8px 3px;
-  background:#d5ad83;
-}
-.scene-hint{
-  position:absolute;
-  left:50%;bottom:73px;
-  transform:translateX(-50%);
-  color:var(--muted);
-  font-size:.74rem;
-  text-transform:lowercase;
-  white-space:nowrap;
-}
-
-/* ===== READER / OPENING ANIMATION ===== */
-.reader-overlay{
-  position:fixed;
-  inset:0;
-  z-index:10000;
-  display:grid;
-  place-items:center;
-  padding:18px;
-  background:rgba(49,36,29,.26);
-  -webkit-backdrop-filter:blur(4px);
-  backdrop-filter:blur(4px);
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
-  transition:opacity .22s ease,visibility .22s ease;
-}
-.reader-overlay.show{opacity:1;visibility:visible;pointer-events:auto}
-.reader-close{
-  position:fixed;
-  top:max(14px,env(safe-area-inset-top));
-  right:max(14px,env(safe-area-inset-right));
-  z-index:10005;
-  width:40px;height:40px;
-  border:0;border-radius:50%;
-  background:rgba(255,250,244,.92);
-  color:var(--ink);
-  box-shadow:0 6px 16px rgba(60,42,30,.13);
-  cursor:pointer;
-  font-size:1.25rem;
-}
-.book-stage{
-  position:relative;
-  width:min(980px,96vw);
-  height:min(640px,88vh);
-  opacity:0;
-  transform:translateY(46vh) scale(.22) rotate(-2deg);
-  transform-origin:50% 100%;
-}
-.reader-overlay.show .book-stage{
-  animation:book-rise .68s cubic-bezier(.18,.82,.22,1.06) forwards;
-}
-@keyframes book-rise{
-  0%{opacity:0;transform:translateY(46vh) scale(.22) rotate(-2deg)}
-  68%{opacity:1;transform:translateY(-12px) scale(.48) rotate(.5deg)}
-  100%{opacity:1;transform:translateY(0) scale(1) rotate(0)}
-}
-.closed-book{
-  position:absolute;
-  z-index:6;
-  left:50%;top:50%;
-  width:44%;height:88%;
-  transform:translate(-50%,-50%);
-  border-radius:15px;
-  background:linear-gradient(135deg,#c9a77e,#ad855e);
-  border:1px solid rgba(95,66,43,.18);
-  box-shadow:0 20px 34px rgba(63,43,29,.22),inset 12px 0 18px rgba(255,255,255,.08);
-  transition:opacity .38s ease,transform .64s cubic-bezier(.2,.75,.18,1);
-}
-.closed-book::before{
-  content:"for my love.";
-  position:absolute;
-  left:50%;top:46%;
-  transform:translate(-50%,-50%);
-  color:rgba(255,249,239,.78);
-  font-size:1.1rem;
-  text-transform:lowercase;
-  white-space:nowrap;
-}
-.closed-book::after{
-  content:"";
-  position:absolute;
-  top:0;bottom:0;left:13px;
-  width:2px;
-  background:rgba(96,65,43,.16);
-}
-.book-spread{
-  position:absolute;
-  inset:0;
-  opacity:0;
-  transform:scaleX(.13);
-  transform-origin:50% 50%;
-  transition:opacity .28s ease,transform .68s cubic-bezier(.2,.77,.18,1);
-  filter:drop-shadow(0 28px 40px var(--shadow));
-}
-.reader-overlay.opening .closed-book{opacity:0;transform:translate(-50%,-50%) scaleX(.18)}
-.reader-overlay.opening .book-spread{opacity:1;transform:scaleX(1)}
-.book-cover{
-  position:absolute;
-  inset:0;
-  border-radius:20px;
-  background:linear-gradient(180deg,var(--cover),var(--cover-dark));
-  border:1px solid rgba(92,66,44,.13);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 -12px 20px rgba(75,50,31,.08);
-}
-.spread{
-  position:absolute;
-  inset:16px;
-  z-index:2;
-  display:grid;
-  grid-template-columns:40% 60%;
-}
-.book-page{
-  position:relative;
-  overflow:hidden;
-  background:
-    linear-gradient(180deg,rgba(255,255,255,.34),rgba(255,255,255,.08)),
-    repeating-linear-gradient(180deg,transparent 0,transparent 12px,rgba(129,103,78,.025) 13px),
-    linear-gradient(180deg,var(--paper),var(--paper-deep));
-  box-shadow:inset 0 0 0 1px rgba(106,79,57,.07),inset 0 0 18px rgba(111,83,60,.035);
-}
-.left-page{
-  padding:40px 36px;
-  border-radius:13px 4px 4px 13px;
-  border-right:1px solid rgba(111,83,60,.14);
-}
-.right-page{
-  padding:40px 44px 68px;
-  border-radius:4px 13px 13px 4px;
-  cursor:pointer;
-  transform-origin:left center;
-  transition:transform .2s ease,opacity .2s ease;
-  -webkit-tap-highlight-color:transparent;
-}
-.right-page.turning{transform:rotateY(-8deg) translateX(-3px);opacity:.55}
-.spine{
-  position:absolute;
-  z-index:5;
-  top:12px;bottom:12px;left:40%;
-  width:38px;
-  transform:translateX(-50%);
-  border-radius:18px;
-  pointer-events:none;
-  background:linear-gradient(90deg,rgba(79,56,39,.15),rgba(255,255,255,.08),rgba(79,56,39,.15));
-}
-.ribbon{
-  position:absolute;
-  z-index:6;
-  top:0;left:calc(40% - 7px);
-  width:14px;height:86px;
-  border-radius:0 0 8px 8px;
-  background:linear-gradient(#b67f78,var(--ribbon));
-  pointer-events:none;
-}
-.ribbon::after{
-  content:"";
-  position:absolute;left:0;right:0;bottom:-9px;margin:auto;width:0;height:0;
-  border-left:7px solid transparent;border-right:7px solid transparent;border-top:9px solid var(--ribbon);
-}
-.entry-label{
-  display:block;
-  margin-bottom:10px;
-  color:var(--muted);
-  font-size:.72rem;
-  letter-spacing:.07em;
-  text-transform:lowercase;
-}
-.entry-date{
-  margin:0;
-  font-size:clamp(2rem,4vw,3rem);
-  font-weight:500;
-  line-height:1;
-  text-transform:lowercase;
-}
-.route-art{
-  position:absolute;
-  left:38px;right:38px;bottom:54px;
-  height:220px;
-  opacity:.2;
-}
-.route-art::before{
-  content:"";
-  position:absolute;
-  left:13%;top:8px;
-  width:66%;height:172px;
-  border-left:2px dashed var(--ink);
-  border-bottom:2px dashed var(--ink);
-  border-radius:0 0 0 72%;
-  transform:rotate(-11deg);
-}
-.route-dot{position:absolute;width:8px;height:8px;border:1px solid var(--ink);border-radius:50%;background:var(--paper)}
-.route-dot.a{left:11%;top:6px}.route-dot.b{left:35%;top:102px}.route-dot.c{left:76%;bottom:20px}
-.mobile-story-header{display:none}
-.story-body{height:100%;overflow:hidden;padding-right:2px}
-.story-body p{margin:0 0 1.04em;font-size:1.01rem;line-height:1.72}
-.story-body p:last-child{margin-bottom:0}
-.page-back{
-  position:absolute;
-  z-index:4;
-  left:10px;bottom:16px;
-  width:34px;height:34px;
-  border:0;border-radius:50%;
-  background:transparent;
-  color:var(--muted);
-  cursor:pointer;
-  opacity:0;
-  pointer-events:none;
-  font-size:1.05rem;
-}
-.page-back.show{opacity:1;pointer-events:auto}
-.reader-footer{
-  position:absolute;
-  z-index:3;
-  left:44px;right:44px;bottom:18px;
-}
-.reader-meta{
-  display:flex;
-  justify-content:space-between;
-  gap:18px;
-  margin-bottom:7px;
-  color:var(--muted);
-  font-size:.69rem;
-  text-transform:lowercase;
-}
-.reader-track{height:3px;border-radius:999px;overflow:hidden;background:rgba(108,82,60,.12)}
-.reader-track span{display:block;width:0;height:100%;border-radius:inherit;background:rgba(109,78,57,.54);transition:width .2s ease}
-body.reader-open{overflow:hidden}
-
-@media(max-width:720px){
-  body{background:linear-gradient(180deg,#f1e5d4,#e6d5be)}
-  .month-shell{
-    width:100%;
-    min-height:100vh;
-    margin:0;
-    padding:max(18px,env(safe-area-inset-top)) 14px max(26px,env(safe-area-inset-bottom));
-    border-radius:0;
-    display:block;
-  }
-  .month-panel{
-    padding:14px 10px 18px;
-    border:0;
-    box-shadow:none;
-    background:transparent;
-  }
-  .top-row{margin-bottom:8px}
-  .month-panel h1{margin:16px 0 4px;font-size:2.15rem}
-  .month-progress{margin:18px 0 16px}
-  .day-list{
-    overflow:visible;
-    padding:0;
-    grid-template-columns:repeat(5,minmax(0,1fr));
-    gap:8px;
-  }
-  .day-card{
-    min-height:54px;
-    padding:8px 4px;
-    text-align:center;
-    border-radius:13px;
-  }
-  .day-card .mini{display:none}
-  .day-card .day{font-size:.95rem}
-  .day-card.read::after{display:none}
-  .mailbox-scene{
-    margin-top:6px;
-    min-height:250px;
-    border-radius:20px;
-    background:linear-gradient(180deg,#f9f1e5 0%,#f8efe1 59%,#ead3b6 59%,#dfc29d 100%);
-  }
-  .scene-copy{top:22px}
-  .scene-copy strong{font-size:1rem}
-  .scene-copy span{font-size:.72rem}
-  .mailbox{bottom:42px;transform:translateX(-50%) scale(.62);transform-origin:bottom center}
-  .scene-hint{bottom:18px;font-size:.66rem}
-
-  .reader-overlay{padding:8px}
-  .reader-close{width:36px;height:36px;font-size:1.08rem}
-  .book-stage{
-    width:100vw;
-    height:min(790px,92vh);
-  }
-  .closed-book{width:68%;height:76%}
-  .book-spread{filter:drop-shadow(0 22px 32px var(--shadow))}
-  .book-cover{border-radius:18px}
-  .spread{
-    inset:9px;
-    display:block;
-  }
-  /* mobile is one full story page: no left/right split */
-  .left-page,.spine,.ribbon{display:none}
-  .right-page{
-    width:100%;
-    height:100%;
-    padding:0 20px 58px;
-    border-radius:13px;
-    transform-origin:center center;
-  }
-  .right-page.turning{transform:translateX(-10px);opacity:.48}
-  .mobile-story-header{
-    display:flex;
-    align-items:flex-end;
-    justify-content:space-between;
-    gap:14px;
-    min-height:76px;
-    margin:0 -20px 22px;
-    padding:22px 20px 14px;
-    border-bottom:1px solid rgba(111,83,60,.12);
-    background:rgba(255,252,246,.2);
-  }
-  .mobile-story-header small{
-    color:var(--muted);
-    font-size:.66rem;
-    letter-spacing:.06em;
-    text-transform:lowercase;
-  }
-  .mobile-story-header strong{
-    font-size:1.18rem;
-    font-weight:500;
-    text-transform:lowercase;
-  }
-  .story-body{height:calc(100% - 98px)}
-  .story-body p{font-size:.96rem;line-height:1.62;margin-bottom:.95em}
-  .reader-footer{left:20px;right:20px;bottom:14px}
-  .page-back{left:4px;bottom:8px;width:30px;height:30px}
-}
-@media(max-width:390px){
-  .day-list{grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
-  .day-card{min-height:48px}
-  .story-body p{font-size:.9rem;line-height:1.58}
-  .mobile-story-header{min-height:70px;margin-bottom:18px}
-  .story-body{height:calc(100% - 88px)}
-}
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important}
-  .reader-overlay.show .book-stage{opacity:1;transform:none}
-  .reader-overlay.show .book-spread{opacity:1;transform:none}
-  .reader-overlay.show .closed-book{display:none}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>September — for my love</title>
+  <link rel="stylesheet" href="september.css" />
 </head>
 <body>
-<main class="month-shell">
-  <aside class="month-panel">
-    <div class="top-row">
-      <a class="back-link" href="index.html">← months</a>
-      <span class="review-pill">unlocked for review</span>
-    </div>
-    <h1>september.</h1>
-    <p class="month-subtitle">the road after the storm.</p>
-    <div class="month-progress">
-      <div class="month-progress-row"><span>reading progress</span><span id="monthProgressText">0 / 30</span></div>
-      <div class="progress-track"><div class="progress-fill" id="monthProgressFill"></div></div>
-    </div>
-    <div class="day-list" id="dayList" aria-label="september entries"></div>
-  </aside>
+  <main class="month-shell">
+    <aside class="month-panel">
+      <div class="top-row">
+        <a class="back-link" href="index.html">← months</a>
+        <span class="review-pill">unlocked for review</span>
+      </div>
 
-  <section class="mailbox-scene" aria-label="storybook mailbox">
-    <div class="scene-copy"><strong>september.</strong><span>choose a day and the storybook will rise from the mailbox.</span></div>
-    <div class="mailbox" aria-hidden="true">
-      <div class="mailbox-post"></div>
-      <div class="mailbox-box"><div class="mailbox-slot"></div><div class="mailbox-door"></div></div>
-      <div class="mailbox-flag"></div>
-    </div>
-    <div class="scene-hint">click a day to open the story.</div>
-  </section>
-</main>
+      <h1>september.</h1>
+      <p class="month-subtitle">the road after the storm.</p>
 
-<div class="reader-overlay" id="readerOverlay" aria-hidden="true">
-  <button class="reader-close" id="readerClose" type="button" aria-label="close story">×</button>
-  <div class="book-stage" id="bookStage">
-    <div class="closed-book" aria-hidden="true"></div>
-    <div class="book-spread">
-      <div class="book-cover"></div>
-      <div class="ribbon"></div>
-      <div class="spine"></div>
-      <div class="spread">
-        <aside class="book-page left-page">
-          <span class="entry-label" id="entryLabel">entry 01</span>
-          <h2 class="entry-date" id="entryDate">sep. 1.</h2>
-          <div class="route-art" aria-hidden="true"><i class="route-dot a"></i><i class="route-dot b"></i><i class="route-dot c"></i></div>
-        </aside>
-        <section class="book-page right-page" id="rightPage">
-          <div class="mobile-story-header"><small id="mobileEntry">entry 01</small><strong id="mobileDate">sep. 1.</strong></div>
-          <button class="page-back" id="pageBack" type="button" aria-label="previous page">←</button>
-          <div class="story-body" id="storyBody"></div>
-          <div class="reader-footer">
-            <div class="reader-meta"><span id="pageCount">1 / 1</span><span id="pageHint">tap the page →</span></div>
-            <div class="reader-track"><span id="pageProgress"></span></div>
-          </div>
-        </section>
+      <div class="month-progress">
+        <div class="month-progress-row">
+          <span>reading progress</span>
+          <span id="monthProgressText">0 / 30</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" id="monthProgressFill"></div></div>
+      </div>
+
+      <div class="day-list" id="dayList" aria-label="september entries"></div>
+    </aside>
+
+    <section class="mailbox-scene" aria-label="storybook mailbox">
+      <div class="scene-copy">
+        <strong>september.</strong>
+        <span>choose a day and the storybook will rise from the mailbox.</span>
+      </div>
+      <div class="mailbox" aria-hidden="true">
+        <div class="mailbox-post"></div>
+        <div class="mailbox-box">
+          <div class="mailbox-slot"></div>
+          <div class="mailbox-door"></div>
+        </div>
+        <div class="mailbox-flag"></div>
+      </div>
+      <div class="scene-hint">choose a day.</div>
+    </section>
+  </main>
+
+  <div class="reader-overlay" id="readerOverlay" aria-hidden="true">
+    <button class="reader-close" id="readerClose" type="button" aria-label="close story">×</button>
+
+    <div class="book-stage" id="bookStage">
+      <button class="closed-book" id="closedBook" type="button" aria-label="open the storybook">
+        <span>for my love.</span>
+        <small>tap to open.</small>
+      </button>
+
+      <div class="book-spread">
+        <div class="book-cover"></div>
+        <div class="ribbon"></div>
+        <div class="spine"></div>
+
+        <div class="spread">
+          <aside class="book-page left-page">
+            <span class="entry-label" id="entryLabel">entry 01</span>
+            <h2 class="entry-date" id="entryDate">sep. 1.</h2>
+            <div class="route-art" aria-hidden="true">
+              <i class="route-dot a"></i>
+              <i class="route-dot b"></i>
+              <i class="route-dot c"></i>
+            </div>
+          </aside>
+
+          <section class="book-page right-page" id="rightPage">
+            <div class="mobile-story-header">
+              <small id="mobileEntry">entry 01</small>
+              <strong id="mobileDate">sep. 1.</strong>
+            </div>
+
+            <button class="page-back" id="pageBack" type="button" aria-label="previous page">←</button>
+            <div class="story-body" id="storyBody"></div>
+
+            <div class="reader-footer">
+              <div class="reader-meta">
+                <span id="pageCount">1 / 1</span>
+                <span id="pageHint">tap the page →</span>
+              </div>
+              <div class="reader-track"><span id="pageProgress"></span></div>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<script src="september-data.js"></script>
-<script>
-const STORIES=window.SEPTEMBER_STORIES||{};
-const DATE_LOCK_ENABLED=false;
-const YEAR=2026;
-const READ_KEY='love_mailbox_september_read_v1';
-
-const dayList=document.getElementById('dayList');
-const monthProgressText=document.getElementById('monthProgressText');
-const monthProgressFill=document.getElementById('monthProgressFill');
-const readerOverlay=document.getElementById('readerOverlay');
-const readerClose=document.getElementById('readerClose');
-const rightPage=document.getElementById('rightPage');
-const storyBody=document.getElementById('storyBody');
-const pageBack=document.getElementById('pageBack');
-const pageCount=document.getElementById('pageCount');
-const pageHint=document.getElementById('pageHint');
-const pageProgress=document.getElementById('pageProgress');
-const entryLabel=document.getElementById('entryLabel');
-const entryDate=document.getElementById('entryDate');
-const mobileEntry=document.getElementById('mobileEntry');
-const mobileDate=document.getElementById('mobileDate');
-
-let activeDay=null;
-let pages=[];
-let pageIndex=0;
-let turnTimer=null;
-let openTimers=[];
-
-function readDays(){
-  try{return new Set(JSON.parse(localStorage.getItem(READ_KEY))||[])}catch(_){return new Set()}
-}
-function saveReadDays(set){localStorage.setItem(READ_KEY,JSON.stringify([...set].sort((a,b)=>a-b)))}
-function markRead(day){
-  const set=readDays();
-  if(!set.has(day)){set.add(day);saveReadDays(set)}
-  updateMonthProgress();
-  dayList.querySelector(`[data-day="${day}"]`)?.classList.add('read');
-}
-function updateMonthProgress(){
-  const count=readDays().size;
-  monthProgressText.textContent=`${count} / 30`;
-  monthProgressFill.style.width=`${(count/30)*100}%`;
-}
-function todayStart(){const n=new Date();return new Date(n.getFullYear(),n.getMonth(),n.getDate())}
-function isUnlocked(day){return !DATE_LOCK_ENABLED||new Date(YEAR,8,day)<=todayStart()}
-
-function pageBudget(){
-  if(innerWidth<=390)return 970;
-  if(innerWidth<=720)return 1180;
-  return 1120;
-}
-function paginate(paragraphs){
-  const budget=pageBudget();
-  const out=[];
-  let current=[];
-  let count=0;
-  for(const paragraph of paragraphs){
-    if(current.length&&count+paragraph.length>budget){out.push(current);current=[];count=0}
-    current.push(paragraph);
-    count+=paragraph.length;
-  }
-  if(current.length)out.push(current);
-  return out.length?out:[[]];
-}
-function renderPage(){
-  storyBody.innerHTML=(pages[pageIndex]||[]).map(p=>`<p>${p}</p>`).join('');
-  pageCount.textContent=`${pageIndex+1} / ${pages.length}`;
-  pageHint.textContent=pageIndex<pages.length-1?'tap the page →':'end.';
-  pageBack.classList.toggle('show',pageIndex>0);
-  pageProgress.style.width=`${((pageIndex+1)/pages.length)*100}%`;
-  if(pageIndex===pages.length-1&&activeDay)markRead(activeDay);
-}
-function clearOpenTimers(){openTimers.forEach(clearTimeout);openTimers=[]}
-function later(fn,ms){const id=setTimeout(fn,ms);openTimers.push(id)}
-function openStory(day){
-  if(!isUnlocked(day))return;
-  clearOpenTimers();
-  activeDay=day;
-  pages=paginate(STORIES[day]||[]);
-  pageIndex=0;
-  const label=`entry ${String(day).padStart(2,'0')}`;
-  const date=`sep. ${day}.`;
-  entryLabel.textContent=label;
-  entryDate.textContent=date;
-  mobileEntry.textContent=label;
-  mobileDate.textContent=date;
-  renderPage();
-  readerOverlay.classList.remove('opening');
-  readerOverlay.classList.add('show');
-  readerOverlay.setAttribute('aria-hidden','false');
-  document.body.classList.add('reader-open');
-  if(matchMedia('(prefers-reduced-motion: reduce)').matches){readerOverlay.classList.add('opening');return}
-  later(()=>readerOverlay.classList.add('opening'),620);
-}
-function closeStory(){
-  clearOpenTimers();
-  readerOverlay.classList.remove('show','opening');
-  readerOverlay.setAttribute('aria-hidden','true');
-  document.body.classList.remove('reader-open');
-  activeDay=null;
-}
-function turnTo(next){
-  if(next<0||next>=pages.length||next===pageIndex)return;
-  rightPage.classList.add('turning');
-  clearTimeout(turnTimer);
-  turnTimer=setTimeout(()=>{
-    pageIndex=next;
-    renderPage();
-    rightPage.classList.remove('turning');
-  },145);
-}
-
-const alreadyRead=readDays();
-for(let day=1;day<=30;day++){
-  const button=document.createElement('button');
-  button.type='button';
-  button.className='day-card';
-  button.dataset.day=day;
-  button.innerHTML=`<span class="mini">september ${day}.</span><span class="day">${String(day).padStart(2,'0')}</span>`;
-  if(alreadyRead.has(day))button.classList.add('read');
-  if(!isUnlocked(day)){
-    button.disabled=true;
-    button.classList.add('locked');
-  }else{
-    button.addEventListener('click',()=>openStory(day));
-  }
-  dayList.appendChild(button);
-}
-updateMonthProgress();
-
-rightPage.addEventListener('click',e=>{
-  if(e.target.closest('#pageBack'))return;
-  if(pageIndex<pages.length-1)turnTo(pageIndex+1);
-});
-pageBack.addEventListener('click',e=>{e.stopPropagation();turnTo(pageIndex-1)});
-readerClose.addEventListener('click',closeStory);
-readerOverlay.addEventListener('click',e=>{if(e.target===readerOverlay)closeStory()});
-document.addEventListener('keydown',e=>{
-  if(!readerOverlay.classList.contains('show'))return;
-  if(e.key==='Escape')closeStory();
-  if(e.key==='ArrowRight'&&pageIndex<pages.length-1)turnTo(pageIndex+1);
-  if(e.key==='ArrowLeft'&&pageIndex>0)turnTo(pageIndex-1);
-});
-let touchStartX=null;
-rightPage.addEventListener('touchstart',e=>{touchStartX=e.touches[0]?.clientX??null},{passive:true});
-rightPage.addEventListener('touchend',e=>{
-  if(touchStartX===null)return;
-  const dx=(e.changedTouches[0]?.clientX??touchStartX)-touchStartX;
-  if(Math.abs(dx)>44){
-    if(dx<0&&pageIndex<pages.length-1)turnTo(pageIndex+1);
-    if(dx>0&&pageIndex>0)turnTo(pageIndex-1);
-  }
-  touchStartX=null;
-},{passive:true});
-let resizeTimer=null;
-addEventListener('resize',()=>{
-  if(!activeDay)return;
-  clearTimeout(resizeTimer);
-  resizeTimer=setTimeout(()=>{
-    pages=paginate(STORIES[activeDay]||[]);
-    pageIndex=Math.min(pageIndex,pages.length-1);
-    renderPage();
-  },130);
-});
-</script>
+  <script src="september-data.js"></script>
+  <script src="september.js"></script>
 </body>
 </html>
