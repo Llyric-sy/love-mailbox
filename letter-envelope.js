@@ -11,6 +11,23 @@
   localStorage.removeItem('bgm_on');
   localStorage.removeItem('bgm_vol');
 
+  // September is a separate storybook experience. It is intentionally fully unlocked for review.
+  const monthMenu = document.getElementById('monthMenu');
+  if (monthMenu && !monthMenu.querySelector('[data-september-storybook]')) {
+    const septemberButton = document.createElement('button');
+    septemberButton.className = 'month-card';
+    septemberButton.type = 'button';
+    septemberButton.setAttribute('data-september-storybook', 'true');
+    septemberButton.innerHTML = `
+      <span class="month-name">september</span>
+      <span class="month-subtitle">the road after the storm.</span>
+    `;
+    septemberButton.addEventListener('click', () => {
+      window.location.href = 'september.html';
+    });
+    monthMenu.appendChild(septemberButton);
+  }
+
   const LETTER_SELECTOR = '.letter-card';
 
   const style = document.createElement('style');
