@@ -33,22 +33,64 @@
 
   const css = document.createElement('style');
   css.textContent = `
-  body.mailbox-page{background:linear-gradient(180deg,#fff1dc,#f8e8d2);min-height:100vh}
+  :root{
+    --letter-blue:#aebfca;
+    --letter-blue-mid:#c9d7dc;
+    --letter-blue-light:#dce6e9;
+    --letter-blue-pale:#edf2f2;
+    --letter-ink:#60747d;
+    --letter-muted:#7f949d;
+    --book-paper:#f8ead7;
+    --book-ink:#654d40;
+  }
+
+  /* LETTERS = BLUE */
+  body.mailbox-page{background:linear-gradient(180deg,#edf2f2,#e4ecef);min-height:100vh;color:var(--letter-ink)}
+  body.mailbox-page>h2{color:#5d727b!important}
+
+  /* month picker: feb-aug blue, september brown */
+  body.mailbox-page #monthMenu .month-card:not([data-september-storybook]){
+    background:linear-gradient(145deg,rgba(255,255,255,.55),rgba(255,255,255,.08)),#dce6e9!important;
+    border-color:rgba(95,116,125,.16)!important;
+    color:var(--letter-ink)!important;
+    box-shadow:0 10px 24px rgba(78,101,111,.11),inset 0 1px 0 rgba(255,255,255,.68)!important;
+  }
+  body.mailbox-page #monthMenu .month-card:not([data-september-storybook]):hover{
+    border-color:rgba(95,116,125,.28)!important;
+    box-shadow:0 15px 30px rgba(78,101,111,.16),inset 0 1px 0 rgba(255,255,255,.75)!important;
+  }
+  body.mailbox-page #monthMenu .month-card:not([data-september-storybook])::before{color:#5c727c!important}
+  body.mailbox-page #monthMenu .month-card:not([data-september-storybook])::after{color:#7d929b!important}
+
+  body.mailbox-page #monthMenu .month-card[data-september-storybook]{
+    background:linear-gradient(145deg,rgba(255,255,255,.5),rgba(255,255,255,.04)),#f8ead7!important;
+    border-color:rgba(126,91,67,.14)!important;
+    color:#654d40!important;
+    box-shadow:0 9px 22px rgba(103,73,51,.10),inset 0 1px 0 rgba(255,255,255,.62)!important;
+  }
+  body.mailbox-page #monthMenu .month-card[data-september-storybook]::before{color:#5f4639!important}
+  body.mailbox-page #monthMenu .month-card[data-september-storybook]::after{color:#9a806f!important}
+
   body.mailbox-page .month-section.unified-month{width:min(1160px,96vw)!important;max-width:none!important;margin:12px auto 0!important}
   body.mailbox-page .month-section.unified-month .month-header{min-height:74px!important;margin:0 0 14px!important;padding:0 86px!important;display:flex!important;align-items:center!important;justify-content:center!important;position:relative!important}
-  body.mailbox-page .month-section.unified-month .back-btn{left:0!important;top:50%!important;transform:translateY(-50%)!important}
-  body.mailbox-page .unified-heading{text-align:center}.unified-heading h3{margin:0;font-size:2rem;line-height:1.05;text-transform:lowercase}.unified-heading p{margin:5px 0 0;font-size:.9rem;opacity:.68;text-transform:lowercase}
+  body.mailbox-page .month-section.unified-month .back-btn{left:0!important;top:50%!important;transform:translateY(-50%)!important;background:#f6f9f9!important;color:#60747d!important}
+  body.mailbox-page .unified-heading{text-align:center}.unified-heading h3{margin:0;font-size:2rem;line-height:1.05;text-transform:lowercase;color:#5f737c}.unified-heading p{margin:5px 0 0;font-size:.9rem;opacity:.68;text-transform:lowercase;color:#7d929b}
   body.mailbox-page .unified-month-layout{height:min(650px,calc(100vh - 170px));min-height:480px;display:grid;grid-template-columns:minmax(260px,330px) minmax(0,1fr);gap:22px}
-  body.mailbox-page .month-art-panel,body.mailbox-page .month-letters-pane{min-width:0;border-radius:22px;border:1px solid rgba(255,255,255,.72);background:rgba(255,249,241,.74);box-shadow:inset 0 0 28px rgba(137,105,76,.035),0 10px 28px rgba(91,61,40,.08)}
-  body.mailbox-page .month-art-panel{position:relative;overflow:hidden;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 50% 22%,rgba(255,255,255,.7),transparent 38%),linear-gradient(180deg,#fbf4e9,#efe0ca)}
-  .month-art-card{position:relative;width:min(235px,88%);aspect-ratio:.72;border-radius:20px;background:linear-gradient(180deg,#fffaf2,#f8ecdc);box-shadow:0 14px 28px rgba(84,57,38,.12);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;color:#71594a}
-  .month-art-card:before,.month-art-card:after{content:'';position:absolute;top:-8px;width:58px;height:16px;border-radius:4px;background:rgba(211,184,149,.62)}.month-art-card:before{left:16px;transform:rotate(-6deg)}.month-art-card:after{right:16px;transform:rotate(6deg)}
-  .month-art-symbol{width:100px;height:100px;display:grid;place-items:center;border-radius:50%;font-size:3rem;color:rgba(130,93,76,.72);background:rgba(225,200,180,.48)}.month-art-title{font-size:1.15rem;text-transform:lowercase}.month-art-note{max-width:165px;padding-top:12px;border-top:1px dashed rgba(113,82,65,.18);font-size:.76rem;line-height:1.5;opacity:.72;text-transform:lowercase}
-  body.mailbox-page .month-letters-pane{overflow:hidden;padding:14px}body.mailbox-page .month-letters-pane .letters-grid{max-width:none!important;height:100%;overflow-y:auto;overscroll-behavior:contain;padding:4px 8px 6px 4px;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;align-content:start;gap:12px!important;scrollbar-width:thin;scrollbar-color:rgba(118,85,61,.28) transparent}body.mailbox-page .month-letters-pane .letters-grid::-webkit-scrollbar{width:8px}body.mailbox-page .month-letters-pane .letters-grid::-webkit-scrollbar-thumb{background:rgba(118,85,61,.24);border-radius:999px}
-  body.mailbox-page .month-letters-pane .letter-card{min-height:66px!important;padding:18px 50px 18px 18px!important;border-radius:16px!important;background:rgba(255,252,247,.9)!important;box-shadow:0 6px 16px rgba(82,55,37,.09)!important}
+  body.mailbox-page .month-art-panel,body.mailbox-page .month-letters-pane{min-width:0;border-radius:22px;border:1px solid rgba(255,255,255,.78);background:rgba(237,243,244,.84);box-shadow:inset 0 0 28px rgba(82,108,119,.035),0 10px 28px rgba(72,94,104,.09)}
+  body.mailbox-page .month-art-panel{position:relative;overflow:hidden;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 50% 22%,rgba(255,255,255,.72),transparent 38%),linear-gradient(180deg,#edf3f4,#dbe6e9)}
+  .month-art-card{position:relative;width:min(235px,88%);aspect-ratio:.72;border-radius:20px;background:linear-gradient(180deg,#f5f9f9,#dfe9ec);box-shadow:0 14px 28px rgba(71,95,105,.12);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;color:#60747d}
+  .month-art-card:before,.month-art-card:after{content:'';position:absolute;top:-8px;width:58px;height:16px;border-radius:4px;background:rgba(173,193,201,.72)}.month-art-card:before{left:16px;transform:rotate(-6deg)}.month-art-card:after{right:16px;transform:rotate(6deg)}
+  .month-art-symbol{width:100px;height:100px;display:grid;place-items:center;border-radius:50%;font-size:3rem;color:rgba(92,116,126,.78);background:rgba(190,208,214,.58)}.month-art-title{font-size:1.15rem;text-transform:lowercase}.month-art-note{max-width:165px;padding-top:12px;border-top:1px dashed rgba(96,116,125,.2);font-size:.76rem;line-height:1.5;opacity:.72;text-transform:lowercase}
+  body.mailbox-page .month-letters-pane{overflow:hidden;padding:14px}
+  body.mailbox-page .month-letters-pane .letters-grid{max-width:none!important;height:100%;overflow-y:auto;overscroll-behavior:contain;padding:4px 8px 6px 4px;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;align-content:start;gap:12px!important;scrollbar-width:thin;scrollbar-color:rgba(94,118,128,.28) transparent}
+  body.mailbox-page .month-letters-pane .letters-grid::-webkit-scrollbar{width:8px}body.mailbox-page .month-letters-pane .letters-grid::-webkit-scrollbar-thumb{background:rgba(94,118,128,.24);border-radius:999px}
+  body.mailbox-page .month-letters-pane .letter-card{min-height:66px!important;padding:18px 50px 18px 18px!important;border-radius:16px!important;background:#f6f9f9!important;color:#60747d!important;border:1px solid rgba(95,116,125,.08)!important;box-shadow:0 6px 16px rgba(72,94,104,.09)!important}
+  body.mailbox-page .month-letters-pane .letter-card:hover{box-shadow:0 9px 20px rgba(72,94,104,.13)!important}
+  body.mailbox-page .favourite-star{color:#8298a1!important}
+  body.mailbox-page .letter-card.favourited .favourite-star{color:#6f8d99!important}
   body.mailbox-page #february .month-header,body.mailbox-page #march .month-header{padding-top:0!important;margin-top:0!important}
 
-  /* desktop: keep the month picker visible and open the chosen month underneath it */
+  /* desktop: picker remains visible, selected month opens below */
   @media(min-width:721px){
     body.mailbox-page #monthMenu.hidden{display:grid!important}
     body.mailbox-page.desktop-month-open #monthMenu{width:min(1280px,96vw)!important;max-width:1280px!important;margin:16px auto 12px!important;grid-template-columns:repeat(8,minmax(0,1fr))!important;gap:10px!important}
@@ -66,10 +108,10 @@
     body.mailbox-page.desktop-month-open .month-art-card{width:min(220px,84%)!important;aspect-ratio:.82!important}
   }
 
-  /* mobile: selected month replaces the picker and shows every day on the page */
+  /* mobile: selected month replaces picker and all days appear */
   @media(max-width:720px){
     body.mailbox-page #monthMenu.hidden{display:none!important}
-    body.mailbox-page{padding:22px 16px!important}
+    body.mailbox-page{padding:22px 16px!important;background:linear-gradient(180deg,#edf2f2,#e4ecef)!important}
     body.mailbox-page .month-section.unified-month{width:100%!important;margin-top:0!important}
     body.mailbox-page .month-section.unified-month .month-header{min-height:92px!important;padding:44px 0 0!important;margin-bottom:12px!important}
     body.mailbox-page .month-section.unified-month .back-btn{top:0!important;left:0!important;transform:none!important}
@@ -82,26 +124,39 @@
     .month-art-card{width:min(220px,72vw);aspect-ratio:1.25}.month-art-symbol{width:72px;height:72px;font-size:2.2rem}.month-art-note{display:none}
   }
 
-  /* September desktop day tray */
-  .desktop-september-section{display:block}
+  /* September tray remains BOOK-BROWN */
+  .desktop-september-section{display:block;color:#5c493c}
   .desktop-september-section.hidden{display:none!important}
   .desktop-september-section .month-header{display:flex;align-items:center;justify-content:center;position:relative}
-  .desktop-september-section .unified-heading{text-align:center}
-  .desktop-september-section .unified-heading h3{margin:0;font-size:2rem;line-height:1.05;text-transform:lowercase}
-  .desktop-september-section .unified-heading p{margin:5px 0 0;font-size:.9rem;opacity:.68;text-transform:lowercase}
+  .desktop-september-section .unified-heading{text-align:center}.desktop-september-section .unified-heading h3{margin:0;font-size:2rem;line-height:1.05;text-transform:lowercase;color:#5c493c}.desktop-september-section .unified-heading p{margin:5px 0 0;font-size:.9rem;opacity:.68;text-transform:lowercase;color:#8d7868}
+  .desktop-september-section .month-art-panel,.desktop-september-section .month-letters-pane{background:rgba(255,249,241,.74)!important;box-shadow:inset 0 0 28px rgba(137,105,76,.035),0 10px 28px rgba(91,61,40,.08)!important}
+  .desktop-september-section .month-art-panel{background:radial-gradient(circle at 50% 22%,rgba(255,255,255,.7),transparent 38%),linear-gradient(180deg,#fbf4e9,#efe0ca)!important}
+  .desktop-september-section .month-art-card{background:linear-gradient(180deg,#fffaf2,#f8ecdc)!important;color:#71594a!important;box-shadow:0 14px 28px rgba(84,57,38,.12)!important}
+  .desktop-september-section .month-art-card:before,.desktop-september-section .month-art-card:after{background:rgba(211,184,149,.62)!important}
+  .desktop-september-section .month-art-symbol{color:rgba(130,93,76,.72)!important;background:rgba(225,200,180,.48)!important}
   .sep-index-grid{height:100%;overflow-y:auto;overscroll-behavior:contain;padding:4px 8px 6px 4px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:start;gap:12px;scrollbar-width:thin;scrollbar-color:rgba(118,85,61,.28) transparent}
   .sep-index-grid::-webkit-scrollbar{width:8px}.sep-index-grid::-webkit-scrollbar-thumb{background:rgba(118,85,61,.24);border-radius:999px}
   .sep-index-card{position:relative;min-height:66px;padding:18px 50px 18px 18px;border:0;border-radius:16px;background:rgba(255,252,247,.9);color:#5c493c;text-align:left;font-family:Georgia,serif;font-size:16px;font-weight:700;cursor:pointer;box-shadow:0 6px 16px rgba(82,55,37,.09);transition:transform .15s ease,box-shadow .15s ease,opacity .15s ease}
   .sep-index-card:hover{transform:translateY(-1px);box-shadow:0 9px 18px rgba(82,55,37,.12)}
   .sep-index-card.locked{opacity:.45;cursor:not-allowed}.sep-index-card.locked::after{content:'🔒';position:absolute;right:16px;bottom:16px;font-size:.72rem;opacity:.65}
-  .sep-index-card .favourite-star{position:absolute;right:13px;top:11px;width:30px;height:30px;border:0;background:transparent;color:#9f9f9f;font-size:1.3rem;line-height:1;cursor:pointer;padding:0}
-  .sep-index-card.favourited .favourite-star{color:#b88d5b}
+  .sep-index-card .favourite-star{position:absolute;right:13px;top:11px;width:30px;height:30px;border:0;background:transparent;color:#9f9f9f!important;font-size:1.3rem;line-height:1;cursor:pointer;padding:0}
+  .sep-index-card.favourited .favourite-star{color:#b88d5b!important}
 
-  .letter-envelope-stage{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:24px;background:rgba(42,30,25,.3);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,visibility .22s ease;overflow:hidden}.letter-envelope-stage.is-active{opacity:1;visibility:visible;pointer-events:auto}.letter-envelope-close{position:absolute;top:max(14px,env(safe-area-inset-top));right:max(14px,env(safe-area-inset-right));z-index:20;width:40px;height:40px;border:0;border-radius:50%;background:rgba(255,250,244,.94);color:#6a5344;box-shadow:0 6px 16px rgba(58,39,29,.13);cursor:pointer;font-size:1.25rem}
-  .letter-envelope-wrap{width:min(80vw,390px);aspect-ratio:1.48/1;position:relative;opacity:0;transform:translateY(48vh) scale(.72) rotate(1.5deg);filter:drop-shadow(0 20px 24px rgba(62,40,29,.2));transform-origin:center bottom}.letter-envelope-stage.is-active .letter-envelope-wrap{animation:env-arrive .72s cubic-bezier(.18,.82,.22,1.04) forwards}@keyframes env-arrive{0%{opacity:0;transform:translateY(48vh) scale(.72) rotate(1.5deg)}72%{opacity:1;transform:translateY(-8px) scale(1.012) rotate(-.2deg)}100%{opacity:1;transform:none}}
-  .letter-envelope{position:absolute;inset:0;isolation:isolate;cursor:pointer;outline:none}.letter-envelope-back{position:absolute;inset:0;z-index:1;border-radius:16px;background:#ead4b7;border:1px solid rgba(121,87,58,.14);overflow:hidden}.letter-envelope-back:before,.letter-envelope-back:after{content:'';position:absolute;top:0;width:70%;height:100%;background:rgba(255,248,236,.28)}.letter-envelope-back:before{left:0;clip-path:polygon(0 0,100% 50%,0 100%)}.letter-envelope-back:after{right:0;clip-path:polygon(100% 0,0 50%,100% 100%)}
-  .letter-envelope-preview{position:absolute;z-index:3;left:8%;right:8%;top:13%;height:76%;border-radius:10px 10px 6px 6px;background-color:#fffaf1;background-position:center;background-size:cover;background-repeat:no-repeat;box-shadow:0 7px 16px rgba(77,48,31,.14);transform:translateY(13%) scale(.93);transform-origin:center bottom;transition:transform .7s cubic-bezier(.18,.76,.18,1),opacity .36s ease;will-change:transform,opacity}.letter-envelope-pocket{position:absolute;inset:0;z-index:4;border-radius:0 0 16px 16px;overflow:hidden;pointer-events:none}.letter-envelope-pocket:before{content:'';position:absolute;inset:0;background:#e4c8a3;clip-path:polygon(0 16%,50% 67%,100% 16%,100% 100%,0 100%)}.letter-envelope-pocket:after{content:'';position:absolute;inset:0;background:rgba(255,244,226,.34);clip-path:polygon(0 100%,50% 51%,100% 100%)}.letter-envelope-flap{position:absolute;inset:0;z-index:5;transform-origin:50% 0;transition:transform .52s cubic-bezier(.35,.02,.2,1);pointer-events:none}.letter-envelope-flap:before{content:'';position:absolute;inset:0;border-radius:16px 16px 0 0;background:#f2dfc5;clip-path:polygon(0 0,100% 0,50% 69%)}.letter-envelope-seal{position:absolute;z-index:6;left:50%;top:55%;width:44px;height:44px;display:grid;place-items:center;transform:translate(-50%,-50%);border-radius:50%;background:#a96265;color:#fff7ee;box-shadow:0 4px 10px rgba(92,43,47,.22);transition:transform .22s ease,opacity .22s ease;pointer-events:none}.letter-envelope-tap{position:absolute;z-index:10;left:50%;bottom:-44px;transform:translateX(-50%);padding:8px 13px;border-radius:999px;background:rgba(255,250,244,.9);color:rgba(93,65,50,.78);box-shadow:0 5px 14px rgba(69,45,31,.09);font-size:.75rem;white-space:nowrap;opacity:0;transition:opacity .25s ease;pointer-events:none}.letter-envelope-stage.is-ready .letter-envelope-tap{opacity:1}.letter-envelope-stage.is-opening .letter-envelope-tap{opacity:0}.letter-envelope-stage.is-opening .letter-envelope-flap{z-index:2;transform:translateY(-67%) scaleY(-1)}.letter-envelope-stage.is-opening .letter-envelope-seal{opacity:0;transform:translate(-50%,-50%) scale(.72)}.letter-envelope-stage.is-lifting .letter-envelope-preview{z-index:8;transform:translateY(-92%) scale(1.03)}.letter-envelope-stage.is-handoff .letter-envelope-back,.letter-envelope-stage.is-handoff .letter-envelope-pocket,.letter-envelope-stage.is-handoff .letter-envelope-flap{opacity:0;transition:opacity .26s ease}.letter-envelope-stage.is-handoff .letter-envelope-preview{z-index:9;transform:translateY(-28%) scale(1.65);opacity:0;transition:transform .43s cubic-bezier(.22,.74,.18,1),opacity .34s ease}
-  @media(max-width:480px){.letter-envelope-stage{padding:18px}.letter-envelope-wrap{width:min(84vw,340px)}.letter-envelope-tap{bottom:-50px}}@media(prefers-reduced-motion:reduce){.letter-envelope-stage *,.letter-envelope-stage{animation:none!important;transition:none!important}}
+  /* BLUE envelope for regular letters */
+  .letter-envelope-stage{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:24px;background:rgba(44,58,65,.26);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .22s ease,visibility .22s ease;overflow:hidden}.letter-envelope-stage.is-active{opacity:1;visibility:visible;pointer-events:auto}
+  .letter-envelope-close{position:absolute;top:max(14px,env(safe-area-inset-top));right:max(14px,env(safe-area-inset-right));z-index:20;width:40px;height:40px;border:0;border-radius:50%;background:rgba(242,247,248,.96);color:#60747d;box-shadow:0 6px 16px rgba(57,78,87,.13);cursor:pointer;font-size:1.25rem}
+  .letter-envelope-wrap{width:min(80vw,390px);aspect-ratio:1.48/1;position:relative;opacity:0;transform:translateY(48vh) scale(.72) rotate(1.5deg);filter:drop-shadow(0 20px 24px rgba(51,73,83,.2));transform-origin:center bottom}.letter-envelope-stage.is-active .letter-envelope-wrap{animation:env-arrive .72s cubic-bezier(.18,.82,.22,1.04) forwards}@keyframes env-arrive{0%{opacity:0;transform:translateY(48vh) scale(.72) rotate(1.5deg)}72%{opacity:1;transform:translateY(-8px) scale(1.012) rotate(-.2deg)}100%{opacity:1;transform:none}}
+  .letter-envelope{position:absolute;inset:0;isolation:isolate;cursor:pointer;outline:none}
+  .letter-envelope-back{position:absolute;inset:0;z-index:1;border-radius:16px;background:#b7c8cf;border:1px solid rgba(80,105,116,.16);overflow:hidden}
+  .letter-envelope-back:before,.letter-envelope-back:after{content:'';position:absolute;top:0;width:70%;height:100%;background:rgba(244,249,250,.24)}.letter-envelope-back:before{left:0;clip-path:polygon(0 0,100% 50%,0 100%)}.letter-envelope-back:after{right:0;clip-path:polygon(100% 0,0 50%,100% 100%)}
+  .letter-envelope-preview{position:absolute;z-index:3;left:8%;right:8%;top:13%;height:76%;border-radius:10px 10px 6px 6px;background-color:#f7fbfb;background-position:center;background-size:cover;background-repeat:no-repeat;box-shadow:0 7px 16px rgba(57,79,89,.14);transform:translateY(13%) scale(.93);transform-origin:center bottom;transition:transform .7s cubic-bezier(.18,.76,.18,1),opacity .36s ease;will-change:transform,opacity}
+  .letter-envelope-pocket{position:absolute;inset:0;z-index:4;border-radius:0 0 16px 16px;overflow:hidden;pointer-events:none}.letter-envelope-pocket:before{content:'';position:absolute;inset:0;background:#afc2ca;clip-path:polygon(0 16%,50% 67%,100% 16%,100% 100%,0 100%)}.letter-envelope-pocket:after{content:'';position:absolute;inset:0;background:rgba(239,246,248,.3);clip-path:polygon(0 100%,50% 51%,100% 100%)}
+  .letter-envelope-flap{position:absolute;inset:0;z-index:5;transform-origin:50% 0;transition:transform .52s cubic-bezier(.35,.02,.2,1);pointer-events:none}.letter-envelope-flap:before{content:'';position:absolute;inset:0;border-radius:16px 16px 0 0;background:#d5e1e5;clip-path:polygon(0 0,100% 0,50% 69%)}
+  .letter-envelope-seal{position:absolute;z-index:6;left:50%;top:55%;width:44px;height:44px;display:grid;place-items:center;transform:translate(-50%,-50%);border-radius:50%;background:#9b7478;color:#f8fbfb;box-shadow:0 4px 10px rgba(79,55,60,.2);transition:transform .22s ease,opacity .22s ease;pointer-events:none}
+  .letter-envelope-tap{position:absolute;z-index:10;left:50%;bottom:-44px;transform:translateX(-50%);padding:8px 13px;border-radius:999px;background:rgba(242,247,248,.94);color:#667c86;box-shadow:0 5px 14px rgba(58,79,89,.1);font-size:.75rem;white-space:nowrap;opacity:0;transition:opacity .25s ease;pointer-events:none}.letter-envelope-stage.is-ready .letter-envelope-tap{opacity:1}.letter-envelope-stage.is-opening .letter-envelope-tap{opacity:0}
+  .letter-envelope-stage.is-opening .letter-envelope-flap{z-index:2;transform:translateY(-67%) scaleY(-1)}.letter-envelope-stage.is-opening .letter-envelope-seal{opacity:0;transform:translate(-50%,-50%) scale(.72)}.letter-envelope-stage.is-lifting .letter-envelope-preview{z-index:8;transform:translateY(-92%) scale(1.03)}.letter-envelope-stage.is-handoff .letter-envelope-back,.letter-envelope-stage.is-handoff .letter-envelope-pocket,.letter-envelope-stage.is-handoff .letter-envelope-flap{opacity:0;transition:opacity .26s ease}.letter-envelope-stage.is-handoff .letter-envelope-preview{z-index:9;transform:translateY(-28%) scale(1.65);opacity:0;transition:transform .43s cubic-bezier(.22,.74,.18,1),opacity .34s ease}
+  @media(max-width:480px){.letter-envelope-stage{padding:18px}.letter-envelope-wrap{width:min(84vw,340px)}.letter-envelope-tap{bottom:-50px}}
+  @media(prefers-reduced-motion:reduce){.letter-envelope-stage *,.letter-envelope-stage{animation:none!important;transition:none!important}}
   `;
   document.head.appendChild(css);
 
@@ -236,13 +291,8 @@
   function showDesktopMonth(month) {
     hideDesktopMonths();
     let target = null;
-
-    if (month === 'september') {
-      target = ensureDesktopSeptemberSection();
-    } else {
-      target = document.getElementById(month);
-    }
-
+    if (month === 'september') target = ensureDesktopSeptemberSection();
+    else target = document.getElementById(month);
     if (!target) return;
     target.classList.remove('hidden');
     document.body.classList.add('desktop-month-open');
