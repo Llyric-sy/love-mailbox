@@ -19,17 +19,6 @@
   const mobileEntry = document.getElementById('mobileEntry');
   const mobileDate = document.getElementById('mobileDate');
 
-  const dayCardStyle = document.createElement('style');
-  dayCardStyle.textContent = `
-    .day-card .day {
-      margin-top: 0 !important;
-      font-size: 1rem !important;
-      font-weight: 700 !important;
-      line-height: 1.2;
-    }
-  `;
-  document.head.appendChild(dayCardStyle);
-
   let activeDay = null;
   let pages = [];
   let pageIndex = 0;
@@ -170,6 +159,11 @@
       button.addEventListener('click', () => openStory(day));
     }
     dayList.appendChild(button);
+  }
+
+  const requestedDay = Number(new URLSearchParams(window.location.search).get('day'));
+  if (Number.isInteger(requestedDay) && requestedDay >= 1 && requestedDay <= 30 && isUnlocked(requestedDay)) {
+    window.setTimeout(() => openStory(requestedDay), 0);
   }
 
   closedBook.addEventListener('click', openBook);
