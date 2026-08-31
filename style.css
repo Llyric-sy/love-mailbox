@@ -362,3 +362,121 @@ h2 {
 .letter-card.locked .favourite-star {
   display: none;
 }
+
+/* ===== WARM MONTH PICKER — 2026 ===== */
+body.mailbox-page > h2 {
+  color: #634b3e;
+  letter-spacing: -0.015em;
+}
+
+body.mailbox-page #monthMenu {
+  width: min(760px, 92vw) !important;
+  max-width: 760px !important;
+  margin: 34px auto 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+}
+
+body.mailbox-page #monthMenu .month-card {
+  aspect-ratio: 1 / 1;
+  min-width: 0;
+  padding: 16px !important;
+  border: 1px solid rgba(126, 91, 67, 0.14) !important;
+  border-radius: 22px !important;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.5), rgba(255,255,255,0.04)),
+    #f8ead7 !important;
+  color: #654d40 !important;
+  box-shadow:
+    0 9px 22px rgba(103, 73, 51, 0.10),
+    inset 0 1px 0 rgba(255,255,255,0.62) !important;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center !important;
+  overflow: hidden;
+  position: relative;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease !important;
+}
+
+body.mailbox-page #monthMenu .month-card:hover {
+  transform: translateY(-4px) rotate(-0.25deg) !important;
+  border-color: rgba(139, 91, 71, 0.24) !important;
+  box-shadow:
+    0 14px 28px rgba(103, 73, 51, 0.14),
+    inset 0 1px 0 rgba(255,255,255,0.72) !important;
+}
+
+body.mailbox-page #monthMenu .month-card:active {
+  transform: translateY(-1px) scale(.985) !important;
+}
+
+body.mailbox-page #monthMenu .month-card > span {
+  display: none !important;
+}
+
+body.mailbox-page #monthMenu .month-card::before {
+  display: block;
+  color: #5f4639;
+  font-size: 1.32rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: .025em;
+  text-transform: lowercase;
+}
+
+body.mailbox-page #monthMenu .month-card::after {
+  display: block;
+  width: 88%;
+  margin-top: 9px;
+  color: #9a806f;
+  font-size: .63rem;
+  font-weight: 400;
+  line-height: 1.28;
+  letter-spacing: .01em;
+  text-transform: lowercase;
+}
+
+body.mailbox-page #monthMenu .month-card:nth-child(1)::before { content: "feb"; }
+body.mailbox-page #monthMenu .month-card:nth-child(1)::after { content: "little beginnings."; }
+body.mailbox-page #monthMenu .month-card:nth-child(2)::before { content: "mar"; }
+body.mailbox-page #monthMenu .month-card:nth-child(2)::after { content: "growing closer."; }
+body.mailbox-page #monthMenu .month-card:nth-child(3)::before { content: "apr"; }
+body.mailbox-page #monthMenu .month-card:nth-child(3)::after { content: "heavenly bodies."; }
+body.mailbox-page #monthMenu .month-card:nth-child(4)::before { content: "may"; }
+body.mailbox-page #monthMenu .month-card:nth-child(4)::after { content: "meaningful petals."; }
+body.mailbox-page #monthMenu .month-card:nth-child(5)::before { content: "jun"; }
+body.mailbox-page #monthMenu .month-card:nth-child(5)::after { content: "little eternities."; }
+body.mailbox-page #monthMenu .month-card:nth-child(6)::before { content: "jul"; }
+body.mailbox-page #monthMenu .month-card:nth-child(6)::after { content: "painted scenery."; }
+body.mailbox-page #monthMenu .month-card:nth-child(7)::before { content: "aug"; }
+body.mailbox-page #monthMenu .month-card:nth-child(7)::after { content: "beloved memories."; }
+body.mailbox-page #monthMenu .month-card:nth-child(8)::before { content: "sep"; }
+body.mailbox-page #monthMenu .month-card:nth-child(8)::after { content: "the road after the storm."; }
+
+@media (max-width: 760px) {
+  body.mailbox-page #monthMenu {
+    width: min(390px, 100%) !important;
+    max-width: 390px !important;
+    margin-top: 24px !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  body.mailbox-page #monthMenu .month-card {
+    padding: 12px !important;
+    border-radius: 18px !important;
+  }
+
+  body.mailbox-page #monthMenu .month-card::before {
+    font-size: 1.12rem;
+  }
+
+  body.mailbox-page #monthMenu .month-card::after {
+    width: 94%;
+    margin-top: 7px;
+    font-size: .58rem;
+  }
+}
