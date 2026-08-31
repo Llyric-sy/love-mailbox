@@ -1,4 +1,16 @@
 (() => {
+  // Background music is intentionally disabled. Voice-note audio on letters is unaffected.
+  const bgm = document.getElementById('bgm');
+  if (bgm) {
+    try { bgm.pause(); } catch (_) {}
+    bgm.removeAttribute('src');
+    try { bgm.load(); } catch (_) {}
+    bgm.remove();
+  }
+  document.querySelector('.music-ui')?.remove();
+  localStorage.removeItem('bgm_on');
+  localStorage.removeItem('bgm_vol');
+
   const LETTER_SELECTOR = '.letter-card';
 
   const style = document.createElement('style');
