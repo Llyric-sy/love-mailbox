@@ -5,50 +5,770 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>September — for my love</title>
 <style>
-:root{--bg1:#f4eadc;--bg2:#e8dac7;--paper:#fbf5e9;--paper2:#f4ead9;--ink:#5a493d;--muted:#8b7768;--cover:#c5a780;--cover2:#b38e68;--ribbon:#9f6d67;--shadow:rgba(72,49,32,.19)}*{box-sizing:border-box}html,body{min-height:100%}body{margin:0;color:var(--ink);font-family:Georgia,"Times New Roman",serif;background:radial-gradient(circle at 12% 4%,rgba(255,255,255,.52),transparent 31%),linear-gradient(180deg,var(--bg1),var(--bg2))}button,a{font:inherit}.shell{width:min(860px,92vw);margin:0 auto;padding:42px 0 70px}.header{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:start;gap:18px}.back{justify-self:start;color:var(--ink);text-decoration:none;padding:9px 13px;border-radius:999px;background:rgba(255,250,244,.72);box-shadow:0 5px 14px rgba(78,52,34,.08);font-size:.86rem;text-transform:lowercase}.copy{text-align:center}.eyebrow,.subtitle{margin:0;color:var(--muted);text-transform:lowercase}.eyebrow{margin-bottom:4px;font-size:.78rem;letter-spacing:.08em}.copy h1{margin:0;font-size:clamp(2.1rem,6vw,3.2rem);font-weight:500;text-transform:lowercase}.subtitle{margin-top:5px;font-size:.95rem}.review{justify-self:end;padding:8px 11px;border:1px solid rgba(114,86,62,.13);border-radius:999px;background:rgba(255,250,244,.62);color:var(--muted);font-size:.72rem;text-transform:lowercase}.month-progress{width:min(610px,100%);margin:32px auto 26px}.month-row{display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:.76rem;text-transform:lowercase}.track,.page-track{overflow:hidden;background:rgba(108,82,60,.12);border-radius:999px}.track{height:5px;margin-top:8px}.track span{display:block;width:100%;height:100%;background:rgba(113,83,61,.48)}.grid{width:min(610px,100%);margin:0 auto;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}.day-card{min-height:76px;border:0;border-radius:16px;background:rgba(255,250,244,.82);color:var(--ink);box-shadow:0 7px 18px rgba(78,52,34,.09);cursor:pointer;transition:transform .17s ease,box-shadow .17s ease;text-transform:lowercase}.day-card:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(78,52,34,.13)}.day-card small{display:block;margin-bottom:3px;color:var(--muted);font-size:.65rem;letter-spacing:.05em}.day-card span{display:block;font-size:1.03rem}.overlay{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;padding:20px;background:rgba(47,35,29,.34);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease,visibility .2s ease}.overlay.show{opacity:1;visibility:visible;pointer-events:auto}.close{position:fixed;top:max(14px,env(safe-area-inset-top));right:max(14px,env(safe-area-inset-right));z-index:10003;width:40px;height:40px;border:0;border-radius:50%;background:rgba(255,250,244,.92);color:var(--ink);cursor:pointer;box-shadow:0 6px 16px rgba(60,42,30,.13);font-size:1.35rem}.book{position:relative;width:min(980px,96vw);height:min(620px,88vh);filter:drop-shadow(0 30px 42px var(--shadow))}.cover{position:absolute;inset:0;border-radius:20px;background:linear-gradient(180deg,var(--cover),var(--cover2));border:1px solid rgba(92,66,44,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),inset 0 -12px 20px rgba(75,50,31,.08)}.spread{position:absolute;inset:16px;z-index:2;display:grid;grid-template-columns:42% 58%}.page{position:relative;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.34),rgba(255,255,255,.09)),repeating-linear-gradient(180deg,transparent 0,transparent 12px,rgba(129,103,78,.025) 13px),linear-gradient(180deg,var(--paper),var(--paper2));box-shadow:inset 0 0 0 1px rgba(106,79,57,.07)}.left{padding:38px 34px;border-radius:13px 4px 4px 13px;border-right:1px solid rgba(111,83,60,.14)}.right{padding:38px 42px 66px;border-radius:4px 13px 13px 4px;cursor:pointer;perspective:1500px;transform-origin:left center;transition:transform .2s ease,opacity .2s ease;-webkit-tap-highlight-color:transparent}.right.turning{transform:rotateY(-7deg) translateX(-3px);opacity:.58}.spine{position:absolute;top:12px;bottom:12px;left:42%;z-index:5;width:38px;transform:translateX(-50%);border-radius:18px;pointer-events:none;background:linear-gradient(90deg,rgba(79,56,39,.15),rgba(255,255,255,.08),rgba(79,56,39,.15))}.ribbon{position:absolute;top:0;left:calc(42% - 7px);z-index:6;width:14px;height:90px;border-radius:0 0 8px 8px;background:linear-gradient(#b27e77,var(--ribbon));pointer-events:none}.ribbon:after{content:"";position:absolute;left:0;right:0;bottom:-9px;margin:auto;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-top:9px solid var(--ribbon)}.entry{display:block;margin-bottom:9px;color:var(--muted);font-size:.74rem;letter-spacing:.07em;text-transform:lowercase}.date{margin:0;font-size:clamp(2rem,4vw,3rem);font-weight:500;line-height:1;text-transform:lowercase}.route{position:absolute;left:34px;right:34px;bottom:48px;height:180px;opacity:.22}.route:before{content:"";position:absolute;left:20%;top:12px;width:56%;height:145px;border-left:2px dashed var(--ink);border-bottom:2px dashed var(--ink);border-radius:0 0 0 70%;transform:rotate(-12deg)}.route i{position:absolute;width:7px;height:7px;border:1px solid var(--ink);border-radius:50%;background:var(--paper)}.route i:nth-child(1){left:18%;top:8px}.route i:nth-child(2){left:36%;top:83px}.route i:nth-child(3){left:70%;bottom:12px}.story{height:100%;overflow:hidden;padding-right:2px}.story p{margin:0 0 1.05em;font-size:1.02rem;line-height:1.72}.story p:last-child{margin-bottom:0}.page-back{position:absolute;left:10px;bottom:17px;z-index:4;width:34px;height:34px;border:0;border-radius:50%;background:transparent;color:var(--muted);cursor:pointer;opacity:0;pointer-events:none;font-size:1.1rem}.page-back.show{opacity:1;pointer-events:auto}.footer{position:absolute;left:42px;right:42px;bottom:18px;z-index:3}.meta{display:flex;justify-content:space-between;gap:18px;margin-bottom:7px;color:var(--muted);font-size:.7rem;text-transform:lowercase}.page-track{height:3px}.page-track span{display:block;width:0;height:100%;border-radius:inherit;background:rgba(109,78,57,.53);transition:width .22s ease}body.book-open{overflow:hidden}@media(max-width:720px){.shell{width:min(94vw,610px);padding-top:25px}.header{grid-template-columns:auto 1fr}.copy{text-align:right;padding-right:4px}.review{grid-column:1/-1;justify-self:center;margin-top:4px}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.day-card{min-height:68px}.overlay{padding:7px}.book{width:100vw;height:min(790px,92vh)}.spread{inset:9px;grid-template-columns:22% 78%}.spine{left:22%;width:22px}.ribbon{left:calc(22% - 5px);width:10px;height:68px}.ribbon:after{bottom:-7px;border-left-width:5px;border-right-width:5px;border-top-width:7px}.left{padding:24px 9px}.entry{margin-bottom:7px;font-size:.58rem}.date{font-size:1.12rem;line-height:1.08}.route{left:6px;right:6px;bottom:38px;height:150px}.route:before{left:18%;width:60%;height:118px}.right{padding:27px 18px 58px 22px}.story p{font-size:.94rem;line-height:1.58;margin-bottom:.92em}.footer{left:22px;right:18px;bottom:14px}.page-back{left:4px;bottom:10px;width:30px;height:30px}.close{width:36px;height:36px;font-size:1.15rem}}@media(max-width:390px){.story p{font-size:.89rem}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important}}
+:root{
+  --paper:#fbf4e8;
+  --paper-deep:#f3e7d5;
+  --cream:#f7eddd;
+  --cream-2:#ecddc8;
+  --ink:#5c493c;
+  --muted:#8d7868;
+  --line:rgba(112,84,61,.14);
+  --cover:#c6a57e;
+  --cover-dark:#b38c64;
+  --ribbon:#a66f69;
+  --shadow:rgba(72,48,31,.18);
+}
+*{box-sizing:border-box}
+html,body{min-height:100%}
+body{
+  margin:0;
+  color:var(--ink);
+  font-family:Georgia,"Times New Roman",serif;
+  background:linear-gradient(180deg,#efe3d2,#e5d4bd);
+}
+button,a{font:inherit}
+button{-webkit-tap-highlight-color:transparent}
+
+/* ===== MONTH SCREEN ===== */
+.month-shell{
+  width:min(1180px,96vw);
+  min-height:min(760px,94vh);
+  margin:3vh auto;
+  padding:20px;
+  border-radius:24px;
+  background:rgba(249,240,226,.88);
+  box-shadow:0 22px 55px rgba(74,49,31,.16),inset 0 0 0 1px rgba(255,255,255,.45);
+  display:grid;
+  grid-template-columns:300px 1fr;
+  gap:20px;
+}
+.month-panel,
+.mailbox-scene{
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,.7);
+  background:rgba(249,241,229,.72);
+  box-shadow:inset 0 0 28px rgba(137,105,76,.035);
+}
+.month-panel{
+  padding:28px 20px 20px;
+  display:flex;
+  min-height:0;
+  flex-direction:column;
+}
+.top-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.back-link{
+  color:var(--muted);
+  text-decoration:none;
+  font-size:.76rem;
+  text-transform:lowercase;
+}
+.review-pill{
+  padding:5px 8px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  color:var(--muted);
+  font-size:.62rem;
+  text-transform:lowercase;
+  white-space:nowrap;
+}
+.month-panel h1{
+  margin:26px 0 4px;
+  font-size:2rem;
+  line-height:1;
+  font-weight:500;
+  text-transform:lowercase;
+}
+.month-subtitle{
+  margin:0;
+  color:var(--muted);
+  font-size:.92rem;
+  text-transform:lowercase;
+}
+.month-progress{margin:22px 0 18px}
+.month-progress-row{
+  display:flex;
+  justify-content:space-between;
+  color:var(--muted);
+  font-size:.68rem;
+  text-transform:lowercase;
+}
+.progress-track{
+  height:4px;
+  margin-top:7px;
+  border-radius:999px;
+  overflow:hidden;
+  background:rgba(102,76,55,.11);
+}
+.progress-fill{
+  height:100%;
+  width:0;
+  border-radius:inherit;
+  background:rgba(108,78,57,.48);
+  transition:width .25s ease;
+}
+.day-list{
+  min-height:0;
+  overflow:auto;
+  padding-right:4px;
+  display:grid;
+  gap:9px;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(108,78,57,.22) transparent;
+}
+.day-card{
+  width:100%;
+  min-height:58px;
+  padding:10px 13px;
+  border:0;
+  border-radius:15px;
+  background:rgba(255,251,245,.78);
+  color:var(--ink);
+  text-align:left;
+  cursor:pointer;
+  box-shadow:0 5px 13px rgba(75,50,31,.055);
+  transition:transform .16s ease,box-shadow .16s ease,opacity .16s ease;
+}
+.day-card:hover{transform:translateY(-1px);box-shadow:0 8px 16px rgba(75,50,31,.09)}
+.day-card .mini{display:block;color:var(--muted);font-size:.64rem;letter-spacing:.035em;text-transform:lowercase}
+.day-card .day{display:block;margin-top:3px;font-size:1rem;text-transform:lowercase}
+.day-card.read::after{content:"read";float:right;margin-top:-17px;color:rgba(93,115,86,.68);font-size:.58rem;text-transform:lowercase}
+.day-card.locked{opacity:.45;cursor:not-allowed}
+
+.mailbox-scene{
+  position:relative;
+  overflow:hidden;
+  min-height:680px;
+  background:
+    radial-gradient(circle at 50% 18%,rgba(255,255,255,.44),transparent 38%),
+    linear-gradient(180deg,#f9f1e5 0%,#f8efe1 68%,#e9d3b7 68%,#dfc4a1 100%);
+}
+.scene-copy{
+  position:absolute;
+  top:36px;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(520px,80%);
+  text-align:center;
+  color:var(--muted);
+  text-transform:lowercase;
+}
+.scene-copy strong{display:block;color:var(--ink);font-weight:500;font-size:1.18rem;margin-bottom:6px}
+.scene-copy span{font-size:.82rem}
+.mailbox{
+  position:absolute;
+  left:50%;
+  bottom:105px;
+  transform:translateX(-50%);
+  width:190px;
+  height:138px;
+}
+.mailbox-box{
+  position:absolute;
+  left:0;top:0;
+  width:168px;height:116px;
+  border-radius:82px 82px 20px 20px;
+  background:linear-gradient(180deg,#d7b58c,#c69768);
+  border:1px solid rgba(112,78,50,.18);
+  box-shadow:inset 0 -14px 0 rgba(141,96,60,.08);
+}
+.mailbox-slot{
+  position:absolute;
+  left:47px;top:56px;
+  width:77px;height:9px;
+  border-radius:999px;
+  background:rgba(108,78,55,.47);
+  box-shadow:inset 0 1px 3px rgba(76,53,38,.24);
+}
+.mailbox-door{
+  position:absolute;
+  left:17px;bottom:17px;
+  width:136px;height:42px;
+  border-radius:10px;
+  background:rgba(255,244,226,.19);
+  border:1px solid rgba(111,78,51,.12);
+}
+.mailbox-post{
+  position:absolute;
+  left:82px;top:113px;
+  width:23px;height:126px;
+  background:linear-gradient(90deg,#b88b64,#c79d78);
+  border-radius:8px 8px 0 0;
+}
+.mailbox-flag{
+  position:absolute;
+  right:4px;top:42px;
+  width:10px;height:62px;
+  border-radius:999px;
+  background:#bb875e;
+  transform:rotate(15deg);
+  transform-origin:bottom center;
+}
+.mailbox-flag::after{
+  content:"";
+  position:absolute;
+  top:0;left:3px;
+  width:32px;height:18px;
+  border-radius:3px 8px 8px 3px;
+  background:#d5ad83;
+}
+.scene-hint{
+  position:absolute;
+  left:50%;bottom:73px;
+  transform:translateX(-50%);
+  color:var(--muted);
+  font-size:.74rem;
+  text-transform:lowercase;
+  white-space:nowrap;
+}
+
+/* ===== READER / OPENING ANIMATION ===== */
+.reader-overlay{
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  display:grid;
+  place-items:center;
+  padding:18px;
+  background:rgba(49,36,29,.26);
+  -webkit-backdrop-filter:blur(4px);
+  backdrop-filter:blur(4px);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .22s ease,visibility .22s ease;
+}
+.reader-overlay.show{opacity:1;visibility:visible;pointer-events:auto}
+.reader-close{
+  position:fixed;
+  top:max(14px,env(safe-area-inset-top));
+  right:max(14px,env(safe-area-inset-right));
+  z-index:10005;
+  width:40px;height:40px;
+  border:0;border-radius:50%;
+  background:rgba(255,250,244,.92);
+  color:var(--ink);
+  box-shadow:0 6px 16px rgba(60,42,30,.13);
+  cursor:pointer;
+  font-size:1.25rem;
+}
+.book-stage{
+  position:relative;
+  width:min(980px,96vw);
+  height:min(640px,88vh);
+  opacity:0;
+  transform:translateY(46vh) scale(.22) rotate(-2deg);
+  transform-origin:50% 100%;
+}
+.reader-overlay.show .book-stage{
+  animation:book-rise .68s cubic-bezier(.18,.82,.22,1.06) forwards;
+}
+@keyframes book-rise{
+  0%{opacity:0;transform:translateY(46vh) scale(.22) rotate(-2deg)}
+  68%{opacity:1;transform:translateY(-12px) scale(.48) rotate(.5deg)}
+  100%{opacity:1;transform:translateY(0) scale(1) rotate(0)}
+}
+.closed-book{
+  position:absolute;
+  z-index:6;
+  left:50%;top:50%;
+  width:44%;height:88%;
+  transform:translate(-50%,-50%);
+  border-radius:15px;
+  background:linear-gradient(135deg,#c9a77e,#ad855e);
+  border:1px solid rgba(95,66,43,.18);
+  box-shadow:0 20px 34px rgba(63,43,29,.22),inset 12px 0 18px rgba(255,255,255,.08);
+  transition:opacity .38s ease,transform .64s cubic-bezier(.2,.75,.18,1);
+}
+.closed-book::before{
+  content:"for my love.";
+  position:absolute;
+  left:50%;top:46%;
+  transform:translate(-50%,-50%);
+  color:rgba(255,249,239,.78);
+  font-size:1.1rem;
+  text-transform:lowercase;
+  white-space:nowrap;
+}
+.closed-book::after{
+  content:"";
+  position:absolute;
+  top:0;bottom:0;left:13px;
+  width:2px;
+  background:rgba(96,65,43,.16);
+}
+.book-spread{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transform:scaleX(.13);
+  transform-origin:50% 50%;
+  transition:opacity .28s ease,transform .68s cubic-bezier(.2,.77,.18,1);
+  filter:drop-shadow(0 28px 40px var(--shadow));
+}
+.reader-overlay.opening .closed-book{opacity:0;transform:translate(-50%,-50%) scaleX(.18)}
+.reader-overlay.opening .book-spread{opacity:1;transform:scaleX(1)}
+.book-cover{
+  position:absolute;
+  inset:0;
+  border-radius:20px;
+  background:linear-gradient(180deg,var(--cover),var(--cover-dark));
+  border:1px solid rgba(92,66,44,.13);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22),inset 0 -12px 20px rgba(75,50,31,.08);
+}
+.spread{
+  position:absolute;
+  inset:16px;
+  z-index:2;
+  display:grid;
+  grid-template-columns:40% 60%;
+}
+.book-page{
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.34),rgba(255,255,255,.08)),
+    repeating-linear-gradient(180deg,transparent 0,transparent 12px,rgba(129,103,78,.025) 13px),
+    linear-gradient(180deg,var(--paper),var(--paper-deep));
+  box-shadow:inset 0 0 0 1px rgba(106,79,57,.07),inset 0 0 18px rgba(111,83,60,.035);
+}
+.left-page{
+  padding:40px 36px;
+  border-radius:13px 4px 4px 13px;
+  border-right:1px solid rgba(111,83,60,.14);
+}
+.right-page{
+  padding:40px 44px 68px;
+  border-radius:4px 13px 13px 4px;
+  cursor:pointer;
+  transform-origin:left center;
+  transition:transform .2s ease,opacity .2s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.right-page.turning{transform:rotateY(-8deg) translateX(-3px);opacity:.55}
+.spine{
+  position:absolute;
+  z-index:5;
+  top:12px;bottom:12px;left:40%;
+  width:38px;
+  transform:translateX(-50%);
+  border-radius:18px;
+  pointer-events:none;
+  background:linear-gradient(90deg,rgba(79,56,39,.15),rgba(255,255,255,.08),rgba(79,56,39,.15));
+}
+.ribbon{
+  position:absolute;
+  z-index:6;
+  top:0;left:calc(40% - 7px);
+  width:14px;height:86px;
+  border-radius:0 0 8px 8px;
+  background:linear-gradient(#b67f78,var(--ribbon));
+  pointer-events:none;
+}
+.ribbon::after{
+  content:"";
+  position:absolute;left:0;right:0;bottom:-9px;margin:auto;width:0;height:0;
+  border-left:7px solid transparent;border-right:7px solid transparent;border-top:9px solid var(--ribbon);
+}
+.entry-label{
+  display:block;
+  margin-bottom:10px;
+  color:var(--muted);
+  font-size:.72rem;
+  letter-spacing:.07em;
+  text-transform:lowercase;
+}
+.entry-date{
+  margin:0;
+  font-size:clamp(2rem,4vw,3rem);
+  font-weight:500;
+  line-height:1;
+  text-transform:lowercase;
+}
+.route-art{
+  position:absolute;
+  left:38px;right:38px;bottom:54px;
+  height:220px;
+  opacity:.2;
+}
+.route-art::before{
+  content:"";
+  position:absolute;
+  left:13%;top:8px;
+  width:66%;height:172px;
+  border-left:2px dashed var(--ink);
+  border-bottom:2px dashed var(--ink);
+  border-radius:0 0 0 72%;
+  transform:rotate(-11deg);
+}
+.route-dot{position:absolute;width:8px;height:8px;border:1px solid var(--ink);border-radius:50%;background:var(--paper)}
+.route-dot.a{left:11%;top:6px}.route-dot.b{left:35%;top:102px}.route-dot.c{left:76%;bottom:20px}
+.mobile-story-header{display:none}
+.story-body{height:100%;overflow:hidden;padding-right:2px}
+.story-body p{margin:0 0 1.04em;font-size:1.01rem;line-height:1.72}
+.story-body p:last-child{margin-bottom:0}
+.page-back{
+  position:absolute;
+  z-index:4;
+  left:10px;bottom:16px;
+  width:34px;height:34px;
+  border:0;border-radius:50%;
+  background:transparent;
+  color:var(--muted);
+  cursor:pointer;
+  opacity:0;
+  pointer-events:none;
+  font-size:1.05rem;
+}
+.page-back.show{opacity:1;pointer-events:auto}
+.reader-footer{
+  position:absolute;
+  z-index:3;
+  left:44px;right:44px;bottom:18px;
+}
+.reader-meta{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom:7px;
+  color:var(--muted);
+  font-size:.69rem;
+  text-transform:lowercase;
+}
+.reader-track{height:3px;border-radius:999px;overflow:hidden;background:rgba(108,82,60,.12)}
+.reader-track span{display:block;width:0;height:100%;border-radius:inherit;background:rgba(109,78,57,.54);transition:width .2s ease}
+body.reader-open{overflow:hidden}
+
+@media(max-width:720px){
+  body{background:linear-gradient(180deg,#f1e5d4,#e6d5be)}
+  .month-shell{
+    width:100%;
+    min-height:100vh;
+    margin:0;
+    padding:max(18px,env(safe-area-inset-top)) 14px max(26px,env(safe-area-inset-bottom));
+    border-radius:0;
+    display:block;
+  }
+  .month-panel{
+    padding:14px 10px 18px;
+    border:0;
+    box-shadow:none;
+    background:transparent;
+  }
+  .top-row{margin-bottom:8px}
+  .month-panel h1{margin:16px 0 4px;font-size:2.15rem}
+  .month-progress{margin:18px 0 16px}
+  .day-list{
+    overflow:visible;
+    padding:0;
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    gap:8px;
+  }
+  .day-card{
+    min-height:54px;
+    padding:8px 4px;
+    text-align:center;
+    border-radius:13px;
+  }
+  .day-card .mini{display:none}
+  .day-card .day{font-size:.95rem}
+  .day-card.read::after{display:none}
+  .mailbox-scene{
+    margin-top:6px;
+    min-height:250px;
+    border-radius:20px;
+    background:linear-gradient(180deg,#f9f1e5 0%,#f8efe1 59%,#ead3b6 59%,#dfc29d 100%);
+  }
+  .scene-copy{top:22px}
+  .scene-copy strong{font-size:1rem}
+  .scene-copy span{font-size:.72rem}
+  .mailbox{bottom:42px;transform:translateX(-50%) scale(.62);transform-origin:bottom center}
+  .scene-hint{bottom:18px;font-size:.66rem}
+
+  .reader-overlay{padding:8px}
+  .reader-close{width:36px;height:36px;font-size:1.08rem}
+  .book-stage{
+    width:100vw;
+    height:min(790px,92vh);
+  }
+  .closed-book{width:68%;height:76%}
+  .book-spread{filter:drop-shadow(0 22px 32px var(--shadow))}
+  .book-cover{border-radius:18px}
+  .spread{
+    inset:9px;
+    display:block;
+  }
+  /* mobile is one full story page: no left/right split */
+  .left-page,.spine,.ribbon{display:none}
+  .right-page{
+    width:100%;
+    height:100%;
+    padding:0 20px 58px;
+    border-radius:13px;
+    transform-origin:center center;
+  }
+  .right-page.turning{transform:translateX(-10px);opacity:.48}
+  .mobile-story-header{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:14px;
+    min-height:76px;
+    margin:0 -20px 22px;
+    padding:22px 20px 14px;
+    border-bottom:1px solid rgba(111,83,60,.12);
+    background:rgba(255,252,246,.2);
+  }
+  .mobile-story-header small{
+    color:var(--muted);
+    font-size:.66rem;
+    letter-spacing:.06em;
+    text-transform:lowercase;
+  }
+  .mobile-story-header strong{
+    font-size:1.18rem;
+    font-weight:500;
+    text-transform:lowercase;
+  }
+  .story-body{height:calc(100% - 98px)}
+  .story-body p{font-size:.96rem;line-height:1.62;margin-bottom:.95em}
+  .reader-footer{left:20px;right:20px;bottom:14px}
+  .page-back{left:4px;bottom:8px;width:30px;height:30px}
+}
+@media(max-width:390px){
+  .day-list{grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+  .day-card{min-height:48px}
+  .story-body p{font-size:.9rem;line-height:1.58}
+  .mobile-story-header{min-height:70px;margin-bottom:18px}
+  .story-body{height:calc(100% - 88px)}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reader-overlay.show .book-stage{opacity:1;transform:none}
+  .reader-overlay.show .book-spread{opacity:1;transform:none}
+  .reader-overlay.show .closed-book{display:none}
+}
 </style>
 </head>
 <body>
-<main class="shell">
-<header class="header"><a class="back" href="index.html">← months</a><div class="copy"><p class="eyebrow">for my love.</p><h1>september.</h1><p class="subtitle">the road after the storm.</p></div><div class="review">unlocked for review</div></header>
-<section class="month-progress"><div class="month-row"><span>september</span><span>30 / 30 available</span></div><div class="track"><span></span></div></section>
-<section class="grid" id="dayGrid" aria-label="september letters"></section>
+<main class="month-shell">
+  <aside class="month-panel">
+    <div class="top-row">
+      <a class="back-link" href="index.html">← months</a>
+      <span class="review-pill">unlocked for review</span>
+    </div>
+    <h1>september.</h1>
+    <p class="month-subtitle">the road after the storm.</p>
+    <div class="month-progress">
+      <div class="month-progress-row"><span>reading progress</span><span id="monthProgressText">0 / 30</span></div>
+      <div class="progress-track"><div class="progress-fill" id="monthProgressFill"></div></div>
+    </div>
+    <div class="day-list" id="dayList" aria-label="september entries"></div>
+  </aside>
+
+  <section class="mailbox-scene" aria-label="storybook mailbox">
+    <div class="scene-copy"><strong>september.</strong><span>choose a day and the storybook will rise from the mailbox.</span></div>
+    <div class="mailbox" aria-hidden="true">
+      <div class="mailbox-post"></div>
+      <div class="mailbox-box"><div class="mailbox-slot"></div><div class="mailbox-door"></div></div>
+      <div class="mailbox-flag"></div>
+    </div>
+    <div class="scene-hint">click a day to open the story.</div>
+  </section>
 </main>
-<div class="overlay" id="overlay" aria-hidden="true"><button class="close" id="close" type="button" aria-label="close story">×</button><div class="book" role="dialog" aria-modal="true" aria-label="september story"><div class="cover"></div><div class="ribbon"></div><div class="spine"></div><div class="spread"><aside class="page left"><span class="entry" id="entry">entry 01</span><h2 class="date" id="date">sep. 1.</h2><div class="route" aria-hidden="true"><i></i><i></i><i></i></div></aside><section class="page right" id="right"><button class="page-back" id="pageBack" type="button" aria-label="previous page">←</button><div class="story" id="story"></div><div class="footer"><div class="meta"><span id="pageCount">1 / 1</span><span id="hint">tap the page →</span></div><div class="page-track"><span id="pageFill"></span></div></div></section></div></div></div>
+
+<div class="reader-overlay" id="readerOverlay" aria-hidden="true">
+  <button class="reader-close" id="readerClose" type="button" aria-label="close story">×</button>
+  <div class="book-stage" id="bookStage">
+    <div class="closed-book" aria-hidden="true"></div>
+    <div class="book-spread">
+      <div class="book-cover"></div>
+      <div class="ribbon"></div>
+      <div class="spine"></div>
+      <div class="spread">
+        <aside class="book-page left-page">
+          <span class="entry-label" id="entryLabel">entry 01</span>
+          <h2 class="entry-date" id="entryDate">sep. 1.</h2>
+          <div class="route-art" aria-hidden="true"><i class="route-dot a"></i><i class="route-dot b"></i><i class="route-dot c"></i></div>
+        </aside>
+        <section class="book-page right-page" id="rightPage">
+          <div class="mobile-story-header"><small id="mobileEntry">entry 01</small><strong id="mobileDate">sep. 1.</strong></div>
+          <button class="page-back" id="pageBack" type="button" aria-label="previous page">←</button>
+          <div class="story-body" id="storyBody"></div>
+          <div class="reader-footer">
+            <div class="reader-meta"><span id="pageCount">1 / 1</span><span id="pageHint">tap the page →</span></div>
+            <div class="reader-track"><span id="pageProgress"></span></div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="september-data.js"></script>
 <script>
-const STORIES={
-1:[`The storm had been following the travelling party since midday, although at first it had seemed like the sort of weather that would pass if everyone simply kept moving. By evening the road had vanished beneath running water, the horses had become difficult to manage, and every cloak in the group was soaked through. They reached an old roadside wayhouse shortly before dark and crowded inside with little concern for comfort. The roof leaked in one corner, several windows had been boarded shut, and there were fewer chairs than people, but it was dry enough to feel luxurious after the road outside.`,`One of the travellers arrived a little later than the rest and paused near the doorway, looking for somewhere to put their things. Another traveller, already seated near the wall, shifted a pack aside and made a little room. They exchanged names and spoke briefly about the storm, the damaged road and how long the delay might last. The conversation was ordinary and soon disappeared into the noise of the room as both returned to the people they already knew.`,`By morning, neither gave the exchange much thought. The road remained closed, the rain continued, and the wayhouse began filling with the routines of people who had expected to stay only one night. Among all of them were two travellers who had spoken once and had no reason yet to believe they would become anything more than familiar faces encountered along the same road.`],
-2:[`The wayhouse keeper believed that anyone stranded beneath his roof could at least help keep the place standing. After breakfast he began handing out small jobs. Some people were sent to the stables, others to the roof, and the two travellers from the previous evening were given an old lantern that had not worked for years.`,`The lantern was in worse condition than it first appeared. Its frame had been bent, the wick had burned almost completely away, and one piece of glass no longer sat properly in its groove. One traveller understood enough about lamps to take apart the burner and replace the wick. The other had steadier hands for straightening the frame and fitting the loose pieces back together. Their work was interrupted by mistakes, mild disagreement and several moments where neither knew what a particular piece was supposed to do, but eventually the lantern caught and held a clean flame.`,`The task had taken most of the morning. Once it was done, they carried the lantern to the keeper and returned to different parts of the wayhouse. That evening it hung beside the entrance, casting a warm circle of light over wet boots and travelling packs. Neither considered the repair especially important. It was simply the first ordinary thing they had managed together.`],
-3:[`While checking their supplies, one traveller discovered that the leather loop holding a bedroll to their pack had nearly torn away. String snapped under the weight, and the remaining leather was too short to knot securely. Across the room, the other traveller was sorting through a small collection of tools and miscellaneous objects gathered over many journeys. Among them was a plain brass hook, worn smooth at the edges and worth very little.`,`The broken pack needed exactly that shape. The traveller offered a trade and produced a silver compass in return. The casing was finely made, the glass almost unscratched, and even from a distance it was obvious that the compass was worth far more than the hook. A few people nearby laughed when they saw the exchange being proposed. The owner of the hook hesitated as well, pointing out that the trade made no sense.`,`“For you, maybe,” the other traveller said, already testing the hook against the torn strap. “I need this.”`,`The exchange went ahead. The brass hook held the bedroll perfectly, and the silver compass found a new place in the other traveller’s pocket. The jokes continued for the rest of the afternoon, but both people involved were satisfied. The value of the objects had mattered much less than whether either of them had what they actually needed.`],
-4:[`Once the rain eased, the wayhouse keeper sent several people into the surrounding hills to gather edible herbs and anything else the kitchen could use. The two travellers ended up taking the same route. What looked from the yard like a simple path soon divided beneath the trees, and one of them suggested a narrower track that appeared to cut across the slope.`,`It did not. The path curved away from the wayhouse, disappeared behind a line of wet brush and eventually left them standing beside a stream that was nowhere on the map. They spent the next hour finding their way back, collecting what herbs they could along the way and becoming progressively muddier as the ground softened beneath their boots.`,`By the time they returned, the others had already finished most of the work. Their bundle of herbs looked unimpressive beside everyone else’s, and neither could say with confidence who had first decided the route was a shortcut. The embarrassment lasted only until they began describing how many times they had passed the same fallen tree without noticing. Before long, the failed errand had become funny enough that the details grew slightly more ridiculous each time it was retold.`],
-5:[`Meals at the wayhouse were usually communal, with whoever had free hands helping in the kitchen. One evening, one of the travellers volunteered to prepare a stew and did so with much more confidence than experience. The result looked respectable enough in the pot. It smelled reasonably good. That was where its strengths ended.`,`The other traveller managed several bites before their expression became impossible to hide. The stew was somehow too sweet, too heavily peppered and faintly burnt all at once. When the cook finally noticed, there was a brief attempt to insist that nothing was wrong before the truth became obvious. The embarrassment could have lingered, but instead both began laughing at how long politeness had kept the bowl moving toward empty.`,`They abandoned the stew and ate bread, cheese and leftovers from breakfast with everyone else. By the end of the meal, the failed dinner had already become a shared joke. Something about the evening made it easier to stop trying quite so hard to seem impressive around each other. The wayhouse had enough people pretending to know what they were doing. Neither felt much need to add to the number.`],
-6:[`Nothing particularly important happened the following day. One traveller spent most of the morning helping repair part of the stable roof while the other went into the nearby settlement with several members of the group. Their paths crossed only briefly at breakfast and once again in the afternoon when supplies were carried through the common room.`,`At dinner they sat at different ends of the table. Conversation moved around the room in several directions at once, and they spoke mostly to the people nearest them. At one point somebody told a story that made half the table laugh. The two travellers happened to look across the room at the same moment and caught each other’s reaction before turning back to the conversation around them.`,`By the time everyone settled for the night, they had probably exchanged fewer than ten words. It did not make the day feel strange. They were still only loosely familiar, still surrounded by other friends and other concerns. Yet the other person had become recognisable enough to be noticed even from across a crowded room.`],
-7:[`The road remained closed, and the keeper continued discovering work for his temporary guests. That morning the two travellers were assigned to clean the common room. They began with the practical question of who would sweep and who would deal with the fireplace, then somehow spent the next hour discussing which household chores were objectively worst.`,`The work moved in fits and starts. A half-finished thought led to a story about an inn somewhere south; that story led to a complaint about washing clothes on the road; the complaint turned into a debate about whether folding anything was worthwhile when it would only be packed again. By the time the floor was clean, both had learned an unreasonable amount about the other’s opinions on entirely ordinary things.`,`The room took longer to finish than it should have. Neither seemed bothered. When the keeper returned, the furniture had been put back in place and the fireplace was finally clean, but the two travellers were still talking as they carried the last bucket outside. Being paired together had begun to feel less like an assignment and more like a convenient excuse to continue a conversation.`],
-8:[`After days of rain, the weather changed completely. The hills brightened under a clear sky, and tiny flowers appeared in places that had been mud only a few mornings earlier. The two travellers were sent to the stream with empty buckets and finished filling them quickly.`,`On the way back, movement beyond the trees caught their attention. A meadow beside the path had filled with butterflies. Some rested among the new flowers while others moved above the grass in loose clouds, bright whenever the sunlight caught their wings. The travellers set the buckets down intending to stop for only a moment. Instead, they sat near the edge of the field and stayed.`,`They talked without trying to make the conversation important. They traded stories about places they had travelled through, people they had met, roads they hated and places they hoped to see someday. The conversation wandered as easily as the butterflies did, and neither paid much attention to how long they had been gone.`,`Someone eventually came looking for them because the wayhouse still needed water. They returned carrying the original buckets and a mild amount of embarrassment, but the delay did not feel wasted. Later, both remembered the field more clearly than anything they had actually said there.`],
-9:[`One evening, one traveller asked about a long scratch across the other’s boot. It should have taken a sentence to explain. Instead, the answer began several towns earlier and involved an elderly baker, a market, a neighbour’s horse and several people whose names had no obvious connection to the damaged leather.`,`The listener found the wandering explanation funny at first. Then, somewhere between the second unnecessary detour and the eventual return to the original question, they realised they were genuinely enjoying it. The story did not need to be efficient. The details were part of the pleasure because they revealed the way the other traveller remembered things: not as neat events, but as whole places filled with people, small observations and side roads.`,`By the end, the scratch had finally been explained, though the listener had nearly forgotten to care about it. What stayed with them instead were the unnecessary pieces—the horse, the baker, the market stall and the way the storyteller became more animated whenever another memory occurred to them. It was the first time the listener noticed just how much the other traveller enjoyed telling stories about the life they had lived.`],
-10:[`The following evening, the usual storyteller was quieter. They ate with the group, helped clear the table and spent most of the night repairing a glove near the window. Nothing appeared wrong; there simply happened to be no story waiting to spill into the room.`,`The other traveller noticed the difference more than expected. After some time, they asked about one of the minor details from the previous night—the neighbour’s horse that had appeared in the long explanation and then vanished before the end. The question was small, but it was enough. The storyteller looked up, remembered where that thread of the tale had gone and began explaining.`,`Another long account followed, branching into places that had nothing to do with the original question. This time the listener had known exactly what they were inviting. They put aside what they were doing and listened until the story was finished. What had begun as patience a few days earlier was turning into something more deliberate: a genuine fondness for hearing the other person talk, even when the subject mattered very little.`],
-11:[`Someone in the travelling party owned a simple game played with a handful of coloured stones. The rules were easy enough that nearly everyone understood them within a few minutes. The two travellers managed to make them complicated almost immediately.`,`A disagreement over scoring became a new rule. The new rule created another problem, so they added a second one. By the time the others abandoned the game, the pair had invented enough exceptions that nobody else could follow what was happening. A blue stone became attached to one particularly ridiculous mistake, and for reasons neither could later explain properly, it remained funny long after the game had ended.`,`The next morning, one traveller found the blue stone beside their breakfast bowl. They laughed before looking across the room. Someone nearby asked what it meant, but there was no useful answer. It had become one of those small things whose meaning depended entirely on having been there. From then on, the stone occasionally appeared in strange places—a pocket, a windowsill, beside a cup—and always produced the same reaction from exactly two people.`],
-12:[`By the middle of the month, the travelling party had developed routines without discussing them. People tended to sit in the same places at meals, gather with the same companions in the evenings and leave their belongings in the same corners of the room.`,`One night, somebody else took the seat that had quietly become the usual place beside one of the travellers. There were plenty of other chairs, and no one had any reason to think the arrangement mattered. The other traveller sat across the table instead.`,`Dinner continued normally. Yet several times, one of them turned toward the familiar space beside them before remembering that someone else was there. Across the table, the same small mistake happened in reverse. Neither mentioned it, and neither made anything of it afterward.`,`The following evening, the chair was empty again. The other traveller sat there naturally, as though nothing had interrupted the pattern. By then, each had begun to occupy a small expected place in the other’s day.`],
-13:[`A messenger reached the wayhouse around midday carrying several letters for people delayed by the storm. Most were opened immediately. News from home was passed around the room, and one traveller read part of a letter aloud to anyone willing to listen.`,`The other traveller recognised the handwriting on their envelope before their name was called. The change in them was small but noticeable. They turned the letter over once, slipped it unopened into their bag and spent the afternoon outside helping repair a fence that did not urgently need attention.`,`The second traveller noticed and nearly asked about it. Instead, they carried another bundle of timber outside and worked nearby. For a while they spoke very little. Eventually the conversation moved toward easier things—the crooked fence, the weather, whether the road crew would finish before the next rain—and the tension around the unopened letter faded without being forced away.`,`The envelope remained sealed that night. Whatever was written inside belonged to the person carrying it until they chose otherwise.`],
-14:[`During breakfast, one traveller reached for something across the table and knocked a cup onto the floor. It shattered against the boards. The accident was small, but their reaction was immediate and much larger than the damage. They apologised several times, began gathering the pieces with bare hands and worried aloud about replacing it before anyone had even asked.`,`The other traveller stopped them from picking up the sharpest fragments and fetched a broom. The wayhouse keeper, when told, barely looked up from the pantry. There were more cups on the shelf, and the broken one had already been chipped.`,`The matter ended there for everyone else. The traveller who had broken it remained embarrassed for a little longer, not because of the cup but because of how quickly fear had appeared over something so harmless. The other traveller did not tease them or ask what had caused the reaction. They simply helped clean the floor and allowed the moment to pass.`,`Later, they spent the afternoon as usual. The cup was gone, but the brief glimpse of an older habit remained quietly in memory.`],
-15:[`Another leak appeared in the roof, forcing several people to move their belongings away from one side of the common room. While carrying packs upstairs, one traveller accidentally knocked over the other’s bag. Something heavy inside shifted and struck the floor with a dull metallic sound.`,`They crouched to help, but the owner reached the bag first and pulled it close. The movement was quick enough to make both pause. Only then did the other traveller notice a small lock fixed through one of the straps, worn from use but carefully kept.`,`No explanation followed. The bag was lifted, carried upstairs and placed beside the rest of the belongings. The person who had knocked it over did not ask what was inside or why it needed to be locked.`,`Later that evening, the owner of the bag brought two cups of tea to the window where the other traveller was sitting. They spoke about the road and the people likely to leave first once it reopened. Whatever had been inside the bag stayed there. The ease between them returned without requiring access to everything the other person carried.`],
-16:[`With the road repairs finally making progress, maps began appearing on the tables again. People compared routes and argued about which bridges would still be usable after the storm. While looking over one traveller’s map, the other noticed several destinations that had been crossed out so heavily that the parchment beneath them was nearly torn.`,`One road in particular had been scratched over again and again until the ink formed a dark knot. The question that followed was casual—whether those had simply been bad roads. The owner of the map gave an equally casual answer that explained almost nothing, then folded that section away.`,`The conversation moved on to a mountain crossing farther north, where someone had heard of a bridge that swayed badly in high wind. The travellers spent the next part of the afternoon deciding whether that made the route more interesting or merely foolish.`,`The damaged places on the map were not mentioned again. The other traveller had seen enough to understand that not every road behind someone needed to be retraced in order to keep walking beside them.`],
-17:[`A smaller storm passed over the wayhouse during the night. The wind was strong enough to rattle the shutters and wake several people, though the roof held this time. One traveller came downstairs and found the other sitting near the cold fireplace, awake long after everyone else had gone back to sleep.`,`They did not ask why. They sat nearby and listened to the rain strike the windows. For several minutes neither spoke at all. Eventually the silence gave way to ordinary conversation: complaints about the useless fireplace, guesses about whether the roof would survive another week, and a half-finished story that had nothing to do with the hour.`,`Nothing was solved before they returned upstairs. No explanation was offered for the sleeplessness, and none was requested. The storm simply became something they waited through in the same room.`,`By morning, sunlight had begun pushing through the clouds. The night left no dramatic change behind, only the quiet knowledge that one person had found the other awake and had chosen to stay for a while.`],
-18:[`The day after the storm was unexpectedly warm. In the afternoon, the two travellers returned to the meadow beside the stream. There were fewer butterflies than before, but enough remained to move between the flowers whenever the grass stirred.`,`They spent an unreasonable amount of time trying to convince one to land on an outstretched hand. Every attempt failed. The butterflies seemed perfectly willing to settle on grass, stones and flowers, but not on either traveller. The failure became increasingly funny as their methods grew less dignified.`,`They eventually gave up and lay in the grass instead. The night before was not discussed. Neither mentioned the unopened letter, the locked bag or the marked-out places on the map. Those things still existed, but they did not have to become the subject of every good afternoon.`,`When they returned to the wayhouse, one of the butterflies followed the path for a short distance before turning back toward the field. The travellers watched it disappear and continued home in a better mood than either had started with.`],
-19:[`One traveller woke earlier than everyone else and went downstairs while the wayhouse was still quiet. They started the kettle, prepared their usual tea and, without thinking much about it, reached for a second cup.`,`Only after both cups were finished did they notice what they had done. The second had been prepared with less sugar and a little more milk, exactly the way the other traveller had taken it every morning for the past week. There was no particular reason to undo the mistake, so the cup was left beside the familiar chair.`,`When the other traveller eventually appeared, half-awake and moving slowly, they noticed the tea and accepted it without ceremony. The morning continued. People came downstairs, breakfast was prepared, and the common room grew noisy.`,`Neither mentioned that the cup had been made automatically. By then, small details about the other person had begun settling into habit before either of them had consciously decided they were worth remembering.`],
-20:[`One traveller went into the nearby village alone to collect supplies. Near the market gate, a merchant had arranged small carved animals across a table. Most were neatly made. One bird was not. Its wings were uneven, its beak pointed slightly sideways and its expression made it look permanently offended.`,`The traveller stopped because they could immediately imagine the other person laughing at it. The thought arrived before any decision to buy the thing. After a brief argument with the merchant over a price that seemed generous for such a badly carved bird, the traveller gave in and carried it back to the wayhouse.`,`The little carving was left beside the other traveller’s belongings without much explanation. When it was found, the reaction was exactly what had been expected. The bird was admired for all the reasons a better-made object would have been rejected.`,`It ended up on the windowsill beside the bed. For the first time, one traveller had carried something through part of a day simply because it had reminded them of the other.`],
-21:[`One afternoon, one traveller sat near the doorway repairing a tear in a boot while the other told another long story. The account involved a collapsed bridge, several merchants and, for reasons that took a while to become clear, a goat.`,`The repair should have been simple. Instead, the needle repeatedly stopped because the listener kept looking up to ask questions. Each answer created another branch in the story, and each branch seemed to require its own history before anything could move forward.`,`By the time the boot was finally repaired, nearly twice as much time had passed as the work required. The storyteller had still not reached the collapsed bridge. Neither seemed frustrated by this. Conversation no longer felt like an activity that needed to be arranged separately from the rest of the day. It had begun fitting itself around whatever else they were doing.`,`The repaired boot was set aside, and the listener stayed where they were until the story eventually found its way to an ending.`],
-22:[`The weather stayed warm enough for several people to spend the afternoon outside. The two travellers found shade beneath an old tree near the edge of the property. One brought a book. The other brought paper and charcoal.`,`For nearly two hours, they did separate things. The reader turned pages while the other sketched whatever happened to be nearby: the fence, the shape of the roof, a sleeping horse in the distance. Every so often one of them would show the other something—a sentence, a poor drawing, a beetle moving through the grass—then return to what they had been doing.`,`There was no pressure to keep the silence filled. It felt different from the awkward quiet of people who had run out of things to say. The other person’s presence had become comfortable enough that neither needed to perform for it.`,`When the sun moved and the tree no longer provided shade, both looked up with surprise. The afternoon had passed almost unnoticed.`],
-23:[`That evening, the storyteller began recounting an adventure from several years earlier. Partway through, the listener realised they had heard it before. In fact, they had heard it twice.`,`The discovery embarrassed the storyteller more than expected. They began to stop, assuming there was no reason to continue a story whose ending was already known. The listener, however, remembered several details that had changed between the previous versions and asked about one of them. The interruption was enough to keep the story moving.`,`Very little about the third telling was new. The same people appeared, the same problem occurred, and the same ending arrived eventually. Yet the listener found themselves enjoying the familiar rhythm of it. They knew which part would be exaggerated, where another side story would appear and which detail would be forgotten until the end.`,`The story itself had stopped being the only interesting thing. The person telling it had become reason enough to listen.`],
-24:[`Near the end of the week, the wayhouse keeper stood in the common room and remarked that the building had not looked this good in years. Nobody had intended to renovate it. The improvements had simply accumulated around them while everyone waited for the road.`,`The shutters closed properly now. The old lantern by the door worked each night. A crooked chair had been repaired, the kitchen shelves had been reorganised, and a bottle filled with flowers from the meadow sat on one of the tables. Even the corner where the roof had leaked on the first night was dry.`,`The two travellers looked around and realised it was difficult to remember exactly when the building had stopped feeling temporary. No single repair had transformed it. The place had become comfortable through dozens of small acts performed because there had been time and because people had been there to do them.`,`Their own familiarity had developed in much the same way, though neither gave it that name. There had been no single day when the other person suddenly mattered. Enough ordinary days had simply gathered together.`],
-25:[`A rider arrived shortly before lunch with news from the road crew. The bridge had been repaired, and only a few final sections of the road still needed clearing. If the weather held, everyone would be able to continue within two days.`,`The common room erupted into excitement. Maps came out again, supplies were counted and people began discussing the first meals they would eat once they reached larger towns. The two travellers joined in easily. Both had been waiting for the road to open since the night they arrived.`,`Later, one of them walked down toward the bridge to see the work for themselves. The other joined them before long. From the roadside they watched workers carry the final timber into place and clear mud from the approach.`,`For weeks, the broken road had decided where everyone stayed and who remained together. Now that reason was almost gone. The thought did not make either traveller unhappy exactly, but it lingered longer than either expected as they walked back to the wayhouse.`],
-26:[`Packing began the following morning. Rooms that had slowly become lived-in returned to their original emptiness as blankets were rolled, food was divided and small belongings disappeared into travelling bags.`,`While securing the bedroll to one pack, a traveller noticed the brass hook from the strange trade earlier in the month. It was scratched now but still holding perfectly. Across the room, the other traveller was checking the silver compass and comparing it with the map.`,`For a moment, trading the objects back seemed like the obvious way to undo an exchange that had never made financial sense. The idea was mentioned, considered and quietly dismissed. The compass worked. The hook worked. Both had already become associated with the people carrying them.`,`When the bags were finally closed, the hook remained on one pack and the compass disappeared into the other. A small decision made out of necessity weeks earlier had lasted long enough to become part of the journey itself.`],
-27:[`Maps covered nearly every table that evening. People traced routes with their fingers, compared distances and decided where the travelling party would begin breaking apart after leaving the wayhouse.`,`The two travellers laid their own maps beside each other. One eventually needed to go west toward the lowlands. The other was heading east. Their routes overlapped for a while, then separated beyond the hills. This was not a surprise. They had been travelling toward different places before the storm ever put them under the same roof.`,`They planned to share the part of the road that made sense for both of them. There was no suggestion that either person should change a destination or abandon a plan. Whatever familiarity had formed between them did not erase the lives that had existed before it.`,`Still, the overlapping portion of the map seemed shorter than it would have a week earlier.`],
-28:[`The keeper prepared a large meal for everyone’s final evening at the wayhouse. People stayed at the table long after the food was finished, repeating stories from the past few weeks and reviving arguments that had already become jokes.`,`The coloured stones appeared again. The two travellers attempted to explain the version of the game they had invented, but the rules had become so dependent on old mistakes and private references that nobody else could follow them. The blue stone eventually disappeared into one traveller’s pocket before the game was abandoned.`,`Most of the evening was spent with the entire group. The pair were not tucked away in private conversation, nor did they need to be. Yet whenever something funny happened across the table, each tended to look for the other’s reaction. When a story was told badly, they exchanged the same expression before either said anything.`,`By midnight, the room had begun to empty. The wayhouse felt strangely quiet for a place everyone had spent weeks wanting to leave.`],
-29:[`By late morning the next day, the travelling party reached a fork where several of their routes separated. One road bent west toward the lowlands, another continued east through the hills, and a narrower road ran north between them before eventually dividing again farther on.`,`Goodbyes began beneath an old wooden signpost. Some travellers left quickly, eager to make up lost time, while others lingered over maps and last conversations. The two travellers compared their own routes once more. The western road was clearly better for one. The eastern road was clearly better for the other.`,`There was also the road between them. It was longer for both, climbed almost immediately and had enough mud visible from the crossroads to make its condition obvious. According to the map, however, it would keep them on the same route for another few days before reconnecting with both of their intended directions.`,`Neither suggested it at first. There was no practical reason to choose extra distance. Eventually, one of them pointed out that the road did technically go both ways they needed—just not efficiently. The other studied the map for a while, then looked toward the hills. The decision was made without much ceremony. They adjusted their packs, said goodbye to the remaining group and took the middle road together.`],
-30:[`The middle road proved to be every bit as inconvenient as it had looked from the crossroads. Within the first hour, one traveller stepped into mud deep enough to soak one boot completely. Not long after that, the other discovered that the path marked on the map had apparently been drawn by someone with a generous imagination, because part of it had disappeared beneath several years of overgrown grass.`,`Neither complained very seriously. They spent most of the morning talking as they walked. The storyteller continued an adventure they had begun explaining days earlier, while the other occasionally asked enough questions to make the story even longer. Progress was slow, but for once neither seemed particularly interested in arriving quickly.`,`Around midday, they stopped beside a stream to eat. The silver compass from the wayhouse lay beside one traveller’s pack, while the little brass hook they had once traded for it was still holding the other traveller’s strap securely in place. Neither had ever suggested exchanging them back.`,`After lunch, they continued north. From the top of a hill they could see the two easier roads running far below them on opposite sides of the valley. One would have carried each traveller toward their destination faster. Neither reconsidered.`,`There had been no promise made at the crossroads, and neither had asked for one. They did not know how long the shared road would last or what waited beyond the hills. For now, it was enough that when the storm no longer decided where they stood, they had chosen a road that gave them a little more time.`]
-};
-const DATE_LOCK_ENABLED=false;const YEAR=2026;const grid=document.getElementById('dayGrid'),overlay=document.getElementById('overlay'),closeBtn=document.getElementById('close'),right=document.getElementById('right'),story=document.getElementById('story'),pageBack=document.getElementById('pageBack'),pageCount=document.getElementById('pageCount'),hint=document.getElementById('hint'),pageFill=document.getElementById('pageFill'),entry=document.getElementById('entry'),date=document.getElementById('date');let activeDay=null,pages=[],pageIndex=0,timer=null;function today(){const n=new Date();return new Date(n.getFullYear(),n.getMonth(),n.getDate())}function unlocked(d){return !DATE_LOCK_ENABLED||new Date(YEAR,8,d)<=today()}function budget(){if(innerWidth<=390)return 760;if(innerWidth<=720)return 900;return 1120}function paginate(paragraphs){const b=budget(),out=[];let cur=[],count=0;paragraphs.forEach(p=>{if(cur.length&&count+p.length>b){out.push(cur);cur=[];count=0}cur.push(p);count+=p.length});if(cur.length)out.push(cur);return out.length?out:[[]]}function render(){story.innerHTML=(pages[pageIndex]||[]).map(p=>`<p>${p}</p>`).join('');pageCount.textContent=`${pageIndex+1} / ${pages.length}`;hint.textContent=pageIndex<pages.length-1?'tap the page →':'end.';pageBack.classList.toggle('show',pageIndex>0);pageFill.style.width=`${((pageIndex+1)/pages.length)*100}%`}function openStory(d){activeDay=d;pages=paginate(STORIES[d]||[]);pageIndex=0;entry.textContent=`entry ${String(d).padStart(2,'0')}`;date.textContent=`sep. ${d}.`;render();overlay.classList.add('show');overlay.setAttribute('aria-hidden','false');document.body.classList.add('book-open')}function closeStory(){overlay.classList.remove('show');overlay.setAttribute('aria-hidden','true');document.body.classList.remove('book-open');activeDay=null}function turn(i){if(i<0||i>=pages.length||i===pageIndex)return;right.classList.add('turning');clearTimeout(timer);timer=setTimeout(()=>{pageIndex=i;render();right.classList.remove('turning')},135)}for(let d=1;d<=30;d++){const b=document.createElement('button');b.type='button';b.className='day-card';b.innerHTML=`<small>september</small><span>${String(d).padStart(2,'0')}</span>`;if(!unlocked(d)){b.disabled=true;b.classList.add('locked')}else b.addEventListener('click',()=>openStory(d));grid.appendChild(b)}right.addEventListener('click',e=>{if(e.target.closest('#pageBack'))return;if(pageIndex<pages.length-1)turn(pageIndex+1)});pageBack.addEventListener('click',e=>{e.stopPropagation();turn(pageIndex-1)});closeBtn.addEventListener('click',closeStory);overlay.addEventListener('click',e=>{if(e.target===overlay)closeStory()});document.addEventListener('keydown',e=>{if(!overlay.classList.contains('show'))return;if(e.key==='Escape')closeStory();if(e.key==='ArrowRight'&&pageIndex<pages.length-1)turn(pageIndex+1);if(e.key==='ArrowLeft'&&pageIndex>0)turn(pageIndex-1)});let sx=null;right.addEventListener('touchstart',e=>{sx=e.touches[0]?.clientX??null},{passive:true});right.addEventListener('touchend',e=>{if(sx===null)return;const dx=(e.changedTouches[0]?.clientX??sx)-sx;if(Math.abs(dx)>44){if(dx<0&&pageIndex<pages.length-1)turn(pageIndex+1);if(dx>0&&pageIndex>0)turn(pageIndex-1)}sx=null},{passive:true});let rt=null;addEventListener('resize',()=>{if(!activeDay)return;clearTimeout(rt);rt=setTimeout(()=>{pages=paginate(STORIES[activeDay]||[]);pageIndex=Math.min(pageIndex,pages.length-1);render()},120)});
+const STORIES=window.SEPTEMBER_STORIES||{};
+const DATE_LOCK_ENABLED=false;
+const YEAR=2026;
+const READ_KEY='love_mailbox_september_read_v1';
+
+const dayList=document.getElementById('dayList');
+const monthProgressText=document.getElementById('monthProgressText');
+const monthProgressFill=document.getElementById('monthProgressFill');
+const readerOverlay=document.getElementById('readerOverlay');
+const readerClose=document.getElementById('readerClose');
+const rightPage=document.getElementById('rightPage');
+const storyBody=document.getElementById('storyBody');
+const pageBack=document.getElementById('pageBack');
+const pageCount=document.getElementById('pageCount');
+const pageHint=document.getElementById('pageHint');
+const pageProgress=document.getElementById('pageProgress');
+const entryLabel=document.getElementById('entryLabel');
+const entryDate=document.getElementById('entryDate');
+const mobileEntry=document.getElementById('mobileEntry');
+const mobileDate=document.getElementById('mobileDate');
+
+let activeDay=null;
+let pages=[];
+let pageIndex=0;
+let turnTimer=null;
+let openTimers=[];
+
+function readDays(){
+  try{return new Set(JSON.parse(localStorage.getItem(READ_KEY))||[])}catch(_){return new Set()}
+}
+function saveReadDays(set){localStorage.setItem(READ_KEY,JSON.stringify([...set].sort((a,b)=>a-b)))}
+function markRead(day){
+  const set=readDays();
+  if(!set.has(day)){set.add(day);saveReadDays(set)}
+  updateMonthProgress();
+  dayList.querySelector(`[data-day="${day}"]`)?.classList.add('read');
+}
+function updateMonthProgress(){
+  const count=readDays().size;
+  monthProgressText.textContent=`${count} / 30`;
+  monthProgressFill.style.width=`${(count/30)*100}%`;
+}
+function todayStart(){const n=new Date();return new Date(n.getFullYear(),n.getMonth(),n.getDate())}
+function isUnlocked(day){return !DATE_LOCK_ENABLED||new Date(YEAR,8,day)<=todayStart()}
+
+function pageBudget(){
+  if(innerWidth<=390)return 970;
+  if(innerWidth<=720)return 1180;
+  return 1120;
+}
+function paginate(paragraphs){
+  const budget=pageBudget();
+  const out=[];
+  let current=[];
+  let count=0;
+  for(const paragraph of paragraphs){
+    if(current.length&&count+paragraph.length>budget){out.push(current);current=[];count=0}
+    current.push(paragraph);
+    count+=paragraph.length;
+  }
+  if(current.length)out.push(current);
+  return out.length?out:[[]];
+}
+function renderPage(){
+  storyBody.innerHTML=(pages[pageIndex]||[]).map(p=>`<p>${p}</p>`).join('');
+  pageCount.textContent=`${pageIndex+1} / ${pages.length}`;
+  pageHint.textContent=pageIndex<pages.length-1?'tap the page →':'end.';
+  pageBack.classList.toggle('show',pageIndex>0);
+  pageProgress.style.width=`${((pageIndex+1)/pages.length)*100}%`;
+  if(pageIndex===pages.length-1&&activeDay)markRead(activeDay);
+}
+function clearOpenTimers(){openTimers.forEach(clearTimeout);openTimers=[]}
+function later(fn,ms){const id=setTimeout(fn,ms);openTimers.push(id)}
+function openStory(day){
+  if(!isUnlocked(day))return;
+  clearOpenTimers();
+  activeDay=day;
+  pages=paginate(STORIES[day]||[]);
+  pageIndex=0;
+  const label=`entry ${String(day).padStart(2,'0')}`;
+  const date=`sep. ${day}.`;
+  entryLabel.textContent=label;
+  entryDate.textContent=date;
+  mobileEntry.textContent=label;
+  mobileDate.textContent=date;
+  renderPage();
+  readerOverlay.classList.remove('opening');
+  readerOverlay.classList.add('show');
+  readerOverlay.setAttribute('aria-hidden','false');
+  document.body.classList.add('reader-open');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){readerOverlay.classList.add('opening');return}
+  later(()=>readerOverlay.classList.add('opening'),620);
+}
+function closeStory(){
+  clearOpenTimers();
+  readerOverlay.classList.remove('show','opening');
+  readerOverlay.setAttribute('aria-hidden','true');
+  document.body.classList.remove('reader-open');
+  activeDay=null;
+}
+function turnTo(next){
+  if(next<0||next>=pages.length||next===pageIndex)return;
+  rightPage.classList.add('turning');
+  clearTimeout(turnTimer);
+  turnTimer=setTimeout(()=>{
+    pageIndex=next;
+    renderPage();
+    rightPage.classList.remove('turning');
+  },145);
+}
+
+const alreadyRead=readDays();
+for(let day=1;day<=30;day++){
+  const button=document.createElement('button');
+  button.type='button';
+  button.className='day-card';
+  button.dataset.day=day;
+  button.innerHTML=`<span class="mini">september ${day}.</span><span class="day">${String(day).padStart(2,'0')}</span>`;
+  if(alreadyRead.has(day))button.classList.add('read');
+  if(!isUnlocked(day)){
+    button.disabled=true;
+    button.classList.add('locked');
+  }else{
+    button.addEventListener('click',()=>openStory(day));
+  }
+  dayList.appendChild(button);
+}
+updateMonthProgress();
+
+rightPage.addEventListener('click',e=>{
+  if(e.target.closest('#pageBack'))return;
+  if(pageIndex<pages.length-1)turnTo(pageIndex+1);
+});
+pageBack.addEventListener('click',e=>{e.stopPropagation();turnTo(pageIndex-1)});
+readerClose.addEventListener('click',closeStory);
+readerOverlay.addEventListener('click',e=>{if(e.target===readerOverlay)closeStory()});
+document.addEventListener('keydown',e=>{
+  if(!readerOverlay.classList.contains('show'))return;
+  if(e.key==='Escape')closeStory();
+  if(e.key==='ArrowRight'&&pageIndex<pages.length-1)turnTo(pageIndex+1);
+  if(e.key==='ArrowLeft'&&pageIndex>0)turnTo(pageIndex-1);
+});
+let touchStartX=null;
+rightPage.addEventListener('touchstart',e=>{touchStartX=e.touches[0]?.clientX??null},{passive:true});
+rightPage.addEventListener('touchend',e=>{
+  if(touchStartX===null)return;
+  const dx=(e.changedTouches[0]?.clientX??touchStartX)-touchStartX;
+  if(Math.abs(dx)>44){
+    if(dx<0&&pageIndex<pages.length-1)turnTo(pageIndex+1);
+    if(dx>0&&pageIndex>0)turnTo(pageIndex-1);
+  }
+  touchStartX=null;
+},{passive:true});
+let resizeTimer=null;
+addEventListener('resize',()=>{
+  if(!activeDay)return;
+  clearTimeout(resizeTimer);
+  resizeTimer=setTimeout(()=>{
+    pages=paginate(STORIES[activeDay]||[]);
+    pageIndex=Math.min(pageIndex,pages.length-1);
+    renderPage();
+  },130);
+});
 </script>
 </body>
 </html>
