@@ -257,11 +257,6 @@ h2 {
 .modal.stationery {
   background-repeat: no-repeat;
   background-position: center;
-  /*
-    The stationery is a frame for the whole letter, so it needs to track the
-    modal's responsive dimensions. Using auto kept the PNG at its native pixel
-    size, which caused cropping on phones/iPads and white bands on tall letters.
-  */
   background-size: 100% 100%;
 
   padding: 140px 60px 60px 60px;
@@ -478,5 +473,79 @@ body.mailbox-page #monthMenu .month-card:nth-child(8)::after { content: "the roa
     width: 94%;
     margin-top: 7px;
     font-size: .58rem;
+  }
+}
+
+/* ===== FULL-CANVAS MONTH PICKER OVERRIDE ===== */
+body.mailbox-page #monthMenu.month-menu {
+  width: min(1400px, 90vw) !important;
+  max-width: none !important;
+  margin: 28px auto 0 !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: clamp(18px, 1.8vw, 30px) !important;
+}
+
+body.mailbox-page #monthMenu .month-card {
+  aspect-ratio: 1 / 1 !important;
+  padding: clamp(22px, 2vw, 34px) !important;
+  border-radius: clamp(22px, 1.8vw, 30px) !important;
+}
+
+body.mailbox-page #monthMenu .month-card::before {
+  font-size: clamp(2.25rem, 3.4vw, 4rem) !important;
+  letter-spacing: -.03em !important;
+}
+
+body.mailbox-page #monthMenu .month-card::after {
+  margin-top: clamp(10px, 1vw, 16px) !important;
+  font-size: clamp(.68rem, .82vw, .9rem) !important;
+  max-width: 84% !important;
+}
+
+@media (min-width: 1700px) {
+  body.mailbox-page #monthMenu.month-menu {
+    width: min(1500px, 84vw) !important;
+  }
+}
+
+@media (max-width: 980px) {
+  body.mailbox-page #monthMenu.month-menu {
+    width: min(760px, 92vw) !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  body.mailbox-page {
+    padding: max(18px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom)) !important;
+  }
+
+  body.mailbox-page > h2 {
+    margin-bottom: 16px !important;
+    font-size: 1.35rem !important;
+  }
+
+  body.mailbox-page #monthMenu.month-menu {
+    width: 100% !important;
+    margin-top: 10px !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  body.mailbox-page #monthMenu .month-card {
+    aspect-ratio: 1 / 1 !important;
+    padding: 14px !important;
+    border-radius: 20px !important;
+  }
+
+  body.mailbox-page #monthMenu .month-card::before {
+    font-size: clamp(1.8rem, 10vw, 2.5rem) !important;
+  }
+
+  body.mailbox-page #monthMenu .month-card::after {
+    margin-top: 8px !important;
+    font-size: .66rem !important;
+    max-width: 94% !important;
   }
 }
