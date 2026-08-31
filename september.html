@@ -5,6 +5,134 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>September — for my love</title>
   <link rel="stylesheet" href="september.css" />
+  <style>
+    /* Mobile day picker uses the exact same visual language as Feb-Aug. */
+    @media (max-width: 720px) {
+      .month-shell {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 22px 16px max(28px, env(safe-area-inset-bottom)) !important;
+        background: transparent !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+      }
+
+      .month-header {
+        min-height: 92px !important;
+        margin: 0 0 12px !important;
+        padding: 44px 0 0 !important;
+      }
+
+      .back-link {
+        left: 0 !important;
+        top: 0 !important;
+        transform: none !important;
+        padding: 8px 12px !important;
+        background: rgba(255,250,244,.92) !important;
+        border-radius: 999px !important;
+        box-shadow: 0 4px 10px rgba(80,50,30,.12) !important;
+        font-size: .85rem !important;
+      }
+
+      .month-title h1 {
+        font-size: 1.7rem !important;
+        line-height: 1.05 !important;
+      }
+
+      .month-title p {
+        margin-top: 5px !important;
+        font-size: .82rem !important;
+        opacity: .68 !important;
+      }
+
+      .month-layout {
+        height: auto !important;
+        min-height: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+      }
+
+      .day-pane {
+        order: 1 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        overflow: visible !important;
+      }
+
+      .day-list {
+        height: auto !important;
+        overflow: visible !important;
+        padding: 0 !important;
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 12px !important;
+      }
+
+      .day-card {
+        position: relative !important;
+        min-height: 72px !important;
+        padding: 18px 44px 18px 18px !important;
+        border: 0 !important;
+        border-radius: 16px !important;
+        background: rgba(255,252,247,.9) !important;
+        color: #5c493c !important;
+        text-align: left !important;
+        box-shadow: 0 6px 16px rgba(82,55,37,.09) !important;
+      }
+
+      .day-card .mini {
+        display: none !important;
+      }
+
+      .day-card .day {
+        display: block !important;
+        margin: 0 !important;
+        font-size: 16px !important;
+        line-height: 1.2 !important;
+        font-weight: 700 !important;
+        text-transform: lowercase !important;
+      }
+
+      .day-star {
+        position: absolute !important;
+        top: 16px !important;
+        right: 16px !important;
+        width: auto !important;
+        height: auto !important;
+        padding: 0 !important;
+        border: 0 !important;
+        background: transparent !important;
+        color: #9f9f9f !important;
+        font-size: 22px !important;
+        line-height: 1 !important;
+        opacity: .35 !important;
+      }
+
+      .day-card.favourited .day-star {
+        color: #b88d5b !important;
+        opacity: 1 !important;
+      }
+
+      .day-card.locked {
+        opacity: .55 !important;
+        filter: grayscale(.2) !important;
+      }
+
+      .day-card.locked::after {
+        right: 16px !important;
+        bottom: 16px !important;
+      }
+
+      .theme-panel {
+        order: 2 !important;
+        min-height: 245px !important;
+        padding: 24px 16px 30px !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <main class="month-shell">
