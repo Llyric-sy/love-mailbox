@@ -26,7 +26,7 @@
     b.className = 'month-card';
     b.type = 'button';
     b.dataset.month = 'october';
-    b.innerHTML = '<span class="month-name">october</span><span class="month-subtitle">for the record.</span>';
+    b.innerHTML = '<span class="month-name">october</span><span class="month-subtitle">to and from.</span>';
     menu.appendChild(b);
   }
 
@@ -38,7 +38,7 @@
     june: ['little eternities.', '∞', 'small moments made lasting.'],
     july: ['painted scenery.', '⌁', 'a view worth keeping.'],
     august: ['beloved memories.', '☆', 'what we carried with us.'],
-    october: ['for the record.', '✉', 'all the things i wanted you to know.']
+    october: ['to and from.', '✉', 'all the things i wanted you to know.']
   };
 
   const css = document.createElement('style');
@@ -47,7 +47,7 @@
   body.mailbox-page{background:linear-gradient(180deg,#fff1dc,#f8e8d2);min-height:100vh;color:#5c493c}
   body.mailbox-page>h2{color:#634b3e!important}
   body.mailbox-page #monthMenu .month-card[data-month="october"]::before{content:"oct"!important;color:#5f4639!important}
-  body.mailbox-page #monthMenu .month-card[data-month="october"]::after{content:"for the record."!important;color:#9a806f!important}
+  body.mailbox-page #monthMenu .month-card[data-month="october"]::after{content:"to and from."!important;color:#9a806f!important}
   @media(min-width:981px){body.mailbox-page:not(.desktop-month-open) #monthMenu.month-menu{grid-template-columns:repeat(5,minmax(0,1fr))!important}}
 
   body.mailbox-page .month-section.unified-month{width:min(1160px,96vw)!important;max-width:none!important;margin:12px auto 0!important}
@@ -204,7 +204,7 @@
   const octoberSection = document.createElement('section');
   octoberSection.id = 'october';
   octoberSection.className = 'month-section hidden';
-  octoberSection.innerHTML = '<div class="month-header"><button class="back-btn" type="button">← months</button><div class="month-heading-text"><h3>october</h3><p class="section-subtitle">for the record.</p></div></div><div class="letters-grid"></div>';
+  octoberSection.innerHTML = '<div class="month-header"><button class="back-btn" type="button">← months</button><div class="month-heading-text"><h3>october</h3><p class="section-subtitle">to and from.</p></div></div><div class="letters-grid"></div>';
   const octoberGrid = octoberSection.querySelector('.letters-grid');
   const octoberFavourites = loadFavourites();
   const nowForOctober = new Date();
