@@ -199,6 +199,66 @@
         "day": 3,
         "paper": "stationery34.png",
         "body": "i could make you a thousand promises about the future, about the places we'll go and the life i want to build with you. but i think the smaller promises matter just as much. remembering something you asked me to do, calling when i said i would, and being there when you need me. i don't want my words to be beautiful only when they're spoken. i want you to be able to trust them long after the moment has passed."
+    },
+    {
+        "day": 4,
+        "paper": "stationery20.png",
+        "body": "it's a little ridiculous how quickly i can start missing you. we could have spent the entire day together, and somehow, a few hours later, i'll find myself wishing you were beside me again. sometimes something happens that i want to tell you about, and other times i simply miss having you around. i know we can't spend every moment together, but there's always a little part of me that wishes our goodbyes could wait just a few minutes longer."
+    },
+    {
+        "day": 5,
+        "paper": "stationery21.png",
+        "body": "i think one of my favourite things about us is how easily we can make each other laugh. sometimes it's a terrible joke, an embarrassing mistake, or something so stupid that explaining it to anyone else would only make it sound worse. i love that we can be completely ridiculous together without feeling the need to impress each other. there are plenty of beautiful moments i want to remember, but i hope i never forget the ones where we could barely stop laughing."
+    },
+    {
+        "day": 6,
+        "paper": "stationery22.png",
+        "body": "i know how busy life can get, and i appreciate every little moment you choose to spend with me. it doesn't have to be an entire afternoon or a carefully planned date. sometimes a short conversation or a few minutes together is enough to make an otherwise ordinary day feel special. i never want you to feel guilty for having your own things to do, but whenever you make a little room for me in your day, i hope you know just how much it means."
+    },
+    {
+        "day": 7,
+        "paper": "stationery23.png",
+        "body": "i look forward to all the wonderful things we haven't experienced together yet, but sometimes it's the most ordinary parts of our relationship that make me happiest. hearing about your day, sharing little stories, or simply knowing you're there while we both get on with our own things. i want all the celebrations, adventures, and special occasions, but i also want the countless unremarkable days between them. there's something lovely about the thought of sharing an ordinary life with someone who makes it feel extraordinary."
+    },
+    {
+        "day": 8,
+        "paper": "stationery24.png",
+        "body": "whenever something hurts you, my first instinct is to wish i could make it disappear. i want to defend you when someone treats you unfairly, comfort you when you're upset, and make your difficult days a little easier. i know i can't protect you from everything, and i know you're more than capable of facing challenges yourself. still, if there's ever something i can do to make those moments less difficult, i hope you'll never hesitate to lean on me."
+    },
+    {
+        "day": 9,
+        "paper": "stationery26.png",
+        "body": "sometimes i wonder whether i'm doing enough for you. there are moments when i wish i were more patient, more thoughtful, or simply better at expressing how much you mean to me. i know i'll never get everything right, and i don't expect you to spend your time reassuring me whenever i doubt myself. i just care about the way you experience being loved by me, and i hope i never become so comfortable in our relationship that i stop trying to be better for you."
+    },
+    {
+        "day": 10,
+        "paper": "stationery27.png",
+        "body": "i don't think you realise how much comfort there is in hearing your voice after a difficult day. you don't have to say anything particularly wise or find a solution to whatever has been bothering me. sometimes you simply tell me about your day, and somehow the things that were weighing on my mind become a little easier to carry. i know my happiness is ultimately my own responsibility, but i'm endlessly grateful that i have someone whose presence can make even the longest days feel a little shorter."
+    },
+    {
+        "day": 11,
+        "paper": "stationery28.png",
+        "body": "there are times when i know exactly what i'm feeling but struggle to find the words to explain it. i might be quieter than usual, or start saying something only to realise that it sounds completely different from what i intended. i know you can't read my mind, but i appreciate the patience you give me when i'm trying to make sense of it all. i hope we can always give each other enough room to be honest, even when honesty takes a little longer to find its words."
+    },
+    {
+        "day": 12,
+        "paper": "stationery29.png",
+        "body": "i know there will be times when i make mistakes, misunderstand you, or say something i wish i'd thought about more carefully. when those moments come, i don't want my apologies to become an easy way of moving past something simply because admitting i was wrong feels uncomfortable. you deserve to know that i take your feelings seriously, even when my intentions were different from how my actions made you feel. if i ever hurt you, i hope i can give you more than just the words i'm sorry."
+    },
+    {
+        "day": 13,
+        "paper": "stationery30.png",
+        "body": "i like how familiar you've become to me. sometimes i can tell what you're thinking from a little change in your expression, or guess what you're about to say before you've even finished your sentence. but i never want to mistake that familiarity for knowing everything about you. there will always be thoughts i haven't heard and feelings i might not immediately understand. no matter how well i think i know you, i hope i never stop asking what you actually have to say."
+    },
+    {
+        "day": 14,
+        "paper": "stationery31.png",
+        "body": "i don't like the thought of disagreeing with you, especially when the last thing i want is to make you upset. but i know that loving each other doesn't mean we'll always see things the same way. we'll have different opinions, make different decisions, and occasionally find ourselves on opposite sides of a conversation. when that happens, i hope we can be honest without forgetting to be kind. i'd rather have a difficult conversation with you than let something unspoken quietly grow between us."
+    },
+    {
+        "day": 15,
+        "paper": "stationery32.png",
+        "body": "when i imagine our future, i tend to picture all the wonderful things first. the places we'll visit, the memories we'll make, and the little moments i haven't had the chance to experience with you yet. but i know there will also be inconvenient days, disappointing plans, and things that don't turn out quite how we imagined. i want all the beautiful things i've dreamed about with you, but i also want the real life that comes with them, even when it refuses to follow the plan."
     }
 ];
   const octoberSection = document.createElement('section');
