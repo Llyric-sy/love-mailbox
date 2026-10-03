@@ -183,7 +183,7 @@
     localStorage.setItem(FAVOURITES_KEY, JSON.stringify(items));
   }
 
-  // Only approved October letters are published; later dates are not stored here.
+  // Complete October collection. Future dates remain locked until their day.
   const octoberLetters = [
     {
         "day": 1,
@@ -259,6 +259,86 @@
         "day": 15,
         "paper": "stationery32.png",
         "body": "when i imagine our future, i tend to picture all the wonderful things first. the places we'll visit, the memories we'll make, and the little moments i haven't had the chance to experience with you yet. but i know there will also be inconvenient days, disappointing plans, and things that don't turn out quite how we imagined. i want all the beautiful things i've dreamed about with you, but i also want the real life that comes with them, even when it refuses to follow the plan."
+    },
+    {
+        "day": 16,
+        "paper": "stationery33.png",
+        "body": "sometimes i wonder what the world looks like through your eyes. what little things make you happy when nobody else notices, what thoughts occupy your mind throughout the day, and which parts of your life i still haven't had the chance to understand. i know the person you are with me, but there's an entire world within you that belongs to you alone. i don't need to be part of every moment of it. i'm simply grateful that you've allowed me to become part of your life."
+    },
+    {
+        "day": 17,
+        "paper": "stationery19.png",
+        "body": "i don't expect you to be cheerful every time i see you. there will be days when you're tired, irritated, or simply not in the mood for anything, just as there will be days when i'm not particularly pleasant to be around either. i love your laughter and your happiness, but i don't want you to feel that you have to be at your best to deserve my affection. you're the person i love on your wonderful days, and you're still that person on the difficult ones."
+    },
+    {
+        "day": 18,
+        "paper": "stationery20.png",
+        "body": "i hope we never become afraid to tell each other when something is wrong. there will be times when we disagree or misunderstand each other, and perhaps a few conversations that neither of us particularly wants to have. but i'd much rather listen to something difficult than leave you feeling that your thoughts aren't worth hearing. we don't have to solve everything immediately or agree on every little thing. i just want us to remember that, even when we're frustrated, we're still talking to someone we love."
+    },
+    {
+        "day": 19,
+        "paper": "stationery21.png",
+        "body": "whenever you're having a difficult time, i tend to start thinking about what i can do to help. sometimes that might be useful, but i know there will be moments when you don't need another suggestion or someone trying to solve everything for you. perhaps you simply want to tell me what happened, or have someone keep you company while you think about something else. i won't always guess correctly, but i hope you'll always feel comfortable telling me what you need."
+    },
+    {
+        "day": 20,
+        "paper": "stationery22.png",
+        "body": "if i ever apologise to you for something, i hope the next time a similar situation comes around, you'll find that i've remembered our conversation. perhaps i'll be more careful with my words, more thoughtful about something that matters to you, or better at recognising a mistake before i repeat it. i know change doesn't always happen immediately, but i want my apologies to mean something beyond the moment they're spoken. you deserve to see that i've taken the things you've told me to heart."
+    },
+    {
+        "day": 21,
+        "paper": "stationery23.png",
+        "body": "i love hearing you talk about the things that matter to you, especially when you become so interested in something that you forget to keep the explanation short. sometimes it's a subject i understand, and other times i have absolutely no idea what you're talking about until you explain it. either way, i enjoy seeing what makes you excited. we don't have to share every interest, but if something is important to you, then i want to understand what makes it worth loving."
+    },
+    {
+        "day": 22,
+        "paper": "stationery24.png",
+        "body": "when you've had a difficult day, i don't want you to feel that you need to pretend everything is fine just because we're spending time together. you can complain, be quiet, or tell me that you'd rather think about something else for a while. i might not always know the perfect thing to say, and i can't promise to make every problem disappear. but i hope that, whatever kind of day you've had, being with me gives you somewhere you can feel comfortable simply being yourself."
+    },
+    {
+        "day": 23,
+        "paper": "stationery25.png",
+        "body": "there are still so many things about myself that i want to improve. i want to become more patient, more dependable, and better at recognising the little things that matter to you. but i also know that i'll never become someone who gets absolutely everything right. i hope you can see both sides of me: the person who loves you with complete certainty, and the person who's still learning how to express that love as well as he wants to. i'll keep trying, even when progress is slower than i'd like."
+    },
+    {
+        "day": 24,
+        "paper": "stationery26.png",
+        "body": "i want to be there for all the things you're working toward, even the ones that require time, patience, and more effort than anyone else can see. i know there will be difficult shifts, exhausting days, and moments when you wonder whether everything you're doing will be worth it. i can't make every challenge disappear, and i won't always know which decision is right for you. but i'll always want to hear about your ambitions, celebrate your progress, and remind you how much i believe in you."
+    },
+    {
+        "day": 25,
+        "paper": "stationery27.png",
+        "body": "i love being part of your life, but i also love that there's so much to it beyond me. you have your own friendships, interests, ambitions, and experiences that don't always involve us being together. of course, there will be moments when i wish i could spend more time with you, but i never want you to feel guilty for enjoying the things that make you happy. i hope we both continue having wonderful experiences of our own, with plenty of stories to bring back to each other."
+    },
+    {
+        "day": 26,
+        "paper": "stationery28.png",
+        "body": "i want you to know that the time we spend together is something i genuinely treasure. not just the special occasions or the moments we've carefully planned, but the little conversations and ordinary evenings that make up most of our relationship. i know how easily distractions can steal our attention, and i don't want to give you only whatever happens to be left over at the end of the day. whenever we're together, i want you to feel that there's nowhere else i'd rather be."
+    },
+    {
+        "day": 27,
+        "paper": "stationery29.png",
+        "body": "i hope we never grow too old to be completely ridiculous together. there will be plenty of serious things to deal with as life goes on, and i'm sure we'll have our fair share of difficult days. but i hope there will always be room for terrible jokes, harmless teasing, and the kind of laughter that makes absolutely no sense to anyone else. no matter how much our lives change, i want to keep finding new reasons to laugh with the person who's already given me so many."
+    },
+    {
+        "day": 28,
+        "paper": "stationery30.png",
+        "body": "there will be days when we're both busy, when our schedules don't line up, or when we simply have other things that need our attention. i'll probably still miss you, and i'll certainly look forward to seeing you again, but i don't want either of us to feel uncertain simply because we're apart. there's something comforting about knowing that we can enjoy our own lives and still have each other to come back to. i'll always be happy to see you, no matter how long or short the wait."
+    },
+    {
+        "day": 29,
+        "paper": "stationery31.png",
+        "body": "i hope that one day, the little things i do for you become so familiar that you rarely have to think about them. the promises i keep, the things i remember, and the times i'm there when i said i would be. none of those things are particularly impressive on their own, but i like to think that enough of them can eventually become something you feel certain about. i don't want you to trust me simply because i tell you to. i want to give you reasons to believe me."
+    },
+    {
+        "day": 30,
+        "paper": "stationery32.png",
+        "body": "i wonder what we'll be like a few years from now. there will probably be things about us that remain wonderfully familiar, but i'm sure we'll change in ways neither of us can quite imagine yet. you'll discover new interests, accomplish things that once seemed far away, and find new dreams to work toward. i look forward to meeting every version of you that comes along. no matter how much time passes, i hope there will always be something new about you that makes me fall in love all over again."
+    },
+    {
+        "day": 31,
+        "paper": "stationery34.png",
+        "body": "i love you. after everything i've written, those three words are still the simplest way i know to tell you how i feel. there will always be more memories to share, more things to learn about each other, and moments when i struggle to find the right words. but i hope that, beyond these letters, you'll find the same love in the things i do, the promises i keep, and the ordinary days we spend together. i want my words to mean something because the life we share has already given you every reason to believe them."
     }
 ];
   const octoberSection = document.createElement('section');
