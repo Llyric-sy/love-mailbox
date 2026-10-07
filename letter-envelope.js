@@ -30,6 +30,15 @@
     menu.appendChild(b);
   }
 
+  if (menu && !menu.querySelector('[data-month="november"]')) {
+    const b = document.createElement('button');
+    b.className = 'month-card';
+    b.type = 'button';
+    b.dataset.month = 'november';
+    b.innerHTML = '<span class="month-name">november</span>';
+    menu.appendChild(b);
+  }
+
   const themes = {
     february: ['first pages.', '♥', 'little beginnings.'],
     march: ['growing closer.', '✦', 'soft things taking shape.'],
@@ -38,7 +47,8 @@
     june: ['little eternities.', '∞', 'small moments made lasting.'],
     july: ['painted scenery.', '⌁', 'a view worth keeping.'],
     august: ['beloved memories.', '☆', 'what we carried with us.'],
-    october: ['to and from.', '✉', 'all the things i wanted you to know.']
+    october: ['to and from.', '✉', 'all the things i wanted you to know.'],
+    november: ['', '✦', '']
   };
 
   const css = document.createElement('style');
@@ -48,6 +58,8 @@
   body.mailbox-page>h2{color:#634b3e!important}
   body.mailbox-page #monthMenu .month-card[data-month="october"]::before{content:"oct"!important;color:#5f4639!important}
   body.mailbox-page #monthMenu .month-card[data-month="october"]::after{content:"to and from."!important;color:#9a806f!important}
+  body.mailbox-page #monthMenu .month-card[data-month="november"]::before{content:"nov"!important;color:#5f4639!important}
+  body.mailbox-page #monthMenu .month-card[data-month="november"]::after{content:""!important;display:none!important}
   @media(min-width:981px){body.mailbox-page:not(.desktop-month-open) #monthMenu.month-menu{grid-template-columns:repeat(5,minmax(0,1fr))!important}}
 
   body.mailbox-page .month-section.unified-month{width:min(1160px,96vw)!important;max-width:none!important;margin:12px auto 0!important}
@@ -72,7 +84,7 @@
   /* desktop: picker remains visible, selected month opens below */
   @media(min-width:721px){
     body.mailbox-page #monthMenu.hidden{display:grid!important}
-    body.mailbox-page.desktop-month-open #monthMenu{width:min(1280px,96vw)!important;max-width:1280px!important;margin:16px auto 12px!important;grid-template-columns:repeat(9,minmax(0,1fr))!important;gap:10px!important}
+    body.mailbox-page.desktop-month-open #monthMenu{width:min(1280px,96vw)!important;max-width:1280px!important;margin:16px auto 12px!important;grid-template-columns:repeat(10,minmax(0,1fr))!important;gap:10px!important}
     body.mailbox-page.desktop-month-open #monthMenu .month-card{aspect-ratio:1/1!important;min-height:0!important;padding:10px!important;border-radius:18px!important}
     body.mailbox-page.desktop-month-open #monthMenu .month-card::before{font-size:1.02rem!important}
     body.mailbox-page.desktop-month-open #monthMenu .month-card::after{margin-top:6px!important;font-size:.52rem!important}
@@ -396,6 +408,90 @@
     menu?.classList.remove('hidden');
   });
   
+
+  // Only approved November letters are published; later dates are not stored here.
+  const novemberLetters = [
+    {
+        "day": 1,
+        "paper": "stationery19.png",
+        "body": "there are parts of my life i used to measure in practical terms: what i could finish, what i could afford, what came next. then you arrived, and i started jjudging things differently, iimagining more for myself, bbelieving there could be more ahead. you didn't make me less realistic. you made the life in front of me seem wwider, ffuller, and far more worth building."
+    },
+    {
+        "day": 2,
+        "paper": "stationery20.png",
+        "body": "i love the way your ccuriosity shapes your mind, the kinndness you carry, and the beautyy that comes from your ccharacter as much as your face. your heaart and souul are a huge part of why you innspire me. the qqualities you carry set an exxample that gives me ggood reasons to expect more ffrom myself."
+    },
+    {
+        "day": 3,
+        "paper": "stationery21.png",
+        "body": "i like your face most when you aren't trying to be beautiful. the kkind of brright, amazzing expression that shows hhow much beaauty appears wwhen youu ddon't notice me watching—the rreactions youu ggive, the gllances you throw me, the qquick smiles dduring random seconds. those are youu at your bbest to me."
+    },
+    {
+        "day": 4,
+        "paper": "stationery22.png",
+        "body": "there's a ccertain thrill in getting to sshow yyou something new. i like the llook you get when an eexperience catches you off guard; it amazzes me how quickly your reaction can change my own view of it. even a familiar iidea can become interesting again once it passes through your perspective."
+    },
+    {
+        "day": 5,
+        "paper": "stationery23.png",
+        "body": "watching you work toward something you care about makes me proud. i see the rresolve, the ffocus, the patiience, and the adjjustments behind it. more than anything, i want to support you as you grrow, bloom, and flourish in every ddirection life takes you."
+    }
+];
+  const novemberSection = document.createElement('section');
+  novemberSection.id = 'november';
+  novemberSection.className = 'month-section hidden';
+  novemberSection.innerHTML = '<div class="month-header"><button class="back-btn" type="button">← months</button><div class="month-heading-text"><h3>november</h3></div></div><div class="letters-grid"></div>';
+  const novemberGrid = novemberSection.querySelector('.letters-grid');
+  const novemberFavourites = loadFavourites();
+  const nowForNovember = new Date();
+  const todayForNovember = new Date(nowForNovember.getFullYear(), nowForNovember.getMonth(), nowForNovember.getDate());
+  for (const entry of novemberLetters) {
+    const day = String(entry.day).padStart(2, '0');
+    const title = `nov ${day}`;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'letter-card';
+    button.textContent = title;
+    button.dataset.title = title;
+    button.dataset.date = `${day}/11/2026`;
+    button.dataset.body = entry.body;
+    button.dataset.paper = entry.paper;
+    if (new Date(2026, 10, entry.day) > todayForNovember) {
+      button.disabled = true;
+      button.classList.add('locked');
+    } else {
+      const id = `november-${title}`;
+      const star = document.createElement('span');
+      star.className = 'favourite-star';
+      star.textContent = novemberFavourites.includes(id) ? '★' : '☆';
+      if (novemberFavourites.includes(id)) button.classList.add('favourited');
+      star.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const index = novemberFavourites.indexOf(id);
+        if (index < 0) {
+          novemberFavourites.push(id);
+          button.classList.add('favourited');
+          star.textContent = '★';
+        } else {
+          novemberFavourites.splice(index, 1);
+          button.classList.remove('favourited');
+          star.textContent = '☆';
+        }
+        saveFavourites(novemberFavourites);
+      });
+      button.appendChild(star);
+    }
+    novemberGrid.appendChild(button);
+  }
+  document.getElementById('october')?.insertAdjacentElement('afterend', novemberSection);
+  unify(novemberSection);
+  novemberSection.querySelector('.back-btn').addEventListener('click', () => {
+    if (window.innerWidth > 720) return;
+    novemberSection.classList.add('hidden');
+    menu?.classList.remove('hidden');
+  });
+
   function septemberUnlocked(day) {
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
@@ -500,6 +596,16 @@
       if (!month) return;
 
       if (window.innerWidth <= 720) {
+        if (month === 'november') {
+          event.preventDefault();
+          event.stopPropagation();
+          event.stopImmediatePropagation();
+          menu.classList.add('hidden');
+          document.querySelectorAll('.month-section').forEach((section) => section.classList.add('hidden'));
+          novemberSection.classList.remove('hidden');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
         if (month === 'october') {
           event.preventDefault();
           event.stopPropagation();
