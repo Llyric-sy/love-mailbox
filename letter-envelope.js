@@ -265,7 +265,7 @@
     {
         "day": 14,
         "paper": "stationery31.png",
-        "body": "i don't like the thought of disagreeing with you, especially when the last thing i want is to make you upset. but i know that loving each other doesn't mean we'll always see things the same way. we'll have different opinions, make different decisions, and occasionally find ourselves on opposite sides of a conversation. when that happens, i hope we can be honest without forgetting to be kind. i'd rather have a difficult conversation with you than let something unspoken quietly grow between us."
+        "body": "i don't like the thought of disagreeing with you, especially when the last thing i want is to make you upset. but i know that loving each other doesn't mean we'll always see things the same way. we'll have different opinions, make different decisions, and occasionally find ourselves on opposite sides of a conversation. when that happens, i hope we can be honest without forgetting to be kind. i'd rather have a difficult conversation with you than let something unspoken quietly grow between us. and even in those moments, never forget that i love you."
     },
     {
         "day": 15,
