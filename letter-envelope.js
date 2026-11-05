@@ -435,6 +435,11 @@
         "day": 5,
         "paper": "stationery23.png",
         "body": "watching you work toward something you care about makes me proud. i see the rresolve, the ffocus, the patiience, and the adjjustments behind it. more than anything, i want to support you as you grrow, bloom, and flourish in every ddirection life takes you."
+    },
+    {
+        "day": 6,
+        "paper": "stationery24.png",
+        "body": "i am prroud of the way you moove toward what has meaning to you. you llearn, adapt, and takke each new demand as it comes, even whhen it asks more of you. i kknow your path is yours, but i want to iinspire you, stand by youu, ssavor every step, and watch you become the kkind of woman you dream of being. you can beat that adofai, i believe in you."
     }
 ];
   const novemberSection = document.createElement('section');
