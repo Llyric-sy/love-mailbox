@@ -440,6 +440,16 @@
         "day": 6,
         "paper": "stationery24.png",
         "body": "i am prroud of the way you moove toward what has meaning to you. you llearn, adapt, and takke each new demand as it comes, even whhen it asks more of you. i kknow your path is yours, but i want to iinspire you, stand by youu, ssavor every step, and watch you become the kkind of woman you dream of being. you can beat that adofai, i believe in you."
+    },
+    {
+        "day": 7,
+        "paper": "stationery25.png",
+        "body": "i notice the way you care when there is nothing to gain from it. ffrom the way you remember what is important to someone, to the lovve you give without asking for credit, there is something bbeautiful and kkind in that. it is part of the pperson i am lucky to kknow."
+    },
+    {
+        "day": 8,
+        "paper": "stationery26.png",
+        "body": "i lovve the wway you can take something simple and make it unmistakably yours. the bbold choices and actions, the detaails you refuse to ignore, the qquirks youu possess, the exxact ttaste you bring to things - it ggives your \"world\" a signature i could recognize anywhere."
     }
 ];
   const novemberSection = document.createElement('section');
