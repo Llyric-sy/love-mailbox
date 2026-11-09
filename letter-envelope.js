@@ -450,6 +450,21 @@
         "day": 8,
         "paper": "stationery26.png",
         "body": "i lovve the wway you can take something simple and make it unmistakably yours. the bbold choices and actions, the detaails you refuse to ignore, the qquirks youu possess, the exxact ttaste you bring to things - it ggives your \"world\" a signature i could recognize anywhere."
+    },
+    {
+        "day": 9,
+        "paper": "stationery27.png",
+        "body": "one thing i love is how you can make me curious about subjects i might have ignored on my own. you brinng me into your interests, showw me what draws you in, and cchange my view of things. evenn when it is not something i would have chosen first, your excitement makes me waant to understand it. i lovve how knowing you continues opening parts of life i may never have found by myself, and i hope that never chhanges."
+    },
+    {
+        "day": 10,
+        "paper": "stationery28.png",
+        "body": "i love finding out about the versions of you that existed before i knew you. every cchapter from your early years, every detail you ddrop into conversation, the things yyou once cared about and the person you were bbefore we met. none of it makes me wish we had met at another time. it makes me more interested in the iintricate life that shaped the woman i get to love now."
+    },
+    {
+        "day": 11,
+        "paper": "stationery29.png",
+        "body": "you have raised my standards without any request from you. i jjudge my choices with more care, realizze when i am stuck, and fface parts of myself i might once have ignored. i do nnot want to become a copy of you; i want to be ssomeone who can llearn from the person yyou are, rrise to match that inspiration, and be pproud oof who i become."
     }
 ];
   const novemberSection = document.createElement('section');
