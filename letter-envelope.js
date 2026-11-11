@@ -465,6 +465,11 @@
         "day": 11,
         "paper": "stationery29.png",
         "body": "you have raised my standards without any request from you. i jjudge my choices with more care, realizze when i am stuck, and fface parts of myself i might once have ignored. i do nnot want to become a copy of you; i want to be ssomeone who can llearn from the person yyou are, rrise to match that inspiration, and be pproud oof who i become."
+    },
+    {
+        "day": 12,
+        "paper": "stationery30.png",
+        "body": "i love the way you make me reconsider things i thought i already understood. i ffind myself looking at things ttwice, qquestioning things i already thought i knew, and noticing deetails i would normally had skipped before. knoowing you has made mmy perspective broader, and i love the unexxpected ways your mind keeps giving me someting new and uniqque."
     }
 ];
   const novemberSection = document.createElement('section');
