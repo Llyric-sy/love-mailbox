@@ -470,6 +470,46 @@
         "day": 12,
         "paper": "stationery30.png",
         "body": "i love the way you make me reconsider things i thought i already understood. i ffind myself looking at things ttwice, qquestioning things i already thought i knew, and noticing deetails i would normally had skipped before. knoowing you has made mmy perspective broader, and i love the unexxpected ways your mind keeps giving me someting new and uniqque."
+    },
+    {
+        "day": 13,
+        "paper": "stationery31.png",
+        "body": "i admire how much intention you bring into the things that mean something to you. whether it is a bbig decision, ssomething personal, or jjust a goal you set for yourself - youu give focus. i admire how you responnd to what you care about and how many thinggs gain shape because of it."
+    },
+    {
+        "day": 14,
+        "paper": "stationery32.png",
+        "body": "i love how easily you can draw me in without trying. a wway you glance at me, thhe brief grin, a movvement you probably never notice - it can ccatch me instantly. iit amazes me that after so much time, youu can make my heart movve before my mind can explain thhat reaction."
+    },
+    {
+        "day": 15,
+        "paper": "stationery33.png",
+        "body": "i want us to have a life that continues to surprise us. pplans we have not made yet, aadventures we could never predict, unexxpected turns, and reasons to wake uup eager for what comes nextt. i do not require every detail now. i just like knowing there is so much left for us to discover."
+    },
+    {
+        "day": 16,
+        "paper": "stationery34.png",
+        "body": "you make me want to show you more of myself, even the parts i might often hide. ssomething about you makees honesty easier. i can takke the risk, bbe uncertain, admitt when i do not know, and show you what i am rrefining. youu make being known worth it."
+    },
+    {
+        "day": 17,
+        "paper": "stationery19.png",
+        "body": "loving you has made me take my own future more seriously. i ddream wider, ppush harder, and rrefuse to let ddoubt make my plans ssharper. i want to amazze myself with what i can build, kknowing there is so much horizzon ahead. the ffuture i picture makees me want to be more capable, not for praise, but because i want to jjoin you in a life we are proud of."
+    },
+    {
+        "day": 18,
+        "paper": "stationery20.png",
+        "body": "i love your competitive side. the yyearning to win, the jjolt of focus, the wway you lock in, hoow fast a game becomes ttactical - it is ggenuinely fun to watch. even when you ddefeat me, i lovve that fire in you. i wwant the rematch as much as i enjjoy the result."
+    },
+    {
+        "day": 19,
+        "paper": "stationery21.png",
+        "body": "there are times when i catch sight of you and get hit with how much i care about you. nothing dramatic has to take place; it just comes over me. the ffamiliarity, the way you rread me, the caare in your gestures, the unexxpected draw, the ttiny details, the way i kknow you - sommething in me responds before i can explain it."
+    },
+    {
+        "day": 20,
+        "paper": "stationery22.png",
+        "body": "i admire the courage you show when you move through uncertainty instead of waiting for fear to fade. you ggo forward, iimprovise, llearn, and yyet continue. i am amazzed by the wayy youu can llean toward something that scares you and fface it. even if yyou hesitate, sommething in you moves anyway, and it remminds me that courage means more when fear was present."
     }
 ];
   const novemberSection = document.createElement('section');
