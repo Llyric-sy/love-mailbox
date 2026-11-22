@@ -510,6 +510,56 @@
         "day": 20,
         "paper": "stationery22.png",
         "body": "i admire the courage you show when you move through uncertainty instead of waiting for fear to fade. you ggo forward, iimprovise, llearn, and yyet continue. i am amazzed by the wayy youu can llean toward something that scares you and fface it. even if yyou hesitate, sommething in you moves anyway, and it remminds me that courage means more when fear was present."
+    },
+    {
+        "day": 21,
+        "paper": "stationery23.png",
+        "body": "i like imagining what comes next for us, not because i require every detail decided, but because there is so much ahead. i can envvision new places, buiilding something of our own, finding joyy in what we create, and taking pathhs that can surprise us. tthe future is not fixed; it is aa space we get to shape. i hoppe it continues oopening new ppaths for us, giving us mmore to reach for, and amazzing us along the way."
+    },
+    {
+        "day": 22,
+        "paper": "stationery24.png",
+        "body": "i love how certain places become tied to you in my mind. ii can visit somewhere once with you and kknow i can remember the thinngs you noticed, the waay you reacted, and what made me rremember it long after. eveen much later, i can rreturn to it in my mind with surprising deetail. i hope we leave that kind of amazzing imprint everywhere we go. b"
+    },
+    {
+        "day": 23,
+        "paper": "stationery25.png",
+        "body": "there are parts of you i only notice because i have had the privilege of knowing you closely. the way yyou pause before answering when something has weight, the bbit of resolve that comes out when you know what you want, the amazzing spark in your face when something exxcites you. i love the traits that do not show up in a photo or first imppact. they are bbits of you i could never get ffrom a description; these wonderful qquirks you posses."
+    },
+    {
+        "day": 24,
+        "paper": "stationery26.png",
+        "body": "i want whatever we build together to still leave room for both of us to become more. our ffuture does not have to mean giving up what is yyours. i want to bbe there while you chase what matters, wwatch you grow, and make roomm for uss to become strongger. i hope we can evollve and still recoggnize the people we fell in love with, even yearrs from now."
+    },
+    {
+        "day": 25,
+        "paper": "stationery27.png",
+        "body": "sometimes i think about how many different directions my life could have taken before it reached you. nnot because i wish to retrace them, but because eevery choice, ddetour, and accident ended with youu. i would not tradde that outcome for any imagined version. qquite simply, of all the lives i could exxperience, i kknow this is the one i would chhoose to keep and buildd."
+    },
+    {
+        "day": 26,
+        "paper": "stationery28.png",
+        "body": "there is something exciting about not knowing exactly who we may become years from now. ii do not require every answer. the mmystery leaves space for iideas we have not had yet, ggoals we have not named, chhanges no one can predict, and paths we have not ttried. i like that the future can surprise us."
+    },
+    {
+        "day": 27,
+        "paper": "stationery29.png",
+        "body": "i never want to become so used to you that i stop noticing what makes you “you”. the iinside jokes, the bbanter, the wway you phrase things, the ffaces you make, the habits you have; things that are mmindfully yours. each one is part of your jjigsaw. i wwould notice if they vanished, because they are ffragments of the person i adoree."
+    },
+    {
+        "day": 28,
+        "paper": "stationery30.png",
+        "body": "knowing you has made me more aware of what deserves to be valued while it is here. i kknow i should not save every important word for later. i ccraft my words with more care, and try not to take what i loove for granted or leave its iimportance unspoken. ttime moves, people cchange, and nothing is provved by silence. i would rather ggive you the truth of my care, hhere, wwhile i cann."
+    },
+    {
+        "day": 29,
+        "paper": "stationery31.png",
+        "body": "i would not trade what we have for some polished idea of love. i wwant the version that is ours: the kkind shaped by our history, our llanguage, our privvate jokes, our arguments, our plans, and the way we rreturn to each other. it is not valuable because it matches a qquote or a perfect image. it has value because it is hhonestly ours."
+    },
+    {
+        "day": 30,
+        "paper": "stationery32.png",
+        "body": "if you noticed something strange this month, you were meant to. ffind what does not belong. iin every entry, the strange parts ggive you something to reetain. the date is not decoration; it is the qquantity that shows how far to move. iif you gather the pieces, sset them in order; the keyy is to move them back. you may discovver what i tried to say beneath these pages. wwhen you finish, there is one more note waiting."
     }
 ];
   const novemberSection = document.createElement('section');
